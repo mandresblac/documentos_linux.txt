@@ -1,0 +1,473 @@
+	      COMANDOS BASICOS GNU/LINUX
+
+su:(SWITCH USER) Invocado sin ningun argumento, permite convertirse en root o superusuario y pide la contraseña de root.
+su -  su -l  su --login: Cualquiera de estas tres opciones se puede usar para configurar un shell completamente
+nuevo con la configuración del nuevo usuario y pide la contraseña de root.
+su - nombre de usuario: Permite convertirse en otro usuario desde la terminal, sin tener que cerrar la
+sesión que tenemos abierta con nuestro usuario.
+sudo su  - : Permite volverse (o elevar, o escalar privilegios de) root o Super usuario admnistrador y
+ejecutar comandos como root o administrador siendo un usuario normal y pide la contraseña de ese usuario.
+sudo su - nombre_de_usuario: Permite cambiar de usuario sin necesidad de saber su contraseña, solo utilizando mi propia
+contraseña y nada mas, esto es util cuando desconosco la contraseña de un usuraio y quiero cambiarme a ese usuario pero
+utilizo mi propia contraseña.
+Para poder utilizar el comando sudo, los usuarios tienen que estar autorizados (o cargados) en el archivo /etc/sudoers.
+sudo (SUPER USER DO) en Español SUPER USUARIO HACE: Permite ejecutar comandos como root (o super-usuario administrador), o 
+como otro usuario.
+Para cualquier comando administador se debe utilizar sudo.
+NOTA: En Ubuntu  y sus derivados, por defecto viene desactivado el acceso a la cuenta root (impidiendo establecer una 
+contraseña para la cuenta), y en su lugar utiliza el comando sudo para proporcionar privilegios de superusuario.
+
+
+PASOS PARA CAMBIAR LA CONTRASEÑA DE ROOT O SUPERUSUARIO ADMINISTRADOR
+Escribimos sudo passwd root
+Escribimos nuestra contraseña de usuario.
+Escribimos la nueva contraseña que le vamos a poner a root, y volvemos a confirmarla !LISTO!
+
+
+nano: Editor de texto a nivel de terminal (como un Bloc de notas).
+vi - vim: Otro editor de texto a nivel de terminal.
+gedit: Otro editor de texto del entorno GNOME.
+ls: Enlista o muestra el contenido de los Directorios o Carpetas.
+ls -l: Enlista mas detalladamente informacion de directorios y archivos, (permisos, propietario del archivo, grupo al que
+pertenece el archivo, tamaño de archivo, fecha y hora de creacion del archivo,y nombre del archivo).
+ls -a: Enlista o muestra archivos ocultos.
+ls -h: Enlista o muestra el contenido de los directorios de manera mas humana.
+ls -S: Enlista o muestra directorios o archivos por tamaño, de mayor a menor.
+ls -lahS o ls -lhaS: Combinacion de las 4 anteriores, tambien puede escribir cada opcion separada: -l -a -h -S
+ls -R: Muestra el contenido de todos los subdirectorios de forma recursiva.
+ls -r: Muestra en orden invertido los directorios o archivos.
+ls -d: Muestra informacion de un directorio especifico, en vez de listar su contenido, puede aplicarse junto
+a la opcion l para que muestre informacion del directorio y no su contenido. ejemplo:
+        ls -ld manuales_linux/
+        drwxrwxr-x 6 manuel manuel 4096 feb 28 19:39 manuales_linux/
+ls -n: Muestra los UID y GID de directorios o carpetas.
+ls -t: Muestra archivos por orden de tiempo, es decir, primero los recientemente modificados.
+
+pwd (print working directory): Me dice donde estoy ubicado dentro del sistema.
+cd (change directory): Cambiar de directorio hacia adelante.
+cd .. :Devolverse al directorio anterior o directorio padre.
+cd ../../ :Devolverse dos directorios.
+cd ../../../ :Devolverse tres directorios.
+touch: Permite crear archivos vacios.
+mv: Permite mover directorios o archivos de una ubicacion a otra y cambiarles el nombre.
+history: Permite ver el historial de comandos ejecutados o escritos en la consola o terminal con mi usuario.
+history -c: Borra el historial de todos los comandos utilizados en la terminal.
+clear: Limpiar la terminal.
+cp: Permite copiar un archivo de una ubicacion a otra.
+rm: Permite eliminar archivos y carpetas permanentemente.
+man: Permite ver los manuales de todos los comandos. Ejemplo: man ls   Para salir del manual pulsar la letra q. 
+--help:Ayuda para saber que hace un comando y que parametros permite. ejemplo: cat --help
+less: Permite visualizar archivos de texto directamente en la terminal. Para buscar palabra especifica:/ + palabra
+less -N nombre de archivo: Muestra los números de linea del archivo de texto.
++ enter. Buscar palabra proxima: n  Buscar palabra anterior: N
+more: Permite visualizar archivos de texto por partes directamente en la terminal.
+cat: Muestra contenido de archivos  de texto en la terminal.
+xdg-open + nombre del archivo: Abre cualquier archivo desde la terminal sin importar su extension.
+otra opcion es escribir primero el nombre de programa en el cual quiero que se abra el archivo, y luego
+escribir el nombre del archivo.
+shutdown now: Apaga el equipo inmediatamente desde la terminal.
+file + nombre_o_ruta_del_archivo: Muestra una breve descripción del contenido del archivo.
+stat: Muestra toda la información relativa a un archivo o directorio, como tamaño, bloques ocupados, tipo de
+fichero, el inode, los permisos actuales, el propietario (y su ID) y el grupo (y su ID).
+type: Muestra la naturaleza de un comando, permite saber que clase de comando es entre estas 4 categorias: 1. un programa
+ejecutable, 2. Un comando de utilidad de la shell, 3. Una función de shell, 4. Un alias.
+env: Muestra las variables de entrono y el sistema.
+du -hs: Muestra el tamaño o espacio que ocupa un Directorio.
+whatis: Muestra una descripción corta de lo que se esta buscando,ejemplo:
+manuel@laptop:~$whatis ls
+ls (1)               - listan los contenidos de directorios
+LS (6)               - display animations aimed to correct users who accidentally enter LS instead of ...
+
+cp -R: Copiar carpeta o directorio a otra ubicacion (Recursivo).
+rm -R: Elimina carpetas o directorios permanentemente (Recursivo).
+mv -R: Mueve carpetas o directorios y cambia el nombre (Recursivo).
+mkdir: Permite crear directorios o carpetas.
+apt o apt-get: Es el programa que usan las distribuciones basadas en Debian para actualizar el sistema,
+instalar o desinstalar paquetes o programas, generalmente va acompañado del comando sudo porque
+va a realizar cambios en el sistema.
+rmdir: Para remover carpetas (pero que esten vacias, que no contengan nada adentro)
+rm -i: Pregunta si deseamos eliminar el archivo.
+find: Encuentra o busca archivos o directorios.
+dpkg: Gestor de paquetes de Debian.
+sudo dpkg -i *.deb: Instala todos los paquetes .deb de un directorio.
+sudo fdisk -l: Para ver todos los dispositivos de almacenamiento y sus particiones.
+sudo apt -f install: Sirve para instalar el software adicional que necesitan otros programas para funcionar
+correctamente.
+sudo apt-get dist-upgrade: Instala o actualiza dependencias incumplidas de software, programas o paquetes.
+ifconfig: Muestra direcion IP e informacion sobre la configuracion de red.
+sudo apt-get install ttf-mscorefonts-installer : Para instalar fuentes (tipos de letra) de Microsoft office de
+windows en libreoffice en Ubuntu o derivadas, luego escribimos el comando sudo fc-cache -fv y esperamos que instale
+!LISTO!.
+useradd o adduser + nombre de usuario: Para crear un usuario en el sistema.
+passwd + nombre del usuario: Cambia la contraseña de cualquier usuario en el sistema (ojo, tiene que ejecutarse con
+permisos de usuario administrador o Super usuario.
+
+lsb_release -a: Para saber la version del sistema operativo que se esta ejecutando.
+echo $SHELL: Para saber con que shell nos encontramos trabajando.
+
+ctrl + alt + f1 hasta el f6:  Para entrar a la parte no grafica del sistema.
+ctrl + alt + f7:  Para pasar a la parte grafica del sistema.
+
+
+COMANDOS PROGRAMA WOOF (Para compartir archivos en red local LAN)
+woof es un programa para compartir archivos en red local (LAN),sino esta hay que instalarlo,con el comando:
+sudo apt install woof
+sintaxis del programa woof:
+woof /ruta del archivo a compartir: comparte el archivo 1 vez.
+woof -c 2 /ruta de archivo o directorio: Comparte el archivo 2 veces, o las veces que se desee si se cambia el número.
+woof -U: Proporciona un formulario de carga, permitiendo que desde otro equipo se carguen archivos.
+desde el navegador, estos apareceran en mi equipo en el directorio desde donde se inicio woof.
+woof -z /Directorio o ruta del directorio a compartir: Comparte un directorio que la otra persona lo va a
+descargar en su equipo como un comprimido .tar.gz
+woof -Z /Directorio o ruta del directorio a compartir: Comparte un directorio que la otra persona lo va a
+descargar en su equipo como un comprimido .zip
+woof -j /Directorio o ruta del directorio a compartir: Comparte un directorio que la otra persona lo va a
+descargar en su equipo como un comprimido .bz2
+woof -c 2 -z /Directorio o ruta del directorio a compartir: Comparte un directorio 2 veces o las veces que se
+desee y la otra persona lo va a descargar en su equipo como un comprimido .tar.gz
+woof -h:Para ver mas documentacion sobre woof.
+
+
+COMANDOS DE INFORMACION DEL SISTEMA
+neofetch: Muestra toda la informacion basica del sistema,como hardware y software que tiene nuestro equipo.
+arch: Muestra el tipo de arquitectura de nuestro sistema de 32 (x86), o de 64 (x86_64) bits.
+uname -m: Muestra el tipo de arquitectura de nuestro sistema de 32 (x86), o de 64 (x86_64) bits.
+uname -a: Para conocer informacion basica del sistema, como distribucion, version de kernel, etc.
+uname -r: Para conocer la version del kernel de Linux que estamos utilizando	.
+uname -s: Muestra el nombre del sistema.
+uname -v: Muestra fecha de publicación del Kernel.
+uname -v: Muestra fecha de publicación del Kernel.
+uname -o: Muestra el nombre del sistema operativo que estamos usando.
+uname -n: Muestra el nombre de nuestro equipo (el que asignamos al momento de instalar el SO).
+uname -p: Muetra información del procesador.
+uptime: Para verificar el tiempo que lleva encendido el equipo.
+hostname: Muestra el nombre del host (o equipo) del sistema.
+hostname -i: Muestra la direccion localhost del equipo.
+last reboot: Muestra el historial de reinicio del sistema.
+date: Muestra la fecha y hora actual.
+cal: Muestra el calendario de este mes.
+cal 2019: Muestra todos los meses del año.
+who: Permite ver los usuarios que estan logueados o utilizando el sistema.
+whoami: para saber quien soy dentro del sistema. Puede ser usuario comun:$ o Usuario root:#
+finger user: Muestra informacion acerca del usuario.
+sudo dmidecode: Muestra toda la información del hardware de mi sistema a nivel del BIOS.
+sudo dmidecode -q: Permite ver todo el hardware que tenemos instalado en el sistema.
+sudo dmidecode -t 16: Permite ver el maximo de memoria RAM que soporta nuestro equipo y el número de slots (ranuras de
+expansion).
+sudo dmidecode -t 17: Permite ver la cantidad de memoria RAM de la que disponemos actualmente (es decir la instalada)
+whereis + nombre_del_programa: Permite conocer la ubicacion de un programa (o binario) especifico en nuestro
+sistema.
+sudo dmidecode --type memory | less: Para saber cuanta memoria soporta mi sistema y de que tipo es (DDR3, DDR$, etc.)
+
+COMANDOS DE HARDWARE
+free -h: Muestra memoria usada y libre en formato entendible por humanos, osea en Gigas.
+free -m: Muestra memoria usada y libre (-m para ver en Megabytes)
+cat /proc/cpuinfo: Muestra informacion del procesador.
+cat /proc/meminfo: Verificar uso de la memoria RAM.
+cat /proc/swaps: Muestra informacion de la particion swap.
+lshw: Muestra información sobre la configuración de hardware del sistema.
+lspci: Muestra informacion sobre los dispositivos PCI.
+lspci -nn | grep Network: Muestra sólo información de la tarjeta de red inalámbrica (en Laptops), ejemplo de su salida:
+	03:00.0 Network controller {0280]: Intel Corporation PRO/Wireless 3945ABG Network Connection [8086:4227] (rev 02)
+	00:08.0 Ethernet controller [0200]: Intel Corporation PRO/100 Network Connection [8086:1092] (rev 02)
+lspci -nn | grep Ethernet: Muestra sólo la información de nuestro adaptador de red Ethernet (en Laptops y Desktops), ejemplo
+ de su salida:
+	00:04.0 Ethernet controller [0200]: Silicon Integrated Systems 190    Ethernet Adapter [1039:0190] (rev 01)
+lspci -nn | grep VGA: Muestra sólo la información de nuestra tarjeta de vídeo.
+lspci -nn | grep Audio: Muestra sólo la información de nuestra tarjeta de sonido.
+lsusb: Muestra información referente a los dispositivos conectados a los puertos USB.
+lscpu: Muestra información acerca de la arquitectura de la CPU.
+cat /sys/block/sda/queue/rotational: Para identificar si nuestro equipo tiene discos SSD o HDD, el comando
+anterior detecta si los dispositivos son rotacionales o no. Si es un HDD el disco gira
+mecánicamente, por tanto la salida será «1». Si nuestro dispositivo es SSD, la respuesta es «0».
+inxi -F: Muestra todo el hardware de nuestro equipo.
+cfdisk: Permite ver y manipular la tabla de particiones (o particiones), de un disco.
+
+
+COMANDOS DEL FIREWALL UFW DE UBUNTU Y SUS DERIVADOS
+Ubuntu y todos sus derivados traen por defecto un Firewall llamado UFW (Uncomplicated Firewall) (Firewall descomplicado), es un
+front-end que administra las reglas de iptables o nftables muy fácil de usar y este por defecto viene inactivo, sus comandos mas
+relevantes son:
+sudo ufw status: Para conocer su estado, si esta activado (enable), desactivado (disable).
+sudo ufw status numbered: Muestra todas las reglas definidas numeradas, osea, con su número al inicio en la parte izquierda.
+sudo ufw delete 3: Elimina la regla segun listado que muestra el comando anterior (sudo ufw status numbered), en este caso la 3.
+sudo ufw enable: Para activar Firewall.
+sudo ufw disable: Para desactivar Firewall.
+sudo ufw app list: Para saber cuales son las aplicaciones detectadas por el Firewall, pero estas aplicaciones aun no estan
+permitidas por el Firewall, deben pedir permiso para pasar a traves del Firewall y que este las deje pasar.
+sudo ufw allow "nombre de la aplicacion o servicio": Permite que una aplicacion o servicio pase a traves del
+Firewall, ejemplo: sudo ufw allow ssh.
+sudo ufw deny "nombre de la aplicación o servicio": Deniega o no permite que una aplicación o sevicio pase a traves
+del Firewall, ejemplo: sudo ufw deny POP3.
+sudo ufw delete allow "nombre de la aplicación o servicio": Elimina la regla o permiso sobre una aplicación o servicio.
+sudo ufw app info "nombre de la aplicacion o servicio": Permite obtener mayor informacion sobre la aplicacion o
+servicio que va a dejar pasar el Firewall.
+sudo ufw allow 4662 comment "Escribimos un comentario": Para abrir cualquier puerto, en este caso el puerto 4662 y le asignamos el comentario que deseemos con la palabra comment y entre comillas escribimos el comentario.
+sudo ufw allow 4662/tcp: Para abrir cualquier puerto y protocolo especifico, en este caso el puerto 4662 y el protocolo tcp.
+sudo ufw deny 4662/tcp: Para bloquear puerto y protocolo especificado, en este caso puerto 4662 y protocolo tcp.
+sudo ufw delete allow 4662/tcp: Para eliminar regla o permiso que permite conexion al puerto y protocolo especificados, en este caso el puerto 4662 y el protocolo tcp.
+sudo ufw allow from 192.168.0.52: Permite conexiones desde una direccion IP especificada, en este caso la direccion 192.168.0.52
+sudo ufw allow from 192.168.0.52 to any port 22: Permite conexiones desde una direccion IP especificada, en este caso la direccion 192.168.0.52 y un puerto especifico, en este caso el puerto 22.
+sudo ufw allow from 192.168.0.52 proto tcp to any port 22 comment "Permitir ssh ip": Permite conexiones desde una direccion
+IP especificada, en este caso la direccion 192.268.0.52 por el protocolo tcp, en un puerto especifico, en este caso el puerto
+22 y con el comentario "Permitir ssh ip".
+sudo ufw reset: Deshabilita y restablece el firewall a los valores predeterminados de instalación, es decir, resetea toda la
+configuración del firewall para que podamos volver a establecer las configuraciones que nosotros deseemos.
+Para ver todos los servicios de red que tengo en mi equipo consultamos el archivo /etc/services ,aqui me muestran todos los
+servicios de red que utiliza la maquina.
+
+
+COMANDOS DE EDICION MUESTRA Y FILTRADO DE FICHEROS
+head (cabeza): Muestra en la terminal las primeras lineas de un archivo de texto (por defecto muestra las
+primeras 10 lineas).Para ver mas o menos lineas utilizamos el parametro: -numero de lineas deseadas, por
+ejemplo:head -17 nombre de archivo de texto,  mostrara las primeras 17 lineas de texto del archivo.
+tail (cola): Muestra en la terminal las ultimas lineas de un archivo de texto. Para ver mas o menos lineas
+utilizamos el parametro: -numero de lineas deseadas, por ejemplo: tail -8 nombre de archivo de texto,
+mostrara las ultimas 8 lineas de texto del archivo.
+Con la opcion -f del comando tail se le puede hacer seguimiento en tiempo real a los cambios en uno o varios archivos a la
+vez (1, 2, 3, 4 o mas archivos ), por ejemplo:
+tail -f file1.txt file2.txt
+Con el anterior comando se le hace seguimiento al archivo file1.txt y file2.txt y en tiempo real me muestra en la terminal
+los cambios que van teniendo esos archivos.
+grep: Muestra en la terminal solo las lineas de un determinado fichero de texto en el que existe la
+coincidencia con el patron que le indiquemos. ejemplo: grep "entrada" nombre del archivo, nos mostrara
+todas la palabras entrada que exiten en el archivo de texto.
+
+
+COMANDOS PARA ELIMINAR COMPLETAMENTE UN PROGRAMA DEL SISTEMA Y TODOS LOS PAQUETES QUE ESTEN
+RELACIONADOS CON ÉL, (en este caso libreoffice), son 3 comandos, uno despues de otro:
+sudo apt-get remove --purge libreoffice*
+sudo apt-get autoremove
+sudo apt-get clean
+
+
+PROCESOS EN LA TERMINAL (GESTION DE PROCESOS)
+Un proceso es un programa en ejecucion, en GNU/Linux los procesos se identifican con un PID (Process
+Identificator), que es un número que se le asigna a un proceso cuando se ejecuta, es imposible que dos
+procesos tengan el mismo PID. Todos los procesos en el mundo GNU/Linux dependen de un proceso padre
+llamado init o Systemd (que es el primer demonio o servicio que inicia el Kernel de Linux), y cuyo PID
+es 1 y son asignados en orden creciente. Los procesos que se ejecutan en el sistema pueden estar en
+primer plano(FOREGROUND) y segundo plano(BACKGROUND).
+id: Muestra la identificacion de usuario activa con inicio de sesión y grupo.
+id -u: Muestra úncamente el UID (Identificador Unico de Usuario).
+id -g: Muestra únicamente el GID (Identificador Unico de Grupo).
+ps: Nos da informacion de los procesos que se estan ejecutando en la terminal.
+ps -e: Muestra todos los procesos del sistema.
+ps -f: Muestra informacion adicional de todos los procesos del sistema.
+ps l: Mueste informcaion adicional de todos los procesos del sistema.
+ps x: Muestra todos los procesos independientemente de que terminal los controla.
+ps aux: Muestra los procesos pertenecientes a cada usuario, en los que se destacan los siguientes datos: USER: ID de usuario
+. Es el propietario del proceso.
+%CPU Uso de CPU en porcentaje. %MEM Uso de memoria en porcentaje. VSZ Tamaño de la memoria virtual. RSS Tamaño de
+configuración residente. La cantidad
+de memoria física (RAM)que el proceso usa en kilobytes. START Hora en que comenzó el proceso. Para valores de más de 24 horas
+, se usa la fecha.
+ps -u: Muestra todos los procesos pertenecientes a mi usuario en formato largo, en el que se destacan los siguientes datos:
+USER:Nombre de usuario que ejecuta el proceso. %CPU:Porcentaje de tiempo de CPU que utiliza el proceso.
+%MEM:Porcentaje de memoria que ocupa el proceso. START:Hora de comienzo de ejecucio del proceso.
+ps a: Muestra todos los procesos de todos los usuarios del sistema, con independencia de la consola en que se
+ejecuten.
+ps -A: Muestra un listado de todos los procesos que se estan ejecutando en el sistema.
+top: Muestra una lista de los procesos que se estan ejecutando en el sistema en tiempo real, es decir, la pantalla se va
+actualizando para mostrar la informcaion
+relativa a los procesos.
+kill -9 +  PID: Mata un proceso de forma abrupta, por ejemplo: kill -9 11108 mata inmediatamente ese proceso.
+kill -15 + PID: Permite que un proceso termine de manera amigable o controlada, de forma segura, no como kill -9 que es abrupta.
+kill -19 o -20 + PID: Para el proceso (Stop), lo detiene pero no lo cierra, lo pone en pausa.
+kill -18 + PID: Continua un proceso parado (Cont).
+killall + nombre_del_proceso: Mata un proceso por su nombre, por ejemplo: killall firefox ,mata inmediatamente el proceso firefox.
+pkill + nombre_del_proceso: También funciona igual que killall pero puedo usar el nombre u otros criterios para enviar señales a los
+procesos.
+Ctrl + z: Pone un proceso en segundo plano (BACKGROUND), es decir suspenderlo temporalmente.
+Ctrl + c: Para interrumpir completamente un proceso o matarlo.
+jobs: Lista los trabajos o procesos que se están ejecutando actualmente, ya sea los que están suspendidos (Control-Z) como
+los que están corriendo en segundo plano (background) o en primer plano (foreground).
+fg: (FOREGROUND O PRIMER PLANO) Traerá a primer plano un trabajo o proceso que está ejecutándose en segundo plano. También se
+puede usar para reanudar en primer plano un trabajo que está suspendido o detenido.
+bg: (BACKGROUND O SEGUNDO PLANO) Pondra en segundo plano un trabajo, este seguira funcionando.
+nohup: Genera un archivo llamado “nohup.out” que muestra toda la información que produjo un proceso.
+nohup: (No Hang up) como su nombre lo indica, evita que el comando se cancele automáticamente cuando cierra sesión o sale del
+shell.
+
+Shell bash: Es el interprete de comandos que viene por defecto en distribuciones Ubuntu y Debian.
+
+
+CONCATENAR O ENCADENAR ORDENES EN LA TERMINAL EN GNU/LINUX
+|   Una orden genera un resultado y se lo pasa a la siguiente orden, y esa a su vez se lo pasa a la siguiente orden , y así
+susesivamente.
+
+; (punto y coma) Realiza ejecucion secuencial (sincrona) de ordenes, es decir, una detras de otra, sin importar si la
+anterior funciona o no funciona (evita pulsar tecla intro varias veces).
+Por ejemplo: pwd ; cd ; ls  me muestra el directorio donde estoy ubicado (pwd), luego me cambia de directoro (cd) y
+por ultimo me muestra (o en lista) lo que hay dentro de ese directorio (ls).
+
+& (ampersand) Se ejecutan todas las ordenes al mismo tiempo, es decir de forma asíncrona en paralelo,
+ejemplo: ls & date & cal
+
+&& (doble ampersand) (Operador and) Ejecuta una orden solo si la anterior ha tenido exito, es decir, tiene que ejecutarse de forma
+correcta la primer orden para ejecutar la segunda, Ejemplo:
+sudo apt update && sudo apt upgrade, solo si la primera orden a tenido exito ejecutara la segunda orden, si no, no la
+ejecutara.
+
+|| (operador or) Ejecuta una orden solo si la anterior no a tenido exito o falla. Ejemplo: cat /etc/shadow || echo "no se pudo abrir fichero"  como la primera orden no se puede ejecutar porque se necesitan privilegios de usuario root (o
+superusuario) para ver el archivo etc/shadow, entonces ejecuta la segunda orden que es echo "no se pudo abrir
+fichero" .  sin embargo, una primera orden exitosa hace que el comando siguiente no se ejecute
+nl: Sirve para enumerar lineas
+
+
+SISTEMA DE GESTION DE PAQUETES
+GESTOR DE PAQUETES APT O APT-GET (Advance Package Tool); en español (Herramienta avanzada de paquetes).
+apt o apt-get es el programa (o gestor de paquetes) que usan las distribuciones basadas en Debian para actualizar
+el sistema, instalar o desinstalar paquetes o programas, generalmente va acompañado del comando sudo porque va a
+realizar cambios en el sistema.
+apt o apt-get solo se puede usar con privilegios de root o super usuario administrador, por tanto es necesario
+loguearse en el sistema como usuario root(#), o como usuario normal($) anteponiendo de primeras el comando "sudo".
+NOTA: Los sistemas de gestion de paquetes normalmente  consisten en dos tipos de herramientas,  herramientas de gestion de
+alto nivel que realizan busquedas
+por metadatos y resuelven dependencias, como la herramienta apt, aptitude o synaptic, y  herramientas de bajo nivel, que
+soportan tareas como instalar y eliminar paquetes,
+como la herramienta dpkg.
+
+sudo apt-get update: Actualiza la lista de paquetes que existen en los repositorios. Es decir, sincroniza la base de datos de
+los repositorios que tenemos configurados en el fichero /etc/apt/sources.list, con la base de datos de paquetes local,
+actualizándola y comparándola para que en el caso de que corresponda, anunciarnos la disponibilidad de nuevas versiones
+disponibles de los paquetes que tenemos instalados.
+sudo apt-get upgrade: Actualiza todos los paquetes instalados en nuestro sistema que tengan una version mas actualizada.
+apt-cache search + palabras o letras que hallamos especificado que hagan parte de un paquete: Busca paquetes en
+los que halla un conjunto de letras o palabras que hallamos especificado, ejemplo: apt-cache search manpages-es,
+traducen al español buena parte de las paginas de los manuales del comando man que estan en ingles.
+apt-cache show + nombre del paquete: Muestra la descripcion de ese paquete.
+sudo apt-get install nombre_del_paquete: Instala el paquete que queramos.
+sudo apt-get install manpages-es* manpages-es-extra: Instala todos los paquetes que traducen al español buena parte
+(no todos), de las paginas de los manuales del comando man que estan en ingles.
+sudo apt-get remove nombre_del_paquete: Desinstala un paquete.
+sudo apt-get remove --purge nombre_del_paquete: Desinstala completamente un paquete o programa incluidos sus ficheros
+de confuguracion.
+sudo apt-get autoremove: Desinstala o elimina paquetes huerfanos o auto instalables, que se instalaron junto a un paquete 
+principal o que se instalaron como sugerencia para hacer 
+mas completa la tarea del paquete principal y que posterior a la eliminación de este quedan sin asistir a ningún otro 
+paquete del sistema.
+sudo apt-get autoremove --purge: Desinstala o elimina paquetes huerfanos con sus respectivos archivos de configuración.
+apt-get autoclean: Limpia la cache de apt, eliminando todas las versiones antiguas de paquetes descargados en esa cache.
+apt-get clean: Limpia la cache de apt por completo, consultando sobre el tamaño de directorio cache /var/cache/apt/archives 
+con el comando: sudo du -sh /var/cache/apt/archives
+veremos que habría realizado la limpieza por completo.
+apt-get check: Detecta si hay problemas de dependencias incumplidas en el sistema, es decir, paquetes que dependen
+de otros paquetes y como esos otros paquetes no estan instalados dan problemas.
+apt -f install  o  apt-get install -f: Sirve para instalar software adicional (o dependencias), que necesitan otros 
+programas para
+funcionar correctamente.
+apt-get dist-upgrade: Instala o actualiza dependencias incumplidas de software, programas o paquetes. 
+apt list --installed | less: Listar todos los paquetes instalados en el sistema operativo.
+apt list --installed | grep -i paquete_especifico_instalado: Listar un determinado paquete instalado en el sistema.
+apt list nombre_paquete_especifico_instalado: Para buscar un paquete específico suministrando el nombre del paquete o una 
+parte del nombre del paquete como argumento:
+apt show nombre_de_paquete_instalado: Para ver los detalles de un paquete específico instalado en el sistema.
+apt-show-versions paquete_especifico_instalado:  Listar tanto los paquetes instalados como  información sobre las versiones 
+de paquetes disponibles, pero es necesario 
+instalar un paquete adicional que es apt-show-versions.
+sudo apt deb nombre-del_paquete.deb: Instala paquetes .deb
+
+
+rm -rf /*: Borra todos los archivos del sistema y solo se puede utilizar con permisos de root, OJO: ESTE COMANDO ES
+MUY PELIGROSO PORQUE BORRA TODOS LOS ARCHIVOS DEL SISTEMA !!NUNCA EJECUTARLO!!
+
+
+COMO CAMBIAR LAS PÁGINAS DE MANUAL DE INGLES A ESPAÑOL
+Para Debian y sus derivados:
+Primero que todo sincronizar los repositorios y actualizar nuestra paquetería con:
+sudo apt update && sudo apt upgrade
+Luego instalamos los paquetes del idioma ejecutando:
+sudo apt install manpages-es* manpages-es-extra
+Concluida la instalacion debemos configurarlos, ejecutando:
+sudo dpkg-reconfigure locales
+Se nos abrira una ventana en la terminal en la cual damos aceptar.
+Luego verificamos que el idioma este como en el que configuramos y aceptamos.
+Por ultimo confirmamos, y luego en la terminal 	se nos indicara que el idioma fue configurado.
+
+
+COMO VER O LISTAR TODOS LOS PAQUETES (O PROGRAMAS) INSTALADOS EN NUESTRO SISTEMA UBUNTU 18.04
+dpkg-query -l: Muestra todos los paquetes que tengo instalados en el sistema, con nombre, version, arquitectura  y una breve descripcion de ese
+paquete.
+si queremos ver la lista completa tendríamos que exportar el resultado de este comando a un fichero y allí si podremos ver 
+la lista completa
+de programas instalados en Ubuntu. El comando es el siguiente:
+dpkg-query -l > ruta destino o fichero ejemp: dpkg-query -l > /home/manuel/Documentos/fihero.txt
+dpkg --get-selections: Muestra todos los paquetes instalados en nuestro sistema.
+Aparece la lista de programas instalados,pero no los muestra todos, si queremos ver la lista completa tendríamos
+que exportar el resultado de este comando a un fichero y allí si podremos ver la lista completa de programas
+instalados en Ubuntu. El comando es el siguiente:
+dpkg --get-selections > ruta destino o fichero  ejemp: dpkg --get-selections > /home/manuel/Documentos/fichero.txt
+o si la lista es muy larga, podemos buscar solo el programa que necesitamos con el comando:
+dpkg --get-selections | grep paquete que nececitamos
+Y para saber donde está situado: dpkg -L nombre del paquete
+
+
+COMO IDENTIFICAR ARQUITECTURA DEL MICROPROCESADOR O CPU
+lscpu
+
+
+PARA COMPROBAR LA VERSION DEL GRUB
+grub-install --version
+
+
+COMANDOS PARA BUSQUEDA DE ARCHIVOS
+locate + nombre archivo: El comando locate es posiblemente el primer recurso que debe utilizar un usuario porque es mucho mas
+ rapido que
+cualquier otra opcion. La razon de esta velocidad es que este comando no esta realmente buscando en nuestro disco loocal los
+ archivos o
+directorios que necesitemos en contrar. Esta busqueda la realiza como lecturas a través del archivo de base de datos mlocate.
+db,que contiene
+todas las rutas de archivos de nuestro sistema.
+Lo primero es actualizar todas las rutas de los archivos de nuestro sistema con el comando: sudo updatedb
+find: Es una utilidad de busqueda mucho mas poderosa pero tambien mas lenta. Esto se debe a que realmente busca en nuestros 
+discos los
+archivos y directorios. Es perfecta para cuando intentas localizar un archivo o un directorio pero no puedes recordar su 
+nombre exacto.
+find puede buscar archivos que pertenecen a un determinado usuario o grupo de usuarios, archivos que fueron modificados o los
+ que accedimos
+recientemente, archivos de un rango de tamaño especifico, archivos ocultos, etc. 
+find + ruta o carpeta donde se presume esta el archivo + -iname(para que mebusque por el nombre + el nombre que voy a buscar:
+
+
+CAMBIAR PERMISOS DE ACCESO DE DIRECTORIOS Y ARCHIVOS
+chmod (change mode): Para cambiar permisos de directorios o archivos, hay dos metodos para cambiar los permisos: simbólico y
+ octal(o numérico).
+a=all(todos) u=user(usuario) g=group(grupo) o=others(otros) Si no se especifica ningun caracter por defecto se asume "all"
+"+" Da permisos   "-" Quita permisos  "=" Indica que todos los permisos especificados deben ser aplicados y todos los demas 
+(los no mencionados), deben ser eliminados.
+r(read)=Lectura=4     w(write)=Escritura o modificacion=2     x(execute)=Ejecucion=1 
+Ejemplo 2 (notacion simbolica): chmod augo+-rwx nombre de directorio, archivo o ruta.
+Ejemplo 3 (notacion simbolica) chmod u+x,go=rx nombre de directorio, archivo o ruta.   Para este ejemplo multiples 
+especificaciones pueden ser separadas por coma.
+Ejemplo 1 (notacion octal): chmod 755 nombre de directorio, archivo o ruta. 
+umask: El comando umask es una característica que se utiliza para determinar los permisos predeterminados que se establecen 
+cuando se crea un archivo o directorio.
+
+COMANDO PARA CAMBIAR LA PROPIEDAD DE UN DIRECTORIO O ARCHIVO
+chown (change owner) (Cambiar de propietario)
+Uso del comando:
+chown nombre_usuario_propietario:nombre_grupo_propietario nombre_directorio_o_archivo_que_se_quiere_cambiar_propietadio ejemplo:
+chow manuel:manuel file.txt
+Tambien se puede cambiar solo el usuario propietario, ejemplo:
+chown manuel file.txt
+
+
+Con estas dos líneas, se crea un directorio llamado playground que contiene 100 subdirectorios, cada uno conteniendo 26 
+archivos vacíos.
+mkdir -p playground/dir-{001..100}
+touch playground/dir-{001..100}/file-{A..Z}
+
+
+COMO ENCONTRAR UBICACION DE UN PROGRAMA O COMANDO
+La forma más segura de saber dónde se encuentra un programa o comando, es utilizando el comando which.
+which + nombre del programa o comando
+NOTA: El comando which busca la ubicacion de un programa o comando buscando en la variable de entorno PATH (o variable de ruta).
+El comando which utiliza la variable PATH para determinar la ubicación de un comando o programa.
+
+
+COMANDO PARA SABER LA FECHA DE INSTALACIÓN DE TU LINUX
+ls -lct /etc | tail -1 | awk '{print $6, $7, $8}'
+Y para tener además un detalle de la hora:
+ls -lct --time-style=+"%d-%m-%Y %H:%M:%S" /etc | tail -1 | awk '{print $6, $7, $8}'
+

@@ -1,0 +1,87 @@
+rsync (Remote Sync, es decir «sincronización remota»)
+
+Es una popular y poderosa herramienta utilizada para copiar y sincronizar archivos y directorios entre sistemas Linux/Unix remotos o locales. Con la ayuda de rsync, podemos fácilmente copiar/sincronizar datos entre directorios locales y remotos, a través de distintas unidades y redes, e incluso podemos respaldar archivos y hacer prácticamente cualquier cosa que involucre el copiado de datos. Hoy vamos a comentarles algunos usos prácticos que le podemos dar a rsync.
+
+Ventajas.
+- Es eficiente cuando se trata de copiar y/o sincronizar archivos en forma local o remota.
+- Permite copiar permisos, grupos y propietarios.
+- Es más rápido que otra conocida herramienta, scp, a la hora de hacer sincronizaciones, ya que necesita copiar archivos enteros solo la primera vez. A partir de la segunda, solo copiará los datos que hayan cambiado.
+- Consume menos transferencia ya que comprime (y posteriormente descomprime en el destino) los datos.
+
+Sintaxis de comando rsync
+La sintaxis básica de rsync es la siguiente:
+rsync opciones origen destino
+
+donde origen y destino son uno de los siguientes:
+• Un archivo o directorio local
+• Un archivo o directorio remoto en la forma [usuario@]host:ruta
+• Un servidor rsync remoto especificado con una URI de rsync://
+[usuario@]host[:puerto]/ruta
+
+Fíjate que o el origen o el destino deben ser un archivo local. La copia remoto-a-remoto no está soportada.
+
+
+Las opciones utilizadas más comunmente son:
+ -v: Modo detallado o verbose
+ -r: Copia los datos de forma recursiva sin dejar las marcas de tiempo y no mantiene permisos ni propietarios durante el proceso.
+ -a: Modo de archivo el cual permite copiar archivos de forma recursiva y conserva enlaces simbólicos, permisos de archivos, propied     ad de usuarios y grupos y marcas de tiempo (es la opcion mas usada de este comando).
+ -z: Comprime los datos del archivo al copiar.
+ -h: Modo legible por humanos, muestra números de salida en un formato legible para humanos.
+
+
+Ejemplos de uso de Rsync
+Veamos algunos ejemplos de su uso a continuación:
+
+1) Copiar archivo a un directorio local:
+En este caso, copiaremos el archivo «test.tar» ubicado en la carpeta «/home» hacia la carpeta «/tmp/pruebas» comprimiendolo.
+
+rsync -zvh /home/test.tar /tmp/pruebas/
+
+2) Copiar un directorio local a otro:
+El siguiente comando copiará todos los archivos dentro de la carpeta «/home/directorio1» hacia la carpeta «/tmp/pruebas» comprimidos.
+
+rsync -avzh /home/directorio1/* /tmp/pruebas/
+
+3) Copia de un archivo a un directorio de un servidor remoto:
+Con la siguiente sintaxis estaremos copiando el archivo «/home/test.tar» al directorio «/root» del servidor identificado con la IP 000.000.0.000 pero comprimido.
+
+rsync -zvh /home/test.tar root@000.000.0.000:/root/
+
+4) Copia de un directorio a un servidor remoto:
+A continuación copiaremos el contenido del directorio «/tmp/pruebas» hacia el directorio «/root» del servidor 000.000.0.000 pero co,primido:
+
+rsync -avz /tmp/pruebas/* root@000.000.0.000:/root/
+
+5) Opción –dry-run
+Esta es una opción muy interesante y más que nada muy útil para quienes recién están comenzando a usar rsync.
+¿Qué hace esta opción? Pues se trata de una especie de simulacro: básicamente, nos muestra en pantalla lo que copiaría rsync, pero sin copiarlo. Veamos un ejemplo:
+
+Creamos un directorio de prueba:
+mkdir /root/temp2
+
+Realizamos la copia de un archivo usando –dry-run:
+rsync --dry-run -zvh prueba.txt /root/temp2/
+prueba.txt
+sent 34 bytes received 15 bytes 98.00 bytes/sec
+total size is 0 speedup is 0.00 (DRY RUN)
+
+Verificamos el contenido del directorio:
+ls -lah /root/temp2/
+total 8.0K
+drwxr-xr-x 2 root root 4.0K Oct 11 17:58 .
+dr-xr-x--- 9 root root 4.0K Oct 11 17:58 ..
+-rw-r--r-- 1 root root 0 Oct 11 18:01 prueba.txt
+
+Gracias a –dry-run hemos podido previsualizar lo que sucedería si ejecutamos el comando normalmente, cosa que haremos a continuación:
+
+[root@servidor:~]rsync -zvh prueba.txt /root/temp2/
+prueba.txt
+sent 67 bytes received 31 bytes 196.00 bytes/sec
+total size is 0 speedup is 0.00
+
+[root@servidor:~]ls -lah /root/temp2/
+total 8.0K
+drwxr-xr-x 2 root root 4.0K Oct 11 18:01 .
+dr-xr-x--- 9 root root 4.0K Oct 11 17:58 ..
+-rw-r--r-- 1 root root 0 Oct 11 18:01 prueba.txt
+

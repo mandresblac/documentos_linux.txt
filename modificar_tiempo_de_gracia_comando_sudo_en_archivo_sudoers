@@ -1,0 +1,45 @@
+
+El periodo de gracia se refiere al tiempo en el cual despues de haber ingresado la contraseña de administrador
+(root) con el comando sudo, cualquier otra instruccion que se ejecute inmediatamente despues, el sistema no me
+volvera a solicitar la contraseña de administrador (root).
+Hay en periodo de gracia en minutos, que es un lapso de tiempo en el cual toda instruccion que yo ejecute, la va
+a ejecutar automaticamente sin que el sistema me vuelva a pedir la contraseña de administrados (root).
+
+Para eso vamos a editar el archivo /etc/sudoers/ con en el editor de texto de su preferencia,
+en este caso para el editor nano escribimos la siguiente linea:  sudo nano /etc/sudoers/
+
+debajo de la linea:
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin" 
+
+colocamos el siguiente texto:
+Defaults            timestamp_timeout=0
+
+Quedando de la siguiente manera:
+Defaults        env_reset,pwfeedback
+Defaults        mail_badpass
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+Defaults        timestamp_timeout=0
+
+En este caso el periodo de gracia es 0, es decir no hay periodo de gracia, cada vez que yo ejecute un comando
+con sudo siempre me va a pedir la contraseña.
+Si yo quiero que el periodo de gracia sea de mayor tiempo, por ejemplo 1, 2, 5 o 10 minutos (o el tiempo que uno
+desee), cambio el número 0 por el valor deseado. es decir:
+Defaults        timestamp_timeout=1   Un minuto
+Defaults        timestamp_timeout=2   Dos minuto
+Defaults        timestamp_timeout=5   Tres minutos
+Defaults        timestamp_timeout=10   Diez minutos
+
+Quedando de la siguiente manera:
+Defaults        env_reset,pwfeedback
+Defaults        mail_badpass
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+Defaults        timestamp_timeout=1
+
+
+URL video tutorial
+https://www.youtube.com/watch?v=VB5g8_Y-VQQ
+
+
+
+ 
+

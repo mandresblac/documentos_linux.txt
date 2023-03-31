@@ -1,0 +1,84 @@
+Creando tus propios comandos con alias
+
+Ahora ¡para nuestra primera experiencia con la programación! crearemos un comando propio
+usando el comando alias. Pero antes de empezar, necesitamos desvelar un pequeño truco de la
+línea de comandos. Es posible poner más de un comando en una línea separando cada comando con
+un punto y coma. Funciona así:
+
+    comando1; comando2; comando3...
+
+Aquí tenemos el ejemplo que usaremos:
+    
+    [me@linuxbox ~]$ cd /usr; ls; cd -
+    bin games kerberos lib64 local share tmp
+    etc include lib libexec sbin src
+    /home/me
+    [me@linuxbox ~]$
+
+Como podemos ver, hemos combinado tres comandos en una línea. Primero hemos cambiado el
+directorio a /usr luego hemos listado el directorio y finalmente hemos vuelto al directorio original
+(usando 'cd -') con lo que hemos terminado donde empezamos. Ahora convirtamos esta secuencia
+en un nuevo comando usando alias. La primera cosa que tenemos que hacer es inventarnos un
+nombre para nuestro nuevo comando. Probemos “test”. Antes de hacerlo, sería una buena idea
+averiguar si el nombre “test” ya está siendo usado. Para averiguarlo, podemos usar el comando
+type de nuevo:
+
+    [me@linuxbox ~]$ type test
+    test is a shell builtin
+
+Ups! El nombre “test” ya está cogido. Probemos “foo”:
+   
+    [me@linuxbox ~]$ type foo
+    bash: type: foo: not found
+
+¡Genial! “foo” no está cogido. Así que creemos nuestro alias:
+
+    [me@linuxbox ~]$ alias foo='cd /usr; ls; cd -'
+
+Fíjate en la estructura de este comando:
+
+    alias name='string'
+
+Tras el comando “alias” le damos a alias un nombre seguido inmediatamente (si espacio en blanco)
+por un signo igual, seguido inmediatamente por una cadena entre comillas simples conteniendo los
+comandos que se asignarán al nombre. Después de definir nuestro alias, puede ser usado donde
+quiera que el shell acepte comandos. Probemos:
+
+    [me@linuxbox ~]$ foo
+    bin games kerberos lib64 local share tmp
+    etc include lib libexec sbin src
+    /home/me
+    [me@linuxbox ~]$
+
+También podemos usar el comando type de nuevo para ver nuestro alias:
+
+    [me@linuxbox ~]$ type foo
+    foo is aliased to `cd /usr; ls ; cd -'
+
+Para eliminar un alias, se usa el comando unalias, así:
+
+    [me@linuxbox ~]$ unalias foo
+    [me@linuxbox ~]$ type foo
+    bash: type: foo: not found
+
+Aunque evitamos a propósito nombrar nuestro alias con un nombre de comando existente, no es
+raro que se haga. A menudo se hace para aplicar una opción que se utilice a menudo en cada
+invocación de un comando común. Por ejemplo, vimos antes que el comando ls a menudo es un
+alias con soporte para colores:
+
+    [me@linuxbox ~]$ type ls
+    ls is aliased to `ls –color=tty'
+
+Para ver todos los alias definidos en nuestro entorno, utiliza el comando alias sin argumentos.
+Aquí tienes algunos de los alias definidos por defecto en un sistema Fedora. Pruébalo e imagina
+para que sirve cada uno:
+
+    [me@linuxbox ~]$ alias
+    alias l.='ls -d .* --color=tty'
+    alias ll='ls -l --color=tty'
+    alias ls='ls –color=tty'
+
+Hay un pequeño problema con la definición de alias en la linea de comandos. Se esfuman cuando la
+sesión de shell se cierra. En próximos capítulos, veremos como añadir nuestros alias a archivos que
+establecen el entorno cada vez que nos logueamos, pero por ahora, disfruta del hecho de que hemos
+dado nuestro primer paso, aunque sea pequeño, ¡en el mundo de la programación en shell!

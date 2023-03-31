@@ -1,0 +1,150 @@
+COMANDOS BASICOS EDITOR DE TEXTO VIM-VI
+
+Hay tres modos que utiliza el editor vi: modo COMANDO, modo de INSERCIÓN y modo EX o linea.
+
+ACCIONES DEL MODO COMANDO
+Letra i (insertar): para insertar texto, o reemplazar (Modo insertar).
+Tecla esc: Nos lleva a modo normal.
+:q!  salir sin modificar el archivo.
+:w  guardar.
+:wq! para guardar y salir.
+shift + zz  Salir del editor grabando los cambios en el fichero actual. También sirve :x
+:edit + ruta o ubicacion archivo a editar,  para abrir un archivo desde vim.
+w : El cursor se ubica al inicio de la siguiente palabra.
+e : El cursor se ubica al final de la palabra donde estemos ubicados.
+b : El cursor se devuelve al inicio de la palabra anterior.
+Numero + tecla navegacion: Navegar por lineas.
+f + una letra cualquiera, ubica el cusor sobre la letra que queremos pero solo en la misma linea de texto.
+0 : Ubica el cursor al inicio de la linea de texto.
+$ : Ubica el cursor al final de la linea de texto.
+* : Ubica el cursor sobre la siguiente palabra que este escrita igual.
+% : Ubica el cursor sobre el cierre o apertura de parentesis, llaves o corchetes.
+gg : Envia el cursor hasta el inicio del texto.
+G Mayuscula: Envia el cursor hasta el final del texto.
+cualquier numero + G Mayuscula: Envia el cursor hasta la linea de texto indicada en el numero.
+r : Permite reemplazar una sola letra.
+R : Permite reemplazar desde la posicion actual del cursor hasta el final de la palabra, el editor cambia a modo reemplazar,
+esto se puede observar en la parte inferior donde aparece la palabra -- REEMPLAZAR --.
+
+Eliminar
+La acción de eliminar borra el texto indicado de la página y lo guarda en el búfer. El búfer es el equivalente de 
+«portapapeles» en Windows o Mac OSX.
+La siguiente tabla proporciona algunos ejemplos:
+Acción	           Resultado
+dw               Eliminar la palabra actual
+d$               Elimina desde la posicion actual del cursor hasta el final de la linea
+dd               Elimina la linea actual.
+3dd	         Eliminar las siguientes tres líneas
+d3w     	 Eliminar las siguientes tres palabras
+d4h	         Eliminar los cuatro caracteres a la izquierda
+
+Cambiar
+La acción de cambiar es muy similar a eliminar, el texto se elimina y se guarda en el búfer, sin embargo el 
+programa se conecta para introducir el modo que permite hacer los cambios de texto de inmediato. La siguiente 
+tabla proporciona algunos ejemplos:
+Acción	            Resultado
+ciw	          Cambiar la palabra actual
+cw                Cambia la palabra desde la posicion actual del cursor hasta el final de la palabra.
+cc	          Cambiar la línea actual
+c3w	          Cambiar las siguientes tres palabras
+c5h	          Cambiar los cuatro caracteres a la izquierda
+	
+o : Inserta una nueva linea de texto y nos deja en el modo insertar.
+O Mayuscula: Inserta una nueva linea de texto arriba de de la linea actual y nos deja en el modo insertar. 
+x : Borra el caracter en el que esta ubicado el cursor, (sin tener que entrar al modo insertar). 
+X Mayuscula: Borra el caracter a la izquierda de donde esta ubicado el cursor.
+r : Permite reemplazar el caracter donde esta ubicado el cursor sin tener que ingresar al modo insertar.
+
+Jalar o copiar
+La acción de jalar guarda el contenido en el buffer sin eliminarlo. La siguiente tabla proporciona algunos 
+ejemplos:
+Acción	             Resultado
+y	          Jalar la línea actual
+3yy	          Jalar las siguientes tres líneas
+yw	          Jalar la palabra actual
+y$	          Jalar al final de la línea
+
+Poner o pegar
+La acción de poner, pone el texto guardado antes o después de la posición del cursor. Observa que estas son las
+dos únicas opciones, la acción poner no utiliza los movimientos como los anteriores comandos de acción.
+Acción	           Resultado
+p	           Poner (pegar) después del cursor
+P	           Poner antes del cursor
+
+Buscar en el vi
+Para explorar el texto hacia delante desde la posición actual del cursor, utiliza el / para comenzar a explorar el texto, 
+introduce el término de búsqueda y luego 
+presiona la tecla Entrar para iniciar la exploración del texto. El cursor se moverá a la primera coincidencia que se 
+encuentra.
+/  + palabra + Enter: Busca y encuentra la palabra que estamos buscando, pulsando la letra n  nos lleva a la siguiente 
+palabra igual dentro del documento haste el final del mismo, 
+pulsando N mayuscula se devuelve en la busqueda. Si llegas al final o al comienzo del documento, automáticamente ira el otro
+ lado del documento.
+Para empezar a buscar hacia atrás desde la posición del cursor, empieza introduciendo ?, después introduce el patrón buscar l
+as coincidencias y pulse la tecla Entrar.
+
+Moverse entre archivos dentro del mismo editor vim
+OJO: Con el archivo  abierto tengo que ir y  posicionarme sobre la ruta o ubicacion del archivo al cual quiero ir, sino no, 
+no funcionara.
+g + f: Me lleva al otro archivo, tambien se puede utilizar la combinacion de teclas Ctrl + i.
+Ctrl + o: Para devolmerme al archivo anteriorCtrl + o: Para devolmerme al archivo anterior.
+
+
+ACCIONES DEL MODO INSERCIÓN:
+El modo de inserción se utiliza para añadir texto al documento. Hay varias maneras de entrar al modo de 
+inserción desde el modo comando, cada una se distingue según dónde se iniciará la inserción del texto. La 
+siguiente tabla incluye las más comunes:
+Entrada	                               Propósito
+a	             Entrar al modo de inserción justo después del cursor
+A	             Entrar al modo de inserción al final de la línea
+i	             Entrar al modo de inserción justo antes del cursor
+I	             Entrar al modo de inserción al principio de la línea
+o	             Entrar al modo de inserción en una línea en blanco después del cursor
+O	             Entrar al modo de inserción en una línea en blanco antes del cursor
+
+
+
+ACCIONES DEL MODO EX
+Originalmente, el editor vi fue llamado el editor ex. El nombre vi fue la abreviatura del comando visual en el editor ex que
+ cambió al editor al modo «visual».
+En el modo normal original, el editor ex sólo permitía a los usuarios ver y modificar una línea a la vez. En el modo visual,
+ los usuarios podían ver la parte del documento 
+que cabía en la pantalla. Puesto que la mayoría de los usuarios prefiere el modo visual a edición en modo línea, el archivo 
+de programa ex fue vinculado a un archivo de vi, 
+para que los usuarios pudieran arrancar el ex directamente en modo visual al correr el enlace de vi.
+Finalmente, el archivo de programa fue renombrado al vi y el editor ex se convirtió en un enlace al editor vi.
+Cuando se utiliza el modo ex en el editor vi, es posible ver o cambiar la configuración, así como llevar a cabo los comandos
+ relacionados con los archivos tales como abrir, 
+guardar o anular los cambios en un archivo. Para pasar al modo ex, introduce el carácter : en el modo comando. 
+La tabla siguiente lista algunas acciones comunes llevadas a cabo en el modo ex:
+Entrada	                                               Propósito
+:w	                                 Escribir el archivo actual en el sistema de archivos
+:w nombre del archivo	                 Guardar una copia del archivo actual como nombre de archivo
+:w!	                                 Forzar la escritura en el archivo actual
+:1	                                 Ir a la línea número 1 o cualquier número especificado
+:e nombre del archivo	                 Abrir el nombre de archivo
+:q	                                 Salir si no hay cambios realizados en los archivos
+:q!	                                 Salir sin guardar los cambios en el archivo
+
+
+
+  .    : Repite el ultimo comando.
+v + teclas de navegacion:  Permite seleccionar el texto deseado, (entra a modo visual).
+u : Deshace el ultimo cambio realizado en el documento.
+Ctrl-R : Rehace el ultimo cambio realizado en el documento.
+
+:split  Divide pantalla horizontalmente.
+:vs  Divide pantalla verticalmente.
+ctrl + tecla w dos veces   Cambia de pantalla.
+
+
+:%s/palabra que queremos sustituir/palabra que va a sustituir a la que queremos sutituir/letra g para buscar en todo el 
+documento.
+
+:set nu   Para mostrar números de línea en el lateral izquierdo de una ventana.
+:set nu!  Para deshabilitar el numero de la linea  en el lateral izquierdo de una ventana.
+
+
+Para conocer mucho más de VIM, se recomiendo instalar VIM y ejecutar vimtutor.
+Pagina web:
+http://www.sromero.org/wiki/linux/aplicaciones/manual_vim

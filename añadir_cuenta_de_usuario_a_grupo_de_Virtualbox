@@ -1,0 +1,23 @@
+Este paso es muy importante porque sin esto no se va a poder tener acceso a los puertos USB en la maquina virtual, por lo tanto Virtualbox no
+nos va a reconocer los USB y los dispositivo extraibles que conectmeos, para eso se utiliza el siguiente comando:
+
+sudo usermod -aG vboxusers cuenta_de_usuario
+
+Para verificar la cuenta de usuario podemos hacerlo de dos fomas, la primera con el comando whoami, cuya salida sera algo como esto:
+manuel
+
+o con el comando "echo $USER" cuya salida sera igual a la anterior: manuel
+
+Una vez verificada nuestra cuenta de usuario, el comando quedaria:
+
+sudo usermod -aG vboxusers manuel
+
+
+Lo anteior agrega el usuario manuel al grupo vboxusers, y para verificar ejecutamos el siguiente comando:
+less /etc/group
+
+En el archivo /etc/group buscamos el grupo "vboxusers" y debemos ver algo como esto:
+vboxusers:x138:manuel
+
+Lo anterior nos confirma que el usuario manuel ya pertenece al grupo vboxusers
+

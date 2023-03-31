@@ -1,0 +1,16 @@
+COMANDOS PARA VER QUE HARDWARE TENEMOS
+
+arch: Permite ver la arquitectura del precesador o CPU, x86 es 32 bits y x86_64 es 64 bits.
+lscpu:Para obtener toda la informacion del procesador o CPU.Para obtener aún más detalles acerca de su CPU (s),
+puede examinar el archivo /proc/cpuiinfo,puede usar el comando head -n 20 / proc / cpuinfo para enumerar las
+primeras 20 líneas de este archivo.
+free: Para ver la cantidad de memoria RAM que tenemos en el sistema, incluida el area de intercambio SWAP, la 
+opción -m (free -m) es para ver la salida en megabyt (MB) y la opcion -g (free -g) es para ver la salida en
+gigabyte (GB).
+lspci: Para ver todos los dispositivos conentados por el bus o puerto PCI.
+lspci -k: Muestra todos los dispositivos conentados por el bus o puerto PCI junto con el controlador del núcleo
+y los módulos utilizados.
+lsusb: Para mostrar todos los dispositivos conectados al sistema a través de USB (Universal Serial Bus).
+lsmod: Muestra los modulos o controladores cargados en el Kernel actualmente.
+fdisk -l: Muestra informacion sobre las particiones de discos duros y dispositivos de almacenamiento, este
+comando requiere escalar privilegios de super usuario root con el comando sudo.

@@ -1,0 +1,90 @@
+QUE ES EL FORMATO DE EMPAQUETADO .TAR (Tape archiver)
+
+El nombre de .tar proviene de Tape Archiver (archivador en cinta), piensa que la herramienta data de 1979 y las
+copias de seguridad se guardaban en cintas (hasta no hace mucho aun era habitual encontrarlas).
+
+El formato .TAR no es realmente un formato de compresión, sino de empaquetado. Es muy común en GNU/Linux y sirve
+para empaquetar,(no comprimir), varios archivos dentro de un solo.
+
+Podemos empaquetar los diferentes archivos uno a uno, o bien ubicarlos dentro de un directorio y empaquetar el
+directorio completo. Si bien puedes utilizarlo como tal, lo más habitual es que se combine con un formato de
+compresión como gzip(.gz) o bzip2(.bz2), para poder incluir varios archivos dentro de un mismo archivador, y luego comprimir el conjunto.
+
+
+COMO TRABAJAR CON .TAR
+Como se ha comentado al principio .TAR es un formato muy específico de entornos Linux. De hecho, cualquier
+distribución GNU/Linux dispone de las herramientas necesarios para reconocer paquetes .TAR, así como agrupar
+varios archivos en un mismo archivador.
+
+De forma gráfica se gestionan desde el mismo navegador de archivos y el gestor de archivadores, al igual que hemos
+visto ya en el resto de formatos. Desde la línea de comandos, estos son los comandos que necesitaras para trabajar
+con .TAR:
+
+
+Para crear un .tar es interesante usar las opciones «-cvf», las explicamos:
+c - compacta o crea un nuevo archivo .tar
+x - Extrae los archivos del paquete.
+v - significa detallado, es decir, le indica al comando tar que muestre lo que esta haciendo.
+f - Escribe o lee en un archivo (file)
+z - Comprime o descompirme con gunzip.
+j - Comprime o descomprime con bzip2.
+P - utiliza las rutas absolutas (Por defecto seran relativas).
+p - Preserva los permisos de los archivos originales.
+r - Añade nuevos elementos a un archivo compactado que ya existe pero no puede estar comprimido.
+t - Muestra la información que contiene un archivo .tar que ya se ha creado pero no lo extrae.
+
+
+PARA VISUALIZAR O LISTAR EL CONTENIDO DE UN ARCHIVO .TAR:
+t= Lista el contenido de un paquete, se usa combinado con la opcion f, osea tar -tf nombre_archivo_.tar
+f= Nombre de archivo.
+v= Modo detallado o verbose.
+
+
+Para empaquetar varios archivos, en este caso los dos de ejemplo denominados archivo1, archivo2, en un paquete
+.tar:
+tar -cvf nombrearchivo.tar  archivo1_que_deseo_comprimir  archivo2_que_deseo_comprimir
+
+Para extraer todo el contenido del paquete nombrearchivo.tar en el mismo directorio:
+tar -xvf nombrearchivo.tar
+
+Para crear un archivo tar.gz agregamos la letra "z" a "cvf" es decir:
+tar -zcvf nombrearchivo.tar.gz archivo_a_comprimir      Crea un archivo con extensión .tar.gz
+o
+tar -cvzf nombrearchivo.tgz archivo_a_comprimir      Crea un archivo con extensión .tgz
+
+Extraer un archivo tar.gz
+tar -xvf nombrearchivo.tgz
+
+Crear un archivo tar.bz2
+Tar.bz2 es una excelente opción a la hora de comprimir, pero la compresión y descompresión de archivos .bz2 tarda
+más tiempo que con gzip, de todas formas ejecutamos el siguiente comando:
+tar cvfj nombrearchivo.tar.bz2  archivo_a_comprimir
+
+Extraer un archivo tar.bz2
+tar -xvf nombrearchivo.tar.bz2
+
+Visualizar o listar el contenido de un archivo .tar, tar.gz, tar.bz2
+tar -tvf nombrearchivo.tar
+tar -tvf nombrearchivo.tar.gz
+tar -tvf nombrearchivo.tar.bz2
+
+Extraer un solo archivo de un archivo .tar, tar.gz, tar.bz2
+tar -xvf nombrearchivo.tar  nombre_archivo_a_extraer
+tar -xzvf nombrearchivo.tgz  nombre_archivo_a_extraer
+tar -xjvf nombrearchivo.tar.bz2  nombre_archivo_a_extraer
+
+Extraer varios archivos del archivo .tar, tar.gz y tar.bz2
+tar -xvf nombrearchivo.tar archivo_1_a_extraer archivo_2_a_extraer archivo_3_a_extraer
+tar –xzvf nombrearchivo.tar.gz archivo_1_a_extraer archivo_2_a_extraer archivo_3_a_extraer
+tar -xjvf nombrearchivo.tar.bz2 archivo_1_a_extraer archivo_2_a_extraer archivo_3_a_extraer
+
+Agregar archivos o carpetas al archivo .tar, tar.gz, tar.bz2
+tar -rvf nombrearchivo.tar archivo_a_agregar
+tar -rvf nombrearchivo.tar.gz archivo_a_agregar
+tar -rvf nombrearchivo.tar.bz2 archivo_a_agregar
+
+Verificar el tamaño del .tar, tar.gz y tar.bz2
+tar -czf - nombrearchivo.tar | wc -c
+tar -czf - nombrearchivo.tar.gz | wc -c
+tar -czf - nombrearchivo.tar.bz2 | wc -c
+

@@ -1,0 +1,68 @@
+CREAR ENLACES DUROS
+
+Para comprender los enlaces duros, es útil comprender un poco sobre cómo el sistema de archivos realiza un 
+seguimiento de los archivos. Para cada archivo creado, hay un bloque de datos en el sistema de archivos que 
+almacena los metadatos del archivo. Los metadatos incluyen información sobre el archivo, como los permisos, la 
+propiedad y las marcas de tiempo. Los metadatos no incluyen el nombre del archivo o el contenido del archivo, 
+pero sí incluyen casi toda otra información sobre el archivo.
+
+Este metadato se denomina tabla de inodo del archivo. La tabla de inodo también incluye punteros a los otros 
+bloques en el sistema de archivos llamados bloques de datos donde se almacenan los datos.
+
+Cada archivo en una partición tiene un número de identificación único llamado número de inodo  El comando ls -i
+muestra el número de inodo de un archivo.
+
+Al igual que los usuarios y grupos, lo que define un archivo no es su nombre, sino el número que se le ha 
+asignado. La tabla de inodo no incluye el nombre del archivo. Para cada archivo, también hay una entrada que se
+almacena en el área de datos de un directorio (bloque de datos) que incluye una asociación entre un número de 
+inodo y un nombre de archivo.
+
+En el bloque de datos para el directorio /etc, habría una lista de todos los archivos en este directorio y su 
+número de inodo correspondiente. Por ejemplo:
+
+Nombre del archivo	Número de inodo
+   passwd		     123
+   shadow		     175
+   group		             144
+   gshadow		     897
+
+Cuando intenta acceder al /etc/passwdarchivo, el sistema usa esta tabla para traducir el nombre del archivo a 
+un número de inodo. Luego recupera los datos del archivo mirando la información en la tabla de inodo para el 
+archivo.
+
+Los enlaces duros son dos nombres de archivo que apuntan al mismo inodo. Por ejemplo, considere las siguientes 
+entradas de directorio:
+
+Nombre del archivo	Número de inodo
+   passwd		     123
+   mypasswd		     123
+   shadow		     175
+   group		             144
+   gshadow		     897
+
+Debido a que tanto el archivo passwd como mypasswd tienen el mismo número de inodo, que en esencia son el mismo
+archivo. Puede acceder a los datos del archivo con cualquier nombre de archivo.
+
+Cuando ejecuta el comando ls -li, el número que aparece para cada archivo entre los permisos y el propietario
+del usuario es el número de recuento de enlaces , por ejemplo:
+sysadmin @ localhost : ~ $ ls -li file. *
+278772 -rw-rw-r--. 1 sysadmin sysadmin 5 25 de octubre 15:42 file.original
+
+El número de recuento de enlaces indica cuántos enlaces duros se han creado. Cuando el número es un valor de 
+uno, el archivo solo tiene un nombre vinculado al inodo.
+
+Para crear enlaces duros, se usa el comando ln con dos argumentos. El primer argumento es un nombre de archivo 
+existente para vincular, llamado objetivo, y el segundo argumento es el nuevo nombre de archivo para vincular al
+objetivo:
+ln + nombre_de_archivo_existente_para_vincular + nuevo_nombre_de_archivo_para_vincular_al_objetivo
+
+Cuando se usa el comando ln para crear un enlace duro, el número de conteo de enlaces aumenta en uno por 
+cada nombre de archivo adicional:
+sysadmin @ localhost : ~ $ ls -li file. *
+278772 -rw-rw-r--. 2 sysadmin sysadmin 5 25 de octubre 15:53 ​​file.hard.1
+278772 -rw-rw-r--. 2 sysadmin sysadmin 5 25 de octubre 15:53 ​​file.original
+
+sysadmin @ localhost : ~ $ ls -li file. *
+278772 -rw-rw-r--. 2 sysadmin sysadmin 5 25 de octubre 15:53 ​​file.hard.1
+278772 -rw-rw-r--. 2 sysadmin sysadmin 5 25 de octubre 15:53 ​​file.original
+

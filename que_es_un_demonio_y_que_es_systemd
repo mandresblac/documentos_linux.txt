@@ -1,0 +1,44 @@
+QUE ES UN DEMONIO (O SERVICIO)
+Un demonio (o servivio) en Linux, y de manera general en cualquier sistema tipo UNIX, es un proceso o 
+programa que se ejecuta en segundo plano y es autónomo, de manera que no necesita interacción por parte 
+de un usuario del sistema para arrancar y funcionar. Los servidores web Apache o Nginx están controlados
+por demonios, por ejemplo.
+
+Los demonios interactuan directamente con el kernel y son útiles para hacer funcionar programas independi
+entes de una sesión de usuario, procesos que se inicien de manera automática cuando el sistema arranca, 
+servicios que permanecen a la escucha para ejecutar su tarea cuando son llamados.
+
+Los Demonios o servicios tienen las siguientes características:
+1-Los demonios o servicios normalmente son inicializados con el arranque del sistema.
+2-No acostumbran a tener una interfaz gráfica para que los usuarios puedan interactuar de forma directa 
+con ellos.
+3-Normalmente están a la espera de que pase un evento para a posteriori poder realizar su función.
+4-Toda la actividad que generan los servicios queda registrada en los logs del sistema mediante syslog y/
+o journalctl.
+Algunos de los paquetes conocidos que generan demonios son:
+- apache
+- samba
+- MYSQL
+- OpenVPN
+- httpd
+- cron
+- dnsmasq
+
+QUE ES SYSTEMD (O INIT)
+El primer demonio o servicio que inicia el Kernel de Linux es Init o Systemd cuyo PID es 1. Seguidamente,
+init (o systemd) son los encargados de cargar el resto de servicios del sistema operativo. Por lo tanto 
+Init o Systemd son los procesos padre de todos los demonios o servicios (o procesos) que se inicializan 
+en nuestro sistema operativo linux.
+
+Init y Systemd siempre están activos hasta que el sistema se apaga. Mientras estos servicios estén 
+activos los podremos usar para gestionar los servicios que se inician y paran en nuestro ordenador o 
+servidor. En el caso que systemd o init no se inicien, nuestro ordenador nunca podrá llegar a arrancar. 
+Por lo tanto son demonios extremadamente importantes.
+
+CONSEGUIR AYUDA E INFORMACIÓN SOBRE UN SERVICIO O UNIDAD DETERMINADA
+Si queremos obtener información detallada sobre un servicio tan solo tenemos que ejecutar el comando systemctl help seguido del nombre del servicio que queremos analizar.
+
+A modo de ejemplo, si queremos obtener información de como usar el servicio emergency tan solo tenemos que ejecutar el siguiente comando en la terminal:
+
+systemctl help emergency
+

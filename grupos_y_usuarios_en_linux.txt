@@ -1,0 +1,33 @@
+La información sobre usuarios y grupos se almacena en cuatro archivos dentro del árbol de directorios /etc/:
+
+/etc/passwd
+Es un archivo de siete campos delimitados por dos puntos que contiene información básica sobre los usuarios.
+
+/etc/group
+Es un archivo de cuatro campos delimitados por dos puntos que contienen información básica sobre grupos.
+
+/etc/shadow
+Es un archivo de nueve campos delimitados por dos puntos que contienen contraseñas cifradas de los usuarios, solo es legible por el
+usuario root.
+
+/etc/gshadow
+Es un archivo de cuatro campos delimitados por dos puntos que contienen contraseñas cifradas de los grupos, solo es legible por el
+usuario root.
+
+Warning:
+Aunque los archivos son texto sin formato, no los edite directamente. Utilice siempre las herramientas proporcionadas con su
+distribución para este propósito.
+
+
+
+El comando id nos muestra el identificador único (uid) de cada usuario en nuestro sistema operativo. El ID 0 está reservado
+para el usuario root.
+
+Con el comando whoami podemos ver con qué usuario estamos trabajando en este momento. Podemos ver todos los usuarios del
+sistema leyendo el archivo /etc/passwd.
+
+Las contraseñas de los usuarios están almacenadas en el archivo etc/shadow, pero están cifradas. Y solo el usuario root
+tiene permisos de lectura/escritura.
+
+Para cambiar la contraseña de nuestros usuarios usamos el comando passwd.
+

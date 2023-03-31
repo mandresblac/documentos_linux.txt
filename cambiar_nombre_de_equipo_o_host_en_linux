@@ -1,0 +1,43 @@
+CAMBIAR NOMBRE DE HOST EN LINUX (CON REINICIO DEL EQUIPO)
+
+Para cambiar el nombre del equipo o host hay que editar los archivos /etc/hosts/ y /etc/hostname/ ubicados en en el directorio /etc/
+Esto puede hacerse con cualquier editor de texto de manera gráfica o directamente desde la consola o terminal.
+
+Abrimos el archivo /etc/hosts/ con cualquier editor de texto y veremos algo similar a esto:
+127.0.0.1       localhost
+127.0.1.1       DellOptiPlex-380
+
+En mi caso DellOptiPlex-380 es el nombre de mi equipo. Navega con las flechas de tu teclado hasta el nombre de tu equipo y cámbialo por el nuevo. 
+Cuando termines oprime Control+O ( en el editor nano) y confirma que quieres guardar el archivo oprimiendo Intro. Ahora sal oprimiendo Control+X (en el 
+editor nanao).
+
+Ahora abrimos el archivo /etc/hostname/ En este archivo se encuentra solamente el nombre de tu equipo, veremos algo similar a esto:
+
+DellOptiPlex-380
+
+Cámbialo por el mismo nombre que pusiste en el archivo /etc/hosts/  y realiza los mismos pasos descritos arriba para guardar y cerrar.
+
+Por ultimo debemos reiniciar el equipo para que los cambios surtan efecto con el comando "reboot"
+
+Una vez reiniciada la maquina insertaremos el comando "hostname" para verificar que el cambio se ha realizado con éxito.
+
+!!LISTO A DISFRUTAR!!
+
+
+
+CAMBIAR NOMBRE DE HOST EN LINUX (SIN TENER QUE REINICIAR EQUIPO)
+
+Para cambiar el nombre de nuestro equipo sin realizar un reinicio deberemos ejecutar los siguientes pasos:
+
+Comando 1:
+sudo hostname nuevo-nombre-equipo
+
+Editar fichero /etc/hosts como hemos visto en los pasos anteriores:
+sudo nano /etc/hosts
+
+Editar fichero /etc/hostname como hemos visto en los pasos anteriores:
+sudo nano /etc/hostname 
+
+!!LISTO A DISFRUTAR!!
+
+

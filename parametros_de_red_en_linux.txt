@@ -1,0 +1,32 @@
+Análisis de los parámetros de red
+
+Una IP es un identificador único para los equipos que están conectados a una red.
+
+En la administración de servidores siempre existen IPs privadas e IPs públicas.
+
+Las IPs Privadas se utilizan para identificar los dispositivos dentro de una red local. Por ejemplo: los dispositivos conectados en tu casa u oficina.
+
+Las IPs públicas son la que se asignan a cualquier dispositivo conectado a Internet. Por ejemplo: los servidores que alojan tus sitios web, el router que te da acceso a internet, entre otros.
+Permiten una conexión remota desde cualquier lugar al servidor, mediante el protocolo SSH.
+
+ifconfig ==> Interface Configuration
+Se enlistan las tarjetas que tenemos y su direccionamiento especifico.
+
+ip a ==> ip address show
+También muestra la información de la red.
+Algunos modificadores para este comando son -4 para listar solo las ipv4 ó -6 para listar las ipv6.
+
+hostname
+Para visualizar el nombre del equipo, este hostname es como se identifica el equipo en las redes.
+
+route -n
+Para visualizar la puerta de enlace predeterminada del equipo. Muestra la IP routing table.
+
+nslookup nombredominio
+Para visualizar la ip de cualquier dominio especifico.
+
+curl
+Puede realizar simulaciones como las que hace Postman.
+
+wget nombredominio
+Para desacargar archivos de internet directamente deste la terminal.

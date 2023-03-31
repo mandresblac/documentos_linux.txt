@@ -1,0 +1,33 @@
+Conociendo las terminales en linux
+
+No podemos cargar con una interfaz gráfica a un servidor por todos los recursos que este necesita. Por lo cual siempre trabajamos en la consola en distribuciones server.
+Existen diferentes terminales virtuales en el SO, estas están numeradas desde la tty1 - tty6. La terminal 7 esta desarrollada para la interfaz gráfica.
+Terminal = tty = entorno de entrada y salida de texto.
+
+
+Comandos para verificar las terminales:
+Para cambiar de terminal:
+Ctrl+Alt+Fx ==> Donde x = 1,2,3,4,5,6.
+chvt ==> Tiene que tener permisos de administrador -sudo-.
+
+
+Para visualizar los servicios corriendo en la consola:
+w o su equivalente who, muestra la cantidad de usuarios en el SO e información básica.
+
+
+Cerrar una tty abierta:
+1. Moverse a otra tty.
+2. ps -ft ttyX ==> ps enlista los procesos del SO. -ft hace un listado especial de las consolas. X es el número de la tty
+que queremos cerrar. Esto mostrara el PID (Process ID) de la tty, ejemplo de salida:
+
+UID          PID    PPID  C STIME TTY          TIME CMD
+root        1011     866 11 14:41 tty7     00:21:04 /usr/lib/xorg/Xorg -core :0 -seat seat0 -auth /var/run/lightdm/root/:0 -nolis
+
+
+Para matar un procesa
+kill -9 numero_de_PID
+
+
+Para visualizar la terminal en la que estamos conectados:
+tty
+dev/pts ==> contiene cada una de las terminales virtuales en el SO.

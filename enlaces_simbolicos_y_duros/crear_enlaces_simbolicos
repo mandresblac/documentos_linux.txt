@@ -1,0 +1,23 @@
+CREAR ENLACES SIMBÓLICOS
+
+Un enlace simbólico , también llamado enlace suave , es simplemente un archivo que apunta a otro archivo.
+Ya hay varios enlaces simbólicos en el sistema, incluidos varios en el directorio /etc:
+
+sysadmin @ localhost : ~ $ ls -l /etc/grub.conf
+lrwxrwxrwx. 1 raíz raíz 22 de febrero de 2011 /etc/grub.conf -> ../boot/grub/grub.conf
+
+En el ejemplo anterior, el archivo /etc/grub.conf "apunta" al archivo ../boot/grub/grub.conf. Entonces, si 
+intentara ver el contenido del archivo /etc/grub.conf, seguiría el puntero y le mostraría el contenido del 
+archivo../boot/grub/grub.conf
+
+Para crear un enlace simbólico, use el comando ln con la opción -s(simbolic):
+ln -s archivo_al_que_quiero_apuntar  nombre_de_archivo_nuevo
+
+Ejemplo:
+sysadmin@localhost:~$  ln -s /etc/passwd mypasswd
+sysadmin@localhost:~$  ls -l mypasswd
+lrwxrwxrwx. 1 sysadmin sysadmin 11 Oct 31 13:17 mypasswd -> /etc/passwd
+
+Considere esto:
+Observe que el primer bit de la salida ls -l es el carácter l, que indica que el tipo de archivo es un enlace
+simbólico.

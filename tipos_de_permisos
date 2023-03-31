@@ -1,0 +1,52 @@
+TIPOS DE PERMISOS
+
+A cada grupo se le atribuyen tres tipos básicos de permisos: leer , escribir y ejecutar.
+
+Propietario del usuario: U
+Leer	Escribir	Ejecutar
+ r 	   w  		   x
+
+Propietario de grupo: G
+Leer	Escribir	Ejecutar
+ r	   w		   x
+
+Otros: O
+Leer	Escribir	Ejecutar
+ r	    w		    x
+
+Los permisos en sí mismos son engañosamente simples y tienen un significado diferente dependiendo de si se aplican a un archivo o
+directorio .
+
+Leer: r (read)
+El primer carácter de cada grupo representa el permiso de lectura. Hay un carácter r(leer) si el grupo tiene permiso de lectura, o
+un carácter - si el grupo no lo tiene.
+
+	En un archivo , esto permite que los procesos lean el contenido del archivo, lo que significa que los contenidos se pueden ver
+	y copiar.
+	En un directorio, se pueden enumerar los nombres de archivo en el directorio, pero otros detalles no están disponibles, es decir
+	que puedo ver el contenido del directorio.
+	El permiso r(lectura) permite a un usuario ver una lista del directorio.
+
+Escribir: w (write)
+El segundo carácter de cada grupo representa el permiso de escritura. Hay un carácter w(write) si el grupo tiene permiso de
+escritura, o un carácter - si el grupo no lo tiene.
+
+	Un archivo se puede escribir en el proceso, por lo que los cambios en un archivo se pueden guardar.
+	Tenga en cuenta que el permiso w(escribir) realmente requiere permiso r(leer) en el archivo para funcionar correctamente.
+	En un directorio, los archivos se pueden agregar o eliminar del directorio, es decir, puedo crear o eliminar archivos o
+	directorios.
+	Tenga en cuenta que el permiso w(escribir) requiere permiso x(ejecutar) en el directorio para funcionar correctamente.
+	El permiso w(Escribir) permite a un usuario eliminar archivos de un directorio, pero solo si el usuario también tiene permiso
+	x(ejecutar) en el directorio.
+
+Ejecutar: x (ejecutar)
+El tercer carácter de cada grupo representa el permiso de ejecución. Hay un carácter x(ejecutar) si el grupo tiene el permiso de
+ejecución, o un carácter - si el grupo no lo tiene.
+
+	Un archivo puede ejecutarse o correrse como un proceso.
+	En un directorio, el usuario puede usar el comando cd para "ingresar" al directorio y usar el directorio en una ruta para
+	acceder a los archivos y, potencialmente, a los subdirectorios de este directorio, es decir que se puede acceder dentro del
+	directorio.
+	El permiso x(ejecutar) es necesario para "entrar" en un directorio, pero el permiso r (lectura) en el directorio no es necesario
+	a menos que desee enumerar el contenido del directorio.
+

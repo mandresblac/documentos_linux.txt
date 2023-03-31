@@ -1,0 +1,14 @@
+Guardar la salida de un comando en un archivo
+
+Antes de visualizar unos ejemplos de uso, debes conocer las redirecciones que puedes usar.
+
+> : Redirige los datos y reemplaza los anteriores en destino.
+>> : Redirige los datos. Se agregan a los existentes en destino.
+&> : Redirige stdout y stderr. Se agregan los datos de la salida y, también los posibles errores.
+
+
+tambien se puede redirigir la entreda de texto, para ello usamos el caracter <, que enviara la información que lee de un archivo al comando, ejemplo:
+
+sort < listado
+mysql < db_backup.sql
+

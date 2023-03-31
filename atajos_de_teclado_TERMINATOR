@@ -1,0 +1,53 @@
+Alt+A Sincronizas todos los terminales, de forma que las teclas que pulsas van a todos los terminales.
+Alt+O Se termina la sincronización de pulsación de teclas.
+Atl+G Sincronizas un grupo de terminales, de forma que las teclas que pulsas van a ese grupo.
+Mayús+Ctrl+W Se cierra un terminal.
+Mayús+Ctrl+Q Se cierra la ventana.
+Mayús+Ctrl+Q Copiar.
+Ctrl+Tab Se pasa al siguiente terminal.
+Mayús+Ctrl+Tab Se pasa al terminal anterior.
+CtrlAltA Edita el título de la pestaña.
+CtrlAltX Edita el título del terminal.
+CtrlAltW Edita el título de la ventana
+F11 Pantalla completa.
+Alt+Abajo Pasa al terminal inferior.
+Alt+Arriba Pasa al terminal superior.
+Alt+Izquierda Pasa al terminal izquierdo.
+Alt+Derecha Pasa al terminal derecho.
+MayúsCtrlN Pasa al terminal siguiente.
+MayúsCtrlP Pasa al terminal anterior.
+Super+G Agrupa todos los terminales.
+Super+T Agrupa tods los terminales en una pestaña.
+F1 Ayuda
+Mayús+Ctrl+Alt+A Cambia la visibilidad de la ventana.
+Super+1 Inserta el número de terminal.
+Super+0 Inserta el número de terminal separado del margen,
+Alt+L Abre un cuadro de diálogo donde podemos elegir una disposición de terminales.
+Mayús+Ctrl+Re Pág Seleccionamos la pestaña de la izquierda.
+Mayús+Ctrl+Av Pág Seleccionamos la pestaña de la derecha.
+Mayús+Ctrl+T Creamos una nueva pestaña.
+Super+I Se lanza un nuevo proceso de Terminator.
+Mayús+Ctrl+I Se crea una nueva ventana.
+Ctrl+Re Pág Seleccionamos la pestaña anterior.
+Ctrl+Av Pág Seleccionamos la pestaña siguiente.
+Mayús+Ctrl+V Pegamos del portapapeles.
+Mayús+Ctrl+R Reseteamos la terminal.
+Mayús+Ctrl+G Reseteamos y limpiamos la terminal
+Mayús+Ctrl+Abajo Cambiamos la altura de la terminal, haciéndola mas baja.
+Mayús+Ctrl+Arriba Cambiamos la altura de la terminal, haciéndola mas alta.
+Mayús+Ctrl+Izquierda Cambiamos la anchura de la terminal, haciéndola mas grande o pequeña dependiendo de si tiene una terminal a la izquierda o no En el caso de que tenga terminal a la izquierda, se hará mas grande, mientras que si no tiene se hará mas pequeña.
+Mayús+Ctrl+Derecha Cambiamos la anchura de la terminal, haciéndola mas grande o pequeña dependiendo de si tiene una terminal a la derecha o no. En el caso de que tenga terminal a la derecha, se hará mas grande, mientras que si no tiene se hará mas pequeña.
+Mayús+Super+\R Rotar los terminales en sentido contrario a las agujas del reloj.
++Super+\R Rotar los terminales en el sentido de las agujas del reloj.
+Mayús+Ctrl+Z Ampliar el terminal.
+Mayús+Ctrl+F Buscar en el historial del terminal.
+Mayús+Ctrl+O Dividir horizontalmente.
+Mayús+Ctrl+E Dividir verticalmente.
+Mayús+Ctrl+S Mostrar/Ocultar la barra de desplazamiento.
+Mayús+Ctrl+X Maximizar el terminal.
+Mayús+Super+G Desagrupar todos los terminales.
+Mayús+Super+T Desagrupar todos los terminales en la pestaña.
+Ctrl+0 Restaurar el tamaño de letra.
+Ctrl++ Aumentar el tamaño de letra.
+Ctrl+- Disminuir el tamaño de letra.
+

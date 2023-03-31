@@ -1,0 +1,29 @@
+El comando "jobs" permite ver un listado de los programas que están ejecutándose en segundo plano, junto con los suspendidos
+(detenidos), ejemplo:
+
+$ jobs
+[1]   Ejecutando              gedit &
+[2]-  Detenido                sleep 50
+[3]+  Detenido                find / -name Descargas 2> /dev/null
+
+La información que se nos muestra a la izquierda de primeras es el número del trabajo, el estado (Ejecutando o Detenido) y el comando.
+
+Si queremos traer la ejecución de nuevo a la terminal, es decir, al foreground, debemos usar el comando fg y especificar qué número de trabajo queremos continuar. Para este caso será el 1, entonces seria:
+fg 1
+
+Si queremos matar un trabajo o  proceso utilizamos el signo de porcentaje % asi;
+kill -9 %1
+
+Lo anterior mataria el trabajo o proceso número 1
+
+
+Algunas opciones de jobs son:
+
+-l   Muestra el PID además de la información anterior.
+-p	 Solo muestra el PID de los trabajos
+-r   Solo muestra los trabajos que están en estado de ejecución.
+-s	 Solo muestra los trabajos que están en estado de detenido.
+
+NOTA: El comando jobs solo nos muestra los trabajo vinculados a la terminal desde donde se ejecuta jobs, es decir, no nos
+mostrará aquellos trabajos que hayan sido lanzados desde otras terminales aunque se estén ejecutando en ese momento.
+

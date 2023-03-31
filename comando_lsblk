@@ -1,0 +1,16 @@
+lsblk es un comando que se utiliza para mostrar información acerca de todos los dispositivos de bloque disponibles. Ejemplos de dispositivos
+de bloque son los discos duros, unidades flash, CD-ROM …
+
+lsblk nos sirve para saber cuantos discos hay en el sistema y cuantas particiones tiene un disco. Esto puede ir bien si estamos en un servidory no sabemos los discos instalados.
+
+Los detalles que muestra incluyen el punto de montaje y el tamaño total de la partición o el bloque. Lo que no incluye es el espacio libre y
+el disponible.
+
+Sus opciones mas utilizadas son:
+
+lsblk -f   Muestra informacion acerca del sistema de archivos.
+lsblk -a   Para mostrar todos los dispositivos.
+lsblk -b   Para mostrar columna tamaño en bytes.
+lsblk -z   Para mostrar el modelo de zona de cada dispositivo.
+lsblk -m   Muestra información sobre el propietario, el grupo y el modo del dispositivo.
+

@@ -1,0 +1,19 @@
+De forma predeterminada, hay nueve secciones de páginas de manual en una distribución linux
+tipica, a saber:
+
+1- Comandos generales
+2- Llamadas al sistema
+3- Llamadas a la biblioteca
+4- Archivos especiales
+5- Convenciones y formatos de archivo
+6- Juegos
+7- Diverso
+8- Comandos de administración del sistema
+9- Rutinas del kernel
+
+Para acceder a una sección:
+$ man número_de_la_sección  palabra_o_comando_a_buscar
+
+ejemplo:
+$ man 5 passwd
+

@@ -1,0 +1,58 @@
+¿QUÉ SON LOS REPOSITORIOS EN LINUX?
+
+Un repositorio es un servidor accesible mediante internet que almacena paquetes y programas para que
+nosotros los podamos descargar e instalar en nuestra distribución GNU-Linux.
+Cada una de las distribuciones GNU-Linux dispone de sus propios repositorios en los que se hallan los 
+programas que nosotros podemos instalar en nuestro equipo. Aparte de los repositorios propios de cada una
+ de las distribuciones, también podemos añadir y usar repositorios de terceros que contendrán versiones 
+más actuales del software que tenemos instalado o programas que no han incluido los creadores de la 
+distro que usamos.
+Los gestores de paquetes, como por ejemplo apt, YaST o pacman, son las herramientas que usaremos para 
+descargar e instalar el software de un repositorio.
+
+Hay dos tipos de repositorios, los oficiales y no oficiales.
+
+REPOSITORIOS OFICIALES:
+Contienen las aplicaciones que tu distribución soporta y que, dependiendo de sus políticas, muchas veces
+cuentan con un protocolo de revisión muy riguroso y de forma periodica para asegurarse de que todos los 
+paquetes que contienen se encuentran en estado óptimo y no representan riesgos de seguridad o estabilidad 
+para el sistema del equipo del cliente que los instale. Por ejemplo, en Arch Linux, algunos de los 
+repositorios oficiales son Core, Extra y Community. Cada uno de ellos contiene paquetes de diferente 
+índole como systemd, xorg, chromium y gnome por mencionar algunos.
+
+REPOSITORIOS NO OFICIALES O DE TERCEROS:
+Contienen paquetes de aplicaciones no soportadas directamente por la distribución, por lo tanto carecen 
+de los protocolos de revisión que mencionamos anteriormente y, aunque contienen aplicaciones muy útiles 
+para tu sistema, deben ser manejados con cuidado. Estos repositorios son mantenidos por comunidades 
+organizadas de usuarios y al ser no oficiales no están incluidos por defecto en las listas de 
+repositorios, pero pueden agregarse muy fácilmente. Por ejemplo, para el caso de Ubuntu, los repositorios
+no oficiales son los PPA (de Personal Package Archive) y en ellos podrás encontrar paquetes como VLC, 
+Turpial y Gimp.
+Las distros derivadas usan los mismos repositorios de sus distribuciones padres. Por ejemplo, Linux Mint
+utiliza los mismos repositorios que Ubuntu, su distribución padre, al contrario de Linux Mint Debian 
+Edition que usa los de Debian.
+Para sacar la mejor ventaja de los repositorios en Linux, oficiales y no oficiales, debes elegir muy bien
+cuales agregas. Es importante que conozcas las fuentes de tus aplicaciones y las versiones de los 
+paquetes que estas instalando pues de esta manera te aseguras de no comprometer tu sistema. Conocer cómo
+funciona el manejador de paquetes también es muy importante, pues éste es tu intermediario con los 
+repositorios. Para mas información, no dudes en visitar la documentación oficial de tu distribución.
+
+ESTRUCRURA DE UN REPOSITORIO:
+Por lo general, un Repositorio estándar tiene una ruta de acceso o configuración similar a la que se 
+muestra a continuación:
+FORMATO_PAQUETE PROTOCOLO://URL_SERVIDOR/DISTRO/ VERSIÓN RAMAS_PAQUETES
+
+Ejemplo de linea de repositorio para DEBIAN Jessie (8):
+deb http://ftp.us.debian.org/debian/ jessie main contrib non-free
+
+El archivo de configuración predefinido para guardar las lineas de acceso y configuración de los 
+repositorios accesibles por una Distro es el archivo /etc/apt/sources.list.
+
+El comando "apt update" sincroniza la base de datos de los repositorios que tenemos configurados en el
+archivo /etc/apt/sources.list, con la base de datos de paquetes local, actualizándola y comparándola para que
+ en el caso de que corresponda, anunciarnos la disponibilidad de nuevas versiones disponibles de los paquetes 
+que tenemos instalados.
+
+
+
+

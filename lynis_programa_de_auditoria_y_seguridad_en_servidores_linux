@@ -1,0 +1,33 @@
+lynis es una herramienta de auditoría de seguridad extensible para sistemas informáticos que ejecutan Linux , FreeBSD , macOS
+, OpenBSD , Solaris y otros derivados de Unix. Ayuda a los administradores de sistemas y profesionales de la seguridad a
+escanear un sistema y sus defensas de seguridad, con el objetivo final de fortalecer el sistema.
+
+Lo que hace básicamente lynis es analizar todo el software instalado en nuestro equipo y busca posibles problemas que debamos corregir. De esta forma sabremos si tenemos que realizar cambios, instalar actualizaciones, etc.
+
+Lynis es una herramienta de auditoría enfocada en mantener la seguridad de los sistemas operativos basados en Linux, MacOS y
+en el entorno Unix. Su funcionamiento se basa en analizar exhaustivamente el estado en el que se encuentran sus sistemas,
+identificando posibles vulnerabilidades o problemas en el mismo.
+
+Su análisis permite al usuario conocer si necesita corregir algún fallo, instalar paquetes de actualizaciones o realizar
+algún cambio en los procesos. Esto contribuye al fortalecimiento del sistema y su seguridad, así como las pruebas de
+cumplimiento.
+
+Lynis es un software de código abierto (open source), es decir, que su código fuente está disponible para que lo utilice
+cualquier usuario de forma.
+
+Para su reutilización y adaptación a diversos contextos, esta herramienta de seguridad cuenta desde 2007 con la General
+Public License (GPL) o Licencia Pública General, que les permite a los usuarios finales poder usar, analizar, compartir y
+modificar el código.
+
+Instalación de Lynis:
+sudo apt install lynis
+
+Con el comando "sudo lynis audit system" podremos ver todas las recomendaciones y sugerencias que nos da lynis para mejorar
+la seguridad de nuestro sistema.
+
+
+URLs sobre lynis:
+https://www.redeszone.net/tutoriales/seguridad/lynis-auditoria-seguridad-linux/
+
+https://www.welivesecurity.com/la-es/2014/09/01/tutorial-de-lynis-aprende-auditar-seguridad-linux/
+

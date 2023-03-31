@@ -1,0 +1,88 @@
+COMANDO TOP
+
+El comando top nos ayuda a conocer los procesos de ejecución del sistema (y más cosas) en tiempo real y es una
+de las herramientas más importantes para un administrador. Nos mostrará una gran cantidad de datos que se 
+actualizan cada 3 segundos así que analizaremos paso a paso que es cada cosa que se muestra.
+
+
+1- top – 16:29:19 up 9 min, 2 users, load average: 0,03, 0,21, 0,22
+La primer línea es fácil, vemos, Hora y tiempo que hace que esta corriendo el sistema (up), cantidad de 
+usuarios que esta mostrando 2 porque tengo nksistemas y root, y por último load average es la carga promedio 
+del equipo.
+
+
+2- Task: 137 total, 1 running, 136 slleping, 0 stopped, 0 zombie
+Línea número 2, vemos la cantidad de tareas totales o procesos y en que estado están:
+
+Running: Procesos ejecutándose actualmente o preparados para ejecutarse.
+Sleeping: Procesos dormidos esperando que pase algo (depende del proceso) ejecutarse.
+Stopped; Procesos detenidos.
+Zombie: El proceso no está corriendo y quedan en este estado cuando el proceso que los inició murió o fue 
+matado con el comando kill.
+
+
+3- %Cpu(s): 1,7 us, 0,3 sy, 0,0 ni, 98,0 id, 0,0 wa, 0,0 hi, 0,0 si, 0,0 st
+Línea Número 3, nos muestra los porcentajes de uso del procesador diferenciado por el uso que se le de.
+
+us (usuario): tiempo de CPU de usuario.
+sy (sistema): tiempo de CPU del núcleo (kernel).
+ni (nice): tiempo de CPU del usuario que tienen un “nice” positivo
+id (inactivo): tiempo de CPU en procesos inactivos (idle).
+wa (en espera): tiempo de CPU en procesos en espera.
+hi (interrupciones de hardware): interrupciones de hardware.
+si (interrupciones de software): tiempo de CPU en interrupciones de software.
+st (steal time): sólo aplica cuando la distro corre en una máquina virtual. Es el tiempo que algún proceso de 
+nuestro sistema estaba esperando en la cola de ejecución, pero el hypervisor eligió no darnos tiempo de 
+procesador, y asignarlo a otro procesador virtual.
+
+
+4- KiB Mem: 2051776 total, 988684 used, 1063092 free, 55764 buffers
+Línea número 4, hace referencia al uso de la memoria física del equipo.
+
+Memoria total.
+Memoria utilizada.
+Memoria libre.
+Memoria utilizada por buffer.
+
+
+5- KiB Swap: 1012732 total, 0 used, 1012732 free. 513300 cached Mem
+Línea número 5, utilización de la memoria virtual
+
+Memoria total.
+Memoria utilizada.
+Memoria libre.
+Memoria en caché.
+
+
+6- PID USER PR NI VIRT RES SHR S %CPU %MEM TIME+ COMMAND
+Línea número 6, muestra el detalle de los procesos en general teniendo en cuenta lo siguiente:
+
+PID: es el identificador de proceso.
+USER (USUARIO): usuario propietario del proceso.
+PR: prioridad del proceso. Si aparece un RT sigifica que corre en tiempo real.
+NI: asigna la prioridad. Si tiene un valor bajo (hasta -20) quiere decir que tiene más prioridad que otro con 
+valor alto (hasta 19).
+VIRT: cantidad de memoria virtual utilizada por el proceso.
+RES: cantidad de memoria RAM física que utiliza ese proceso.
+SHR: memoria compartida.
+S (ESTADO): estado del proceso.
+%CPU: porcentaje de CPU utilizado desde la última actualización.
+%MEM: porcentaje de memoria física utilizada por el proceso desde la última actualización.
+TIME+ (HORA+): tiempo total de CPU que ha usado el proceso desde su inicio.
+COMMAND: comando utilizado para iniciar el proceso.
+
+
+7- Podemos utilizar las siguientes teclas para ampliar el uso de TOP, esto es mientras esta corriendo:
+M –> Ordenar por uso de memoria
+P –> Ordenar por uso de CPU
+T –> Ordenar por tiempo de CPU utilizado
+F –> seleccionar campo por el cual ordenar la lista de procesos
+i –> mostrar u ocultar procesos idle y zombie
+m, l, t, 1 –> muestra u oculta las líneas del resumen (parte de arriba)
+f, o –> agregar/quitar columnas, cambiar el orden
+s –> cambia el tiempo de actualización de la pantalla (por defecto es de 3 segundos)
+z –> Cambia de color
+k –> Matar un proceso (luego pregunta el PID)
+r –> “renice” cambia el nice value de un proceso (luego pregunta el PID)
+q –> Salir de top
+h –> ayuda

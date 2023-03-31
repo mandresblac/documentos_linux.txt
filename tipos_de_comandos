@@ -1,0 +1,44 @@
+TIPOS DE COMANDO
+
+GNU/linux utiliza 4 tipos de comandos:
+
+1-Comandos internos
+Los comandos internos están integrados en el propio shell. Un buen ejemplo es el comando cd (cambiar directorio) ya que es parte del shell Bash. 
+Cuando un usuario escribe el comando cd, el shell Bash ya se está ejecutando y sabe cómo interpretarlo, por lo que no es necesario iniciar ningún programa adicional.
+El comando type identifica al comando cd como un comando interno:
+sysadmin @ localhost : ~ $ type cd                                     
+cd es un shell incorporado
+
+2-Comandos externos
+Los comandos externos se almacenan en archivos que busca el shell. Si un usuario escribe el comando ls, el shell busca a través de los directorios que se enumeran 
+en la variable PATH para tratar de encontrar un archivo llamado ls que pueda ejecutar.
+sysadmin @ localhost : ~ $ type ls                                                   
+ls tiene un alias de `ls --color = auto '
+
+3-Los Alias
+Los alias se pueden usar para asignar comandos más largos a secuencias de teclas más cortas. Cuando el shell ve que se está ejecutando un alias, sustituye la secuencia 
+más larga antes de proceder a interpretar los comandos.
+Para determinar qué alias se establecen en el shell actual, use el comando alias:
+sysadmin @ localhost : ~ $ alias                                                     
+alerta de alias = 'notificar-enviar --urgencia = bajo -i "$ ([$? = 0] && echo terminal || echo
+ error) "" $ (historial | cola -n1 | sed -e '\' 's / ^ \ s * [0-9] \ + \ s * //; s / [; & |] \ s * alerta $ // '\' ') "'                                                                            
+alias egrep = 'egrep --color = auto'                                                
+alias fgrep = 'fgrep --color = auto'                                                
+alias grep = 'grep --color = auto'                                                  
+alias l = 'ls -CF'                                                                
+alias la = 'ls -A'                                                                
+alias ll = 'ls -alF'                                                              
+alias ls = 'ls --color = auto'
+
+4-Programa Ejecutable
+Estos comandos invocan programas instalados en el sistema que realizan tareas específicas. Cuando un usuario escribe el comando vi, el shell utiliza el archivo PATH 
+para localizar y ejecutar el programa. Programas como vi están disponibles en casi todas las distribuciones de Linux; los vlc usuarios o administradores instalan otros 
+programas, como (un reproductor multimedia de código abierto que se usa a menudo en escritorios Linux) para un propósito específico y no se incluirán en la RUTA a 
+menos que se hayan instalado por separado.
+sysadmin @ localhost : ~ $ type vi
+vi es / usr / bin / vi
+sysadmin @ localhost : ~ $ cd / bin
+ sysadmin @ localhost : / bin $ type vlc                                               
+-bash: tipo: vlc: no encontrado
+sysadmin @ localhost : / bin $ cd
+ sysadmin @ localhost : ~ $

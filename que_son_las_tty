@@ -1,0 +1,33 @@
+Terminal tty en GNU/Linux
+
+tty es una abreviatura del ingles "Teletype-writer" que en español significa "Tele tipo", en referencia a los 
+primeros ordenadores, que eran terminales de teletipo. Estos terminales son esencialmente máquinas de escribir 
+con control remoto.
+
+La tty es la consola que nos permite en GNU/Linux acceder a nuestro sistema operativo fuera de su entorno 
+gráfico (X-Window). En general disponemos de hasta seis terminales.
+
+Para acceder:
+Ctrl + Alt + F1 para acceder a la primera, F2 para la segunda y así hasta F6 para la sexta.
+
+Para regresar al entorno gráfico:
+Ctrl + Alt + F7
+
+No debemos confundirla con la que habitualmente usamos sobre el entorno gráfico X-Window.
+
+Las tty son las terminales que nos ofrece linux por defecto, podemos acceder a ellas pulsando CTRL +ALT + F1 a 
+F6 el numero que deseemos, por lo general las ventanas gráficas se ejecutan en la ventana 7, en caso de que una
+TTY llame a más terminales se crean terminales virtuales llamados PTS (ejemplo:telnet o las las terminales llamadas por el entorno gráfico) para conocer en que terminal estamos usamos el comando tty,ps o whoami.
+
+tty es un comando de GNU/Linux, que se utiliza en un símbolo del sistema o shell, que da información sobre el 
+terminal en que un usuario se encuentra actualmente. Escribiendo "tty" en la línea de comandos de Linux o Unix 
+dará lugar a una única salida específica a ese terminal.
+
+¿Qué es un archivo TTY?
+En general, el sistema operativo crea unos archivos que te permiten comunicarte con dispositivos físicos, 
+normalmente estos archivos se encuentran en la carpeta /dev y son tratados de forma especial ya que se les 
+permite tener acceso a los drivers. Los archivos tty son los responsables de mostrar la entrada y salida de 
+información en la terminal (mediante el teclado y el monitor). Puedes ver una lista de ellos usando el comando:
+ls -l /dev/tty*
+
+

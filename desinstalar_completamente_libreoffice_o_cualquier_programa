@@ -1,0 +1,11 @@
+COMANDOS PARA DESINSTALAR COMPLETAMENTE LIBROFFICE O CUALQUIER OTRO PROGRAMA
+
+sudo apt-get remove --purge libreoffice*
+sudo apt-get clean
+sudo apt-get autoremove
+
+VLink video youtube
+https://www.youtube.com/watch?v=gkTks-zGuek
+
+Link pagina web
+https://www.linuxadictos.com/como-instalar-la-nueva-version-de-libreoffice-6-2-2.html

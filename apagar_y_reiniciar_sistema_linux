@@ -1,0 +1,15 @@
+COMANDOS PARA APAGAR EL SISTEMA GNU/LINUX
+
+init 0: Siginifica apagar todo, mata los procesos sin esperar que terminen adecuadamente u organizadamente, 
+en ocaciones puede generar inconsistencias o problemas en el sistema porque es un cierre mas bruzco. 
+halt: Significa que se apague todo de forma adecuada u organizada.
+shutdown now: Apaga el sistema inmediatamente.
+poweroff  o  systemctl poweroff: Apaga el sistema de forma adecuada y ordenada igual que halt, sin matar los 
+procesos bruzcamente.
+
+
+COMANDOS PARA REINICIAR EL SISTEMA GNU/LINUX
+
+init 6: 
+reboot  o  systemctl reboot 
+shutdown -r now

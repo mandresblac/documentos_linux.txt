@@ -1,0 +1,9 @@
+El comando journalctl nos permite ver los logs de los procesos de nuestro sistema operativo. Recuerda que todos ellos están
+almacenados en la carpeta /var/log/.
+
+sudo journalctl -fu nombre-servicio: ver los logs de nuestros servicios y hacer un seguimiento.
+sudo journalctl --disk-usage: ver la cantidad de espacio que ocupan nuestros logs.
+sudo journalctl --list-boots: muestra la lista de booteos de la computadora.
+sudo journalctl -p (critic, info, warning, error): filtrar los logs por el tipo de mensaje.
+sudo journalctl -o json: ver los logs en formato JSON.
+

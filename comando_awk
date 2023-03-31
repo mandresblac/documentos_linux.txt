@@ -1,0 +1,40 @@
+Comando awk
+
+El nombre awk deriva de las iniciales de los apellidos de sus autores: Alfred Aho, Peter Weinberger, y Brian Kernighan.
+Este comando proporciona un lenguaje de scripting para el procesamiento de texto con el cual podemos: Definir variables,
+utilizar cadenas y operadores aritméticos, utilizar control de flujo y ciclos y generar reportes con formato. En realidad,
+awk es más que un simple comando de procesamiento de patrones, es todo un lenguaje de análisis semántico.
+
+awk fue una de las primeras utilidades de consola de gran popularidad a la hora de gestionar (manejar/extraer) datos mediante
+la maximización de la funcionalidad de las tuberías de UNIX. El lenguaje proveído por esta utilidad actualmente es un
+estándar en casi todo los Sistema Operativo tipo UNIX moderno, tanto que es parte de las Especificaciones básicas de UNIX,
+por lo que se suele encontrar ya instalado en la mayoría de los mismos por defecto.
+
+Su sintaxis más común es: awk ‘programa’ archivos y donde ‘programa’ puede ser: patrón {acción} patrón {acción}. El comando
+lee en la entrada de archivos un renglón a la vez. Cada renglón se compara con cada patrón en orden; para cada patrón que con
+cuerde con el renglón se efectúa la acción correspondiente.
+
+
+
+AWK es un lenguaje de programación cuya potencia estriba en la capacidad de obtener grandes resultados con programas de unas
+pocas lineas. Está especialmente diseñado para leer y procesar archivos de texto por lo que resulta muy útil su uso combinado
+con utras utilidades del sistema operativo.
+Para ejecutar un programa escrito en AWK es necesario llamar al programa intérprete del lenguaje (awk) utilizando como
+parámetros un programa, escrito entre comillas simples, y uno o varios ficheros para procesar de acuerdo con ese programa.
+AWK asume que va a tener que procesar un flujo de datos (entrada estandar, fichero de texto, tubería) y que este flujo está
+medianamente estructurado en registros (lineas) y campos (columnas).
+Por tanto sabe que tiene que leer cada una de sus lineas como si fuese un registro, separar ese registro en campos, hacer lo
+que se le ordene con esos campos y finalmente producir un flujo de salida. Así que el programador apenas tiene que introducir
+ningún tipo de instrucción al respecto en el código.
+Por ejemplo en la orden:
+
+awk ’{print}’ fichero.txt
+
+el programa de AWK es sólo {print}. Este programa lee todas las lineas del archivo fichero.txt y las muestra en pantalla.
+En casi todos los ejemplos vamos a trabajar con el archivo fichero.txt cuyo contenido es:
+
+Murcia 3 2 3 4
+Albacete 3 4 5 3
+Almería 3 3 2
+Alicante 4 5 2 2
+

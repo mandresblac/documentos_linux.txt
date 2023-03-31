@@ -1,0 +1,19 @@
+QUE ES UNA DISTRIBUCIÓN LINUX?
+
+Los usuarios de Linux suelen obtener un sistema operativo descargando una distribución.
+
+Una distribución de Linux es un paquete de software, típicamente compuesto por el kernel de Linux, 
+utilidades, herramientas de administración e incluso algún software de aplicación en un paquete que 
+también incluye los medios para actualizar el software central e instalar aplicaciones adicionales.
+
+La distribución se encarga de configurar el almacenamiento, construir el núcleo e instalar controladores
+de hardware, así como también instalar aplicaciones y utilidades para crear un sistema informático 
+completamente funcional. Las organizaciones que crean distribuciones también incluyen herramientas para 
+administrar el sistema, un administrador de paquetes para agregar y eliminar software, así como programas
+de actualización para proporcionar parches de seguridad y funcionalidad.
+
+
+El número de distribuciones de Linux disponibles en cientos, por lo que la elección puede parecer desalentadora 
+al principio. Sin embargo, los puntos de decisión son en su mayoría los mismos que los resaltados para elegir 
+un sistema operativo.
+

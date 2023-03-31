@@ -1,0 +1,27 @@
+Consejo de Vim: corrige la advertencia del analizador heredado para snipMate
+				The legacy SnipMate parser is deprecated. Please see :h SnipMate-deprecate
+
+Si usa Vim y snipMate, y actualizó snipMate a la última versión recientemente, es posible que encuentre una advertencia:
+	The legacy SnipMate parser is deprecated. Please see :h SnipMate-deprecate
+
+Si sigue las instrucciones y ejecuta el siguiente comando dento de vim :h SnipMate-deprecate, verá lo siguiente en una ventana de
+ayuda:
+
+	The legacy parser, version 0, is deprecated. It is currently still the default parser, but that will be changing. NOTE that
+	switching which parser you use could require changes to your snippets–see the previous section.
+
+	To continue using the old parser, set g:snipMate.snippet_version (see |SnipMate-options|) to 0 in your |vimrc|.
+
+	Setting g:snipMate.snippet_version to either 0 or 1 will remove the start up message. One way this can be done–to use the new
+	parser–is as follows:
+
+	let g:snipMate = { ‘snippet_version’ : 1 }
+
+Básicamente, hay un nuevo analizador en snipMate, pero el analizador heredado obsoleto sigue siendo el predeterminado, lo que provocaría esta advertencia. Establecer explícitamente la versión del analizador en 0 para el analizador antiguo o 1 para el analizador nuevo eliminaría este mensaje de advertencia de inicio.
+
+No parece haber una razón para no usar el nuevo analizador, así que acabo de agregar lo siguiente en mi .vimrc:
+	let g:snipMate = { 'snippet_version' : 1 }
+
+Sitio web: 
+https://www.wiserfirst.com/blog/vim-tip-snipmate-legacy-parser-warning/
+

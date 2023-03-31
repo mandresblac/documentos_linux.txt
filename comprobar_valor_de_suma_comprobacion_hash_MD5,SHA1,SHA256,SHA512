@@ -1,0 +1,20 @@
+COMPROBAR VALOR DE SUMA DE COMPROBACION HASH (MD5,SHA1,SHA256,SHA384,SHA512) DE CUALQUIER ARCHIVO DESCARGADO
+
+La suma de comprobación se utiliza para verificar la integridad de los archivos, o cadenas de caracteres, luego de que se hayan
+transferido desde un dispositivo a otro a través de su red local o de Internet.
+Las sumas de comprobación se calculan con funciones de hash.
+Algunas de las sumas de comprobación comunes son MD5, SHA-1, SHA-256 y SHA-512. Una función de hash utiliza un algoritmo matemático
+para transformar los datos en un valor de longitud fija que representa los datos.
+Luego de descargar un archivo, puede verificar su integridad comparando los valores de hash del origen con el que usted generó con
+cualquier calculadora de hash. Al comparar los valores de hash, puede asegurarse de que el archivo no se haya alterado ni dañado
+durante la transferencia.
+
+Para linux se puede utilizar cualquiera de los siguiente comandos:
+
+
+md5sum + nombre o ruta del archivo descargado con su extensión
+sha1sum + nombre o ruta del archivo descargado con su extensión
+sha256sum  + nombre o ruta del archivo descargado con su extensión
+sha384sum + nombre o ruta del archivo descargado con su extensión
+shas512sum + nombre o ruta del archivo descargado con su extensión
+

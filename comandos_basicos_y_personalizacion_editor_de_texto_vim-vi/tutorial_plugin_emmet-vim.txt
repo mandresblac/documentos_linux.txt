@@ -1,0 +1,26 @@
+emmet-vim es un complemento de vim que brinda soporte para expandir abreviaturas similares a emmet.
+
+Tutorial de uso rápido
+
+1- Abra o cree un archivo nuevo:
+   vim index.html
+
+2-Escriba ("_" es la posición del cursor):
+
+  html:5_
+
+3 -Luego escriba <c-y>,( Ctrl + y + ,), y debería ver:
+
+<! DOCTYPE HTML >
+ < html  lang = " en " > 
+< head > 
+	< meta  charset = " UTF-8 " > 
+	< title > </ title > 
+</ head > 
+< body >
+	_
+</ cuerpo > 
+</ html >
+
+Pagina web en github
+https://github.com/mattn/emmet-vim

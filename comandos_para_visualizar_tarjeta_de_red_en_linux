@@ -1,0 +1,70 @@
+COMANDOS PARA VISUALIZAR TARJETA DE RED
+
+ifconfig: Abreviatura de "Interface Configuration". Este comando se utiliza para comprobar y configurar las 
+interfaces de red. Atraves de él podemos comprobar la información relativa a las interfaces de red, podemos 
+configurarlas o también habilitarlas o deshabilitarlas.
+
+
+ip address show o ip a:Muestra la direccion IP con su respectiva mascara de red. Obtendremos una salida igual a 
+la siguiente:
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp2s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:25:64:c6:70:ea brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.16/24 brd 192.168.0.255 scope global dynamic noprefixroute enp2s0
+       valid_lft 601592sec preferred_lft 601592sec
+    inet6 fe80::2d76:8828:5974:2a28/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+Explicacion:
+2: El parametro link/ether 00:25:64:c6:70:ea brd ff:ff:ff:ff:ff:ff nos muestra la MAC o direccion fisica de la 
+   tarjeta de red.
+   El parametro inet nos detalla la direccion IP/CIDR. El CIDR describe la longitud de la mascara de subred.
+   inet hace referencia a IPv4, como se puede apreciar en el ejemplo: 192.168.0.16/24
+   inet6 visualiza la informacion de IPv6.
+   NOTA:Se puede utilizar la abreviatura de este comando que es: ip a
+
+
+ip link o ip link show:Nos muestra de forma enumerada las placas o tarjetas de red en nuestro sistema.
+Con este comando se visualiza en consola algo como lo siguiente:
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: enp2s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 00:25:64:c6:70:ea brd ff:ff:ff:ff:ff:ff
+
+Explicacion:
+1: corresponde a una conexión lógica llamada loopback. Esta es una interfaz virtual utilizada por determinados
+servicios, manteniendo latente el protocolo que este requiera.
+2: Generalmente, en esta posición, nos mostrará nuestra placa/tarjeta de red o interfaz que tengamos conectada 
+a nuestro sistema. El nombre se muestra a continuación de los dos puntos, en este ejemplo, el nombre de la tarjeta
+de red es enp2s0.
+3: Si contamos con más de una placa/tarjeta de red, nos aparecerá, incrementando el índice de conexiones. Incluso conexiones virtuales.
+Observemos que seguido de "link/ether" nos muestra la MAC del dispositivo:
+link/ether 00:25:64:c6:70:ea brd ff:ff:ff:ff:ff:ff
+
+
+ip route show o ip r: Muestra las rutas. Obtendremos una salida igual a la siguiente:
+default via 192.168.0.1 dev enp2s0 proto dhcp metric 100 
+192.168.0.0/24 dev enp2s0 proto kernel scope link src 192.168.0.16 metric 100 
+
+La primera linea, dice que la puerta de enlace por defecto es la 192.168.0.1, mediante el dispositivo enp2s0.
+La segunda línea, dice que estamos conectados a la red 192.168.0.0/24 mediante el dispositivo enp2s0 (nuestra
+tarjeta de red). Además, nos conectamos utilizando el recurso 192.168.0.16 (nuestra IP).
+
+
+ip neigh show: Muestra la tabla ARP, la tabla ARP se encarga de identificar las direcciones IP y direcciones MAC
+de un dispositivo. La tabla ARP es un registro volátil almacenado en una cache que guarda las direcciones de
+hardware (MAC) que corresponden a una determinada IP y nos sirve para ver si hubo algún tipo de conexión de 
+determinada MAC o IP en algún momento.Obtendremos una salida igual a la siguiente:
+192.168.0.11 dev enp2s0 lladdr 0c:91:60:7c:da:be STALE
+192.168.0.1 dev enp2s0 lladdr 68:8f:2e:fe:f3:e2 REACHABLE
+192.168.0.17 dev enp2s0 lladdr 00:1a:73:88:14:cd STALE
+
+REACHABLE: la entrada ARP es válida y hay conectividad.
+STALE: la entrada ARP es válida pero no hay conectividad.
+FAILED: no hay conectividad y la MAC no ha sido detectada.
+DELAY: a la espera de confirmación tras el envío de un paquete.
+

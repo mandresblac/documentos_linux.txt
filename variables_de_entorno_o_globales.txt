@@ -1,0 +1,39 @@
+Las variables de entorno o globales van en mayusculas y presedidas por el signo $ y se pueden observar con el
+comando env o printenv, algunas variables de entorno son por ejemplo:
+
+$USER        Nombre del usuario actual
+$HOME        Directorio personal del usuario actual
+$PWD         Muestra la ruta del directoro de trabajo actual
+$PATH        Muestra todas las rutas donde se encuentran los binarios que ejecuta nuestro sistema.
+$HISTSIZE    Tamaño de almacenamiento del historial de comandos del shell
+
+Para imprimir una variable de entorno en la terminal escribimos lo siguiente:
+echo $NOMBRE_DE_LA_VARIABLE_EN_MAYUSCULAS
+
+Para modificar las variables de entorno debemos ir al archivo .bashrc que se encuentra en el directorio de inicio o de
+trabajo de nuestro usuario.
+
+Para agregar una nueva ruta a la variable de entorno $PATH vamos al archivo .bashrc y escribimos:
+PATH=$PATH:nueva_ruta_que_creamos    lo anterior seria igual a     PATH=$home/manuel/bin
+
+Seguidamente escribimos en la terminal la palabra bash para actualizar el bash.
+
+
+
+COMO CREAR UN NUEVO COMANDO EN NUESTRAS VARIABLES DE ENTORNO O GLOBALES A TRAVES DE ALIAS
+1- Para crear un nuevo comando o atajo de un comando y agregarlo a nuestras variables de entorno o globales primero
+comprobamos que el nombre que le vamos a asignar a nuestro comando no exista, porque si existe puede generarnos un conflicto
+con otro comando que ya exista, para eso escribimos en la terminal el comando type seguido del nombre que queremos asignar a
+nuestro nuevo comando, ejemplo:
+type gi
+
+La salida debe ser algo como esto:
+bash: type: gi: no encontrado
+
+2- Luego de lo anterior vamos al archivo .bashrc y escribimos lo siguiente:
+alias gi='git init'
+
+guardamos cambios y cerramos el archivo.
+
+3- Seguidamente actualizamos bash escribiendo en la terminal la palabra bash y listo, ya hemos creado un nuevo comando.
+

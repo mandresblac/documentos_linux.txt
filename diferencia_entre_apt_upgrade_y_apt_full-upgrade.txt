@@ -1,0 +1,10 @@
+apt upgrade
+- No elimina paquetes y omite la actualización si es necesario eliminar.
+- Se suele usar durante el ciclo de vida de una versión en particular.
+- Opción muy segura
+
+apt full-upgrade
+- Elimina paquetes antiguos para actualizar a una nueva versión.
+- Se suele usar para actualizar a una versión más moderna.
+- Usar si sabes lo que haces y con precaución
+

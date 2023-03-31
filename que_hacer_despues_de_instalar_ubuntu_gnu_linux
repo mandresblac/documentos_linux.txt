@@ -1,0 +1,31 @@
+QUE HACER DESPUES DE INSTALAR CUALQUIER UBUNTU O CUALQUIER DISTRIBUCION GNU/LINUX (BASADA EN DEBIAN)
+
+1- Actualizar sistema:
+sudo apt update
+sudo apt upgrade
+
+2-instalacion por completo del idioma:
+en soporte idiomas
+
+3-Instalacion de codecs multimedia
+sudo apt install ubuntu-restricted-extras
+
+4-Instalacion de software de compresion de archivos:
+sudo apt-get install rar unace p7zip p7zip-full p7zip-rar unrar lzip lhasa arj sharutils mpack lzma 
+lzop cabextract
+
+5-Instalación de Gnome Tweak tool (instalacion opcional, si se quiere)
+sudo apt install gnome-tweak-tool
+
+6-instalación de chromium browser, Google Chrome o el navegador que deseemos:
+sudo apt install chromium-browser
+
+7-Instalación de un visor pdf:
+Foxit reader pdf
+
+8-Instalación de reproductores de audio y vídeo:
+sudo apt install vlc
+sudo apt install audacious
+
+Link de video youtube
+https://www.youtube.com/watch?v=WDievF6e0Qg&t=954s

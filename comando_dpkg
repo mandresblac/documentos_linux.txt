@@ -1,0 +1,29 @@
+USO DEL COMANDO DPKG
+
+El comando dpkg administra los paquetes de nuestro sistema sin usar repositorios
+
+Primero que todo para poder usar este comando tenemos que tener privilegios de super usuario o utilizar
+el comando sudo
+
+dpkg --help: Para ver todas las opciones disponibles del comando dpkg.
+dpkg --version: Para verificar la versión de dpkg que tenemos instalada.
+dpkg -i nombre_del_paquete: Para instalar un paquete .deb, necesita la ruta completa del fichero .deb a instalar
+dpkg -i *.deb: Instala de forma masiva todos los paquetes o archivos con extensión .deb que esten en un directorio.
+dpkg -I: Muestra información de un archivo .deb
+dpkg -l: Para listar y enumerar todos los paquetes .deb instalados en el sistema.
+dpkg -l nombre_del_paquete: Para buscar información de un paquete especifico,
+por ejemplo: dpkg -l neofetch  nos trae información del paquete neofetch, como Nombre,Versión,
+Arquitectura, y una breve descripción de lo que hace el paquete.
+dpkg -c nombre_del_paquete: Muestra el contenido del paquete .deb, que tiene el paquete, pero ojo,
+tenemos que estar ubicados en el directorio donde esta el paquete .deb de lo contrario dara error.
+dpkg -s nombre_del_paquete: Nos muestra si el paquete esta instalado o no y nos da una pequeña descripción.
+dpkg -L nombre_del_paquete: Muestra la ubicación de los archivos binarios (bin) y del resto de archivos que utiliza, o forman parte
+del paquete que buscamos.
+dpkg -R --install /nombre_directorio: Instala todos los paquetes .deb que se encuentran dentro de ese directorio o carpeta.
+dpkg -r nombre_del_paquete: Para eliminar/desinstalar un paquete " .deb " pero deja los ficheros de configuración, debemos
+especificar el nombre del paquete, no el nombre original.
+dpkg -P nombre_del_paquete: Elimina todo los archivos de configuracion de un paquete eliminado incluyendo todos los ficheros de
+configuración, se puede utilizar despues del comando dpkg -r.
+dpkg --unpack nombre_del_paquete: Desempaquetará el paquete, pero no lo instalará ni lo configurará.
+dpkg --configure nombre_del_paquete:  Reconfigurará un paquete ya desempaquetado.
+dpkg-reconfigure: Se utiliza para reconfigurar un paquete instalado en el sistema.

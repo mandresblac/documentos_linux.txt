@@ -1,0 +1,18 @@
+Comando bc (calculadora basica)
+Podemos usar el comando bc para realizar todo tipo de cálculos directamente desde la terminal.
+
+Si utilizamos la opción -l se va a definir la biblioteca matemática estándar.
+Para salir podemos utilizar los comandos quit.
+----------------------------------------------------------------------------------------------
+
+
+Comando calc (calculadora)
+Calc es una calculadora simple que nos permite realizar todo tipo de cálculos en la línea de comandos.
+Vamos a poder utilizar el comando calc para realizar todo tipo de cálculos directamente desde la terminal
+
+Si preferimos utilizar el modo no interactivo, solo hay que escribir el comando seguido de la operación a realizar, ejemplo:
+manuel@pc:~$ calc 2+3
+	5
+
+Para salir podemos utilizar los comandos quit o exit.
+------------------------------------------------------------------------------------------------

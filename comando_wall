@@ -1,0 +1,48 @@
+Wall es una utilidad que permite mostrar un mensaje en los terminales de todos los usuarios logueados en el servidor. Los mensajes
+se pueden escribir en el terminal o utilizar un archivo para imprimir por pantalla.
+
+Por lo general, los sysadmin envían mensajes para anunciar el mantenimiento, pidiendo a los usuarios que se desconecten y cierren
+correctamente todos los procesos que están ejecutando. Los mensajes se muestran a todos los usuarios registrados con un terminal abierto.
+
+Los usuarios que utilicen un entorno de escritorio gráfico sin terminal abierto no verán los mensajes. Cada usuario puede controlar
+el acceso de escritura a su terminal con la utilidad mesg. Cuando el superusuario invoca el comando wall, todos los usuarios reciben
+los mensajes, sin importar su configuración de mensajes.
+
+
+
+BROADCASTING DESDE CONSOLA
+La sintaxis del comando wall es la siguiente:
+wall [OPCIONES] [ARCHIVO | MENSAJE]
+
+Si no se especifica ningún archivo, wall lee el mensaje de la entrada estándar.
+
+La forma más sencilla de transmitir un mensaje es invocar el comando wall con el mensaje como argumento, asi:
+
+wall “El sistema va a reiniciarse en 5 minutos”
+
+Para suprimir el banner y mostrar solo el texto que escribe a los usuarios que han iniciado sesión, se necesita agregar el parámetro
+-n (- -nobanner). Este atributo puede ser utilizado con el usuario root, así:
+
+wall -n “El sistema va a reiniciarse en 5 minutos”
+
+También se puede usar la redirección o canalizar la salida de otro comando a la instrucción wall:
+
+echo “El sistema va a reiniciarse en 5 minutos. \nPor favor, guarda tu trabajo.” | wall
+
+
+
+BROADCASTING DESDE ARCHIVO
+Si se envían regularmente los mismos mensajes, es posible escribirlos en un archivo, de modo que no tenga que volver a escribir el mismo texto. Wall lee del archivo solo cuando se invoca como root.
+
+Para difundir el contenido de un archivo, invoque el comando wall seguido del nombre del archivo:
+
+wall file.txt
+
+
+
+BROADCASTING A UN GRUPO DE USUARIOS
+Para enviar un mensaje solo a los miembros de un grupo, se necesita utilizar la opción -g (–group), seguida del nombre del grupo.
+Por ejemplo, para escribir solo en las terminales de los miembros del grupo “sysadmin”, se ejecutaría la siguiente instrucción:
+
+wall -g sysadmin “El sistema va a reiniciarse en 5 minutos.”
+

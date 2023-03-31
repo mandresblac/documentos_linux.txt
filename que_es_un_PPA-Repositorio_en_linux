@@ -1,0 +1,43 @@
+Que es un repositorio PPA (Personal Package Archive) o (archivo de paquete personal) en GNU/Linux?
+y como agregarlo y eliminarlo?
+
+PPA es un acrónimo muy conocido a la hora de instalar repositorios en Linux y significa Personal Package 
+Archive (Archivo de paquete personal). Un PPA es un repositorio de software que sirve para:
+- Actualizar algún software o paquete que nuestra distribución no actualiza y/o mantiene.
+- Un paquete no está disponible de serie en nuestros repositorios y necesitamos añadirlo para poder 
+instalarlo.
+
+
+Como agregar un repositorio PPA?
+Desde línea de comando, debemos utilizar el comando add-apt-repository con derechos de root. 
+Necesitamos saber entonces el nombre del PPA y el PPA como tal. Luego, actualizamos la lista de paquetes
+desde los orígenes de software definidos, y ya podemos instalar el programa que especificamos.
+Por ejemplo,instalaremos la versión 8 de Java:
+
+- Nombre del PPA: webupd8team
+- PPA: java
+
+Agregamos el repositorio oficial:
+sudo add-apt-repository ppa:webupd8team/java
+
+Actualizamos:
+sudo apt update
+
+Instalamos el paquete:
+sudo apt install oracle-java8-installer
+
+!!LISTO!!
+
+
+Como eliminar un repositorio PPA?
+Primero que todo podemos verificar los repositorios instalados en el sistema entrando al directorio 
+/etc/apt/sources.list.d/
+Luego identificar o saber el nombre de la PPA y la PPA específica.
+En nuestro caso, removeremos el de Java (ejemplo anterior):
+
+sudo add-apt-repository --remove ppa:webupd8team/java
+
+!!LISTO!!
+
+Lo anterior removerá por completo el repositorio PPA del sistema, si se quiere volver a tenerlo habrá 
+que escribir otra vez el comando sudo add-apt-repository ppa y aceptar la llave.

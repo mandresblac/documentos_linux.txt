@@ -1,0 +1,15 @@
+Para hacer referencia a varios elementos utilizamos los comodines o la tecnica globbing.
+
+- Asterisco (*): Cualquier secuencia de caraceres (o ninguna).
+- interrogación (?): Cualquier carácter repetido una vez.
+- Corchetes ([]): Cualquier carácter dentro de los que se incluyen en los corchetes, pero tambien puede indicar:
+	- rangos: se indica el inicio y el final separados por un guión.
+	- Negacion: Se pone el simbolo circunflejo (^) o el de admiración (!) al inicio e indica los caracteres que no son validos.
+- Clases de caracteres: Grupos de caracteres predefinidos, y las principales son:
+	[[:alnum:]] Coincide con cualquier carácter alfanumérico, todas las letras y todos los números.
+	[[:alpha:]] Coincide con cualquier carácter alfabético, letras mayusculas o minisculas.
+	[[:blank:]] Coincide con cualquier espacio o tabulación.
+	[[:digit:]] Coincide con cualquier número del 0 al 9 (0123456789).
+	[[:lower:]] Coincide con cualquier letra minúscula (a-z).
+	[[:upper:]] Coincide con cualquier letra mayúscula (A-Z).
+

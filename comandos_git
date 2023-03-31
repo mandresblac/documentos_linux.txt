@@ -1,0 +1,54 @@
+ Comandos git (sistema de control de verisones)
+
+Establecer nombre de usuario y dirección de correo electrónico:
+$ git config --global user.name "tu_nombre_viene_aquí"
+$ git config --global user.email tu_direccion_de_correo_viene_aquí 
+Si quieres sobrescribir esta información con otro nombre o dirección de correo para proyectos 
+específicos, puedes ejecutar el comando sin la opción --global cuando estés en ese proyecto.
+
+Elegir el editor de texto por defecto que se utilizará cuando Git necesite que introduzcas un mensaje. 
+Si no indicas nada, Git usará el editor por defecto de tu sistema, que generalmente es Vim:
+$ git config --global core.editor vim
+
+Para comprobar tu configuración, puedes usar el comando git config --list para mostrar todas las 
+propiedades que Git ha configurado:
+$ git config --list
+user.name=John Doe
+user.email=johndoe@example.com
+color.status=auto
+color.branch=auto
+color.interactive=auto
+color.diff=auto
+
+Comprobar el valor que Git utilizará para una clave específica
+$ git config user.name
+John Doe
+
+Obtener ayuda:
+Existen tres formas de ver la página del manual (manpage) para cualquier comando de Git:
+$ git help <verb>
+$ git <verb> --help
+$ man git-<verb>
+Por ejemplo, puedes ver la página del manual para el comando config ejecutando
+$ git help config
+
+Si estás empezando a seguir un proyecto existente en Git, debes ir al directorio del proyecto y usar
+el siguiente comando:
+$ git init
+
+Si deseas empezar a controlar versiones de archivos existentes (a diferencia de un directorio vacío),
+probablemente deberías comenzar el seguimiento de esos archivos y hacer una confirmación inicial. 
+Puedes conseguirlo con unos pocos comandos:
+Para especificar qué archivos quieres controlar:
+$ git add
+Para confirmar los cambios:
+$ git commit
+Ejemplo de los dos comandos anteriores:
+$ git add *.c
+$ git add LICENSE
+$ git commit -m 'initial project version'
+
+Si deseas obtener una copia de un repositorio Git existente el comando a utilizar es:
+$ git clone
+
+

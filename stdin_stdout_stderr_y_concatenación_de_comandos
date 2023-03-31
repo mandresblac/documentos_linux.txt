@@ -1,0 +1,38 @@
+DIFERINCIAS ENTRE STDIN, STDOUT Y STDERR
+0: STDIN
+1: STDOUT
+2: STDERR
+
+
+ARCHIVOS ASOCIADOS A STDIN, STDOUT Y STDERR
+STDIN  ---  /dev/stdin/ o /proc/{proc-id}/fd/0
+STDOUT ---  /dev/stdout/ o /proc/{proc-id}/fd/1
+STDERR ---  /dev/stderr/ o /proc/{proc-id}/fd/2
+
+
+EJEMPLOS:
+comando > salida.txt
+comando 1> salida.txt 2> errores.txt
+comando 1> salida.txt 2>&1   Manda el stderr(2) a stdout(1) y lo almacena en el archivo salida.txt
+
+
+>, >>
+/dev/null Se usa cuando no nos interesa la salida o los errores de algun comando y nos queremos deshacer de esta salida.
+El uso del PIPE "|"
+
+CONCATENACION DE COMANDOS
+A ; B      # RUN A and B, regardless of success of A.
+A && B    # El comando de la derecha (B) solo se ejecuta si el comando de la izquierda (A) termina exitosamente.
+A || B    # El comando de la derecha (B) solo se ejecuta si el comando de la izquierda (A) falla.
+A &       # A corre en background.
+
+
+Si el resultado del comando:
+echo $?
+es 0, quiere decir que todo termino bien, pero si el resultado es 1 o cualquier otro número diferente a cero, quiere decir
+que hubo un problema, algo estubo mal.
+
+Links a videos de Youtube:
+https://www.youtube.com/watch?v=ti4gwlizByg
+https://www.youtube.com/watch?v=BTm__-_YrSw
+

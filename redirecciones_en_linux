@@ -1,0 +1,11 @@
+- Usando solo > si el archivo existe, lo sobreescribe.
+- Usando dos >> se existe el archivo añade el texto al final
+- Los mensajes de error se pueden redirigir de forma indepeniente usando 2> 2>>
+- Para redirigir todos los mensajes, tanto la salida (>) como el error (2>), se usa &> o &>>
+
+tambien se puede redirigir la entreda de texto, para ello usamos el caracter < , que enviara la información que lee de un archivo al
+comando, ejemplo:
+
+sort < listado
+mysql < db_backup.sql
+

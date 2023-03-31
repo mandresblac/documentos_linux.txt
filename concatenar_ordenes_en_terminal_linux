@@ -1,0 +1,15 @@
+CONCATENAR ORDENES EN LA TERMINAL EN GNU/LINUX
+
+|   Una orden genera un resultado y se lo pasa a la siguiente orden, y esa a su vez se lo pasa a la siguiente orden , y así susesivamente.
+
+; (punto y coma) Realiza ejecucion secuencial de ordenes, es decir, una detras de otra, sin importar si la anterior funciona o no funciona (evita pulsar tecla intro varias veces). 
+Por ejemplo: pwd ; cd ; ls  me muestra el directorio donde estoy ubicado (pwd), luego me cambia de directoro (cd) y
+por ultimo me muestra (o en lista) lo que hay dentro de ese directorio (ls).
+ 
+&& (doble ampersand) Ejecuta una orden solo si la anterior ha tenido exito, es decir, tiene que ejecutarse de forma correcta la primer orden para ejecutar la segunda, Ejemplo: 
+sudo apt update && sudo apt upgrade, solo si la primera orden a tenido exito ejecutara la segunda orden, si no, no la ejecutara.
+
+|| Ejecuta una orden solo si la anterior no a tenido exito o falla. Ejemplo: cat /etc/shadow || echo "no se pudo
+abrir fichero"  como la primera orden no se pude ejecutar porque se necesitan privilegios de usuario root (o
+superusuario) para ver el archivo etc/shadow, entonces ejecuta la segunda orden que es echo "no se pudo abrir
+fichero" que es echo "no se pudo abrir fichero". 

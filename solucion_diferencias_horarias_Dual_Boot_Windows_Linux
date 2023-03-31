@@ -1,0 +1,38 @@
+SOLUCIONAR LAS DIFERENCIAS DE HORA EN DUAL BOOT (ENTRE WINDOWS Y LINUX)
+
+Windows guarda la hora en formato local mientras que Linux la guarda en formato UTC.
+Esto se soluciona diciendole a Windows que guarde la hora en el mismo formato que linux, para ello hacemos
+lo siguiente:
+
+1- Iniciamos el ordenador en el sistema operativo Windows.
+2- Oprimimos la combinacion de teclas windows+r y se nos abrira la ventana ejecutar, alli escribiremos la
+palabra regedit y damos aceptar, entonces nos aparecera el editor de registro de Windows.
+3- A la izquierda superior damos clic en la carpeta HKEY_LOCALMACHINE, luego en SYSTEM, luego en carpeta 
+CurrentControlSet, luego en carpeta Control, luego en TimeZoneInformation.
+4- Una vez estemos en TimeZoneInformation nos vamos a la parte derecha donde encontramos varias claves, allí
+creamos una nueva clave haciendo clic derecho en un area vacia, damos clic en Nuevo, acto seguido 
+seleccionamos "Valor de DWOR (32bits)", y le damos el nombre RealTimelsUniversal, luego damos clic sobre esta
+y en informacion de valor le asignamos un 1 como valor, finalmente cerramos el registro.
+Luego:
+5- Abrimos el simbolo del sistema o CMD como administrador.
+6- Escribimos el siguiente comando respetando los espacios entre palabras: sc config w32time start= disabled
+7- luego damos Enter.
+8- Debe aparecer el siguiente mensaje: ChangeServiceConfig CORRECTO
+
+!!LISTO, YA ESTA!! 
+
+En caso de tener la hora mal simplemente la ponemos bien, la corregimos, y ya esta.
+
+Es posible que al reiniciar el ordenador la hora vuelva a salir mal, entonces volvemos y la corregimos y 
+LISTO ya deberia quedar bien para siempre, solucionado el problema. 
+  
+
+NOTA:
+Todo lo anterior hace que Windows guarde la hora del sistema en el mismo formato que lo hace Linux y por lo 
+tanto al cambiar de un sistema a otro la hora no se volvera loca. 
+
+
+
+Link video youtube Karla's Project
+https://www.youtube.com/watch?time_continue=1&v=T7CSyK_hUUY&feature=emb_logo
+

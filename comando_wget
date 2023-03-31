@@ -1,0 +1,38 @@
+COMANDO WGET (TRAE DESDE LA WEB)
+
+Podemos usar el comando wget en Linux para descargar archivos de Internet usando los protocolos HTTP, HTTPS y FTP con varias
+opciones como descargar múltiples archivos a la vez, descargar en segundo plano, limitar el ancho de banda, y mucho más.
+
+La sintaxis del comando wget
+wget [options] [url]
+
+Las options son varias opciones disponibles para personalizar el proceso de descarga y la url se refiere a la url de donde el
+archivo necesita ser descargado o sincronizado.
+
+
+
+Para descargar un archivo usando el comando wget, simplemente especificamos el URL del archivo repo después de wget.
+Descarga el archivo en la URL dada y luego guarda el archivo descargado en nuestro directorio de trabajo actual, ejemplo:
+
+wget https://bloximages.newyork1.vip.townnews.com/redandblack.com/content/tncms/assets/v3/editorial/4/59/45940eb2-5403-11e9-a843-db0e4491cc90/5ca13d8453042.image.jpg
+
+
+
+Guardar el archivo descargado usando wget en un directorio específico
+Por defecto, todos los archivos descargados se guardan en el directorio de trabajo actual. Para guardar los archivos descargados
+en un directorio específico, utilizamos la opción -P seguida de la ubicación del directorio donde el archivo descargado debe ser
+guardado, ejemplo:
+
+wget -P Downloads/Linux_Images https://bloximages.newyork1.vip.townnews.com/redandblack.com/content/tncms/assets/v3/editorial/4/59/45940eb2-5403-11e9-a843-db0e4491cc90/5ca13d8453042.image.jpg
+
+Lo anterior guardara la imagen descargada en el directorio Linux_Images dentro del directorio Downloads.
+
+
+
+Guardar el archivo descargado usando wget con un nombre de archivo personalizado
+Por defecto, el nombre del archivo descargado es el mismo que el de la web. Si queremos guardar el archivo con un nombre de archivo diferente, podemos especificar el nombre de archivo después de la bandera -O, ejemplo:
+
+wget -O linux.jpg https://bloximages.newyork1.vip.townnews.com/redandblack.com/content/tncms/assets/v3/editorial/4/59/45940eb2-5403-11e9-a843-db0e4491cc90/5ca13d8453042.image.jpg
+
+Lo anterior Guardara el archivo descargado en nuestro directorio de trabajo actual con el nombre de archivo linux.jpg.
+

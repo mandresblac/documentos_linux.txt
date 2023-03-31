@@ -1,0 +1,34 @@
+COMANDO LS (Lista el contenido de un directorio)
+
+algunas de las formas más comunes de modificar el comando ls.
+
+ls -ad */
+Este comando mostrará todos los subdirectorios incluidos los ocultos.
+
+-a (all)
+Imprime todos los archivos / directorios, incluidos los ocultos.
+
+-d (directories)
+Enumera directorios, pero sin sus contenidos.
+
+-h (human readable)
+Imprime tamaños de archivo en formato legible para humanos.
+
+-l (long list)
+Proporciona detalles adicionales en un archivo/directorio por línea.
+
+-r (reverse)
+Invierte el orden.
+
+-R (recursive)
+Enumera todos los archivos, incluidos los archivos de cada subdirectorio.
+
+-S (size)
+Ordena por tamaño de archivo.
+
+-t (time)
+Ordena por fecha de modificación.
+
+-X (eXtension)
+Ordena por extensión de archivo.
+

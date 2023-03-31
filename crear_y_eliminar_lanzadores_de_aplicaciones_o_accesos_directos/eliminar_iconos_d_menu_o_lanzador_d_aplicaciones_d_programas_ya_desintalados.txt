@@ -1,0 +1,26 @@
+
+Generalmente la mayoria de aplicaciones instaladas en nuestro sistema generan un archivo .desktop
+que representan los iconos de las aplicaciones que se muestran en el menu o lanzador de aplicaciones 
+(el equivalente a  los accesos directos en Windows), y que permiten abrir los programas al hacer click 
+con el mouse sobre estos.
+
+Estos archivos .desktop se localizan en los directorios:
+/home/directorio_de_trabajo_o_de_inicio_del_usuario/.local/share/applications
+/usr/share/applications
+/usr/share/app-install/desktop
+
+Generalmente en el primer directorio:
+/home/directorio_de_trabajo_o_de_inicio_del_usuario/.local/share/applications
+
+Si despues de eliminar por completo un programa o aplicacion (con comando sudo apt remove --purge nombre_
+de_aplicacion*), el icono sigue apareciendo en el menu o lanzador de aplicaciones, puede dirigirse a uno
+de los directorios mensionados anteriormente (especialmente el primero), y alli debe encontrar un archivo
+con el nombre de la aplicacion anterioremente eliminada y con la extension .desktop, puede proceder a su
+eliminación y el icono en el menu o lanzador de aplicaciones desaparecera.
+
+NOTA: En el directorio /opt/ es donde habitualente se colocan las carpetas de los programas de terceros que instala el usuario que
+no vienen instalados por defecto en el sistema, es decir que en este directorio es donde el usuario coloca los programas que le de
+la gana instalar por su cuenta y riesgo, por lo cual despues de eliminar el archivo .desktop se debe revisar esta carpeta,
+verificar que programas (o carpetas) hay allí y desidir si se elimina o no el programa al cual se le quito el icono (archivo con
+extension .desktop) del menu o lanzador de aplicaciones.
+

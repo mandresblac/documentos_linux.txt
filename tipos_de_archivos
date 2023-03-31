@@ -1,0 +1,31 @@
+Simbolo          Tipo de Archivo                             		Descripción
+
+  d	 		para un directorio	         		Archivo que se usa para guardar otros archivos,contiene los nombres de otros
+                                                archivos y enlaces a ellos.
+
+  -	 		para un archivo regular	 	        Incluye archivos leíbles, imágenes, archivos binarios y archivos comprimidos,
+ 												que puede estar vacío o contener texto o datos binarios.
+
+  l	 		para un enlace simbólico	 		Apunta a otro archivo, es un nombre de archivo que hace referencia a otro archivo.
+
+  s	 		para la ranura (socket)	           	Permite la comunicación entre procesos, archivo de socket que permite que dos
+												procesos (programas) se comuniquen, donde ambos procesos pueden enviar o recibir
+												datos.
+
+  p	 		para una barra vertical	 			Permite la comunicación entre procesos, archivo de tubería que funciona de manera
+												similar al símbolo de tubería, lo que permite que la salida de un proceso se
+												comunique con otro proceso a través del archivo de tubería, donde la salida de un
+												proceso se usa como entrada para el otro proceso.
+
+  b	 		para un archivo de bloque	 		Permite la comunicación con el Hardware, es aquel que se relaciona con un
+												dispositivo de hardware de bloque donde los datos se leen en bloques de datos.
+
+  c	 		para un archivo de carácter	 		Permite la comunicación con el Hardware, es un archivo que se relaciona con un
+												dispositivo de hardware de caracteres donde los datos se leen un byte a la vez.
+
+  n         para archivos de red
+
+NOTA: Los enlaces simbolicos (l) vienen a ser como una especie de acceso directo en SO Windows, se mostrará el
+nombre del vínculo junto con una flecha y la ruta de acceso del archivo original, así:
+lrwxrwxrwx 1 manuel manuel   86 feb  8 18:57 freecad_0.18 -> /home/manuel/Descargas/FreeCAD_0.18-16146-Linux-Conda_Py3Qt5_glibc2.12-x86_64.AppImage
+

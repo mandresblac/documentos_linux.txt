@@ -1,0 +1,22 @@
+                     VOLVER A ESTADO INICIAL O 
+                REFRESCAR CONFIGURACION DE LXPANEL
+
+1- REFRESCAR LXPanel
+
+   En nuestra terminal, escribimos: lxpanelctl restart
+   Y se refrescará nuestro panel, sin tener la necesidad de reiniciar la sesión.
+
+
+2- VOLVER A SU ESTADO INICIAL LXPanel
+
+   En nuestra terminal, escribimos:   sudo cp /usr/share/lxpanel/profile/Lubuntu/panels/panel ~/.config/lxpanel/Lubuntu/panels
+   De esa manera, se copia la configuración guardada en nuestro sistema y sobrescribimos con ella nuestra configuración.
+
+   sudo lxpanelctl restart
+
+   Y quedaría restaurada nuestro LXPanel, sin ningún problema.
+
+
+  pagina web
+  https://lubuntuconjavi.blogspot.com/2016/01/personalizar-el-lxpanel-en-lubuntu.html
+

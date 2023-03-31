@@ -1,0 +1,32 @@
+NSTALACIÓN DE MYSQL:
+sudo apt install mysql-server
+
+CONEXIÓN A UNA BASE DE DATOS MYSQL:
+Para conectarnos ala base de datos de mysql vamos al archivo que se encuentra en la ruta /etc/mysql/debian.cnf
+
+En este archivo encontraremos lo siguiente:
+host     = localhost
+user     = debian-sys-maint
+password = RlmSO4GapzxqEzQx
+
+Luego escribimos el siguiente comando:
+mysql -u nombre-usuario -p   reemplazando quedaria:
+mysql -u debian-sys-maint -p
+
+Damos enter.
+
+Luego me pide el password, lo digitamos y damomos enter
+
+!Listo ya accedemos a mysql!
+
+Si salimos de mysql y queremos volver a conectarnos lo hacemos con:
+sudo mysql
+
+BONUS: Para ver las bases de datos que existen en mysqul digitamos el comando:
+show databases;
+
+Escribe tu contraseña en una nueva línea, de otra forma quedará guardada en tu historial de comandos. En caso de que el host de la base de datos se encuentre en alguna otra máquina debes especificarlo con -h ip-host.
+
+Recuerda que puedes encontrar la información de tu base de datos (incluyendo la contraseña) en el archivo /etc/mysql/debian.cnf.
+
+

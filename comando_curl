@@ -1,0 +1,71 @@
+Comando curl
+
+curl es una abreviatura de «Client URL». Los comandos de Curl están diseñados para funcionar como una forma de verificar la
+conectividad a las URL y como una gran herramienta para transferir datos.
+
+curl lo que hace es traer un archivo a menera de texto a traves de la red a mí computadora.
+El uso mas comun del comando curl es para descargar las llaves de los repositorios, cuando se instala un repositorio nuevo
+por medio de curl se descarga e instala la llave en el equipo.
+
+El comando Curl es compatible con la siguiente lista de protocolos:
+
+- HTTP y HTTPS
+- FTP y FTPS
+- IMAP e IMAPS
+- POP3 y POP3S
+- SMB y SMBS
+- SFTP
+- SCP
+- TELNET
+- GOPHER
+- LDAP y LDAPS
+- SMTP y SMTPS
+
+Estos son los protocolos compatibles más importantes, pero también hay algunos otros. Curl funciona con libcurl, que es una
+biblioteca de transferencia de URL gratuita en el lado del cliente.
+
+curl --version: Para verificar la version de curl
+
+
+Sintaxis básica del comando Curl
+Aprendamos a usar los comandos Curl. La sintaxis básica de Curl se ve así:
+curl [OPTIONS] [URL]
+
+El uso más simple de Curl es mostrar el contenido de una página. El siguiente ejemplo mostrará la página de inicio de
+testdomain.com.
+
+curl testdomain.com
+
+Esto generará el código fuente completo de la página de inicio del dominio. Si no se especifica ningún protocolo, curl lo
+interpretará a HTTP.
+
+
+Opciones de archivo de comandos de Curl
+Los comandos Curl pueden descargar archivos desde una ubicación remota. Puedes hacerlo de dos maneras diferentes:
+
+-O guardará el archivo en el directorio de trabajo actual con el mismo nombre de archivo que el remoto.
+-o permite especificar un nombre de archivo o ubicación diferente.
+A continuación se muestra un ejemplo:
+
+curl -O http://testdomain.com/testfile.tar.gz
+El comando anterior guardará esto como testfile.tar.gz.
+
+curl -o newtestfile.tar.gz http://testdomain.com/testfile.tar.gz
+El comando anterior guardará esto como newtestfile.tar.gz.
+
+Si por alguna razón, la descarga se interrumpe, puedes reanudarla usando curl. Puedes hacerlo con el siguiente comando:
+curl -C - -O  http://testdomain.com/testfile.tar.gz
+
+Usando curl, también podemos descargar varios archivos, como se muestra a continuación:
+curl -O http://testdomain.com/testfile.tar.gz -O http://mydomain.com/myfile.tar.gz
+
+Si quieres descargar múltiples archivos de múltiples URLs, inclúyelos todos en un archivo. Los comandos Curl se pueden combinar con xargs para descargar las diferentes URLs.
+
+Por ejemplo, si tenemos un archivo allUrls.txt que contiene una lista de todas las URLs que se descargarán, el siguiente ejemplo se puede usar para descargar todos los archivos.
+
+xargs –n 1 curl -O < allUrls.txt
+
+
+link sobre el comando curl https://en.wikipedia.org/wiki/CURL
+link video youtube de comando curl https://www.youtube.com/watch?v=aneQwvcClIM
+

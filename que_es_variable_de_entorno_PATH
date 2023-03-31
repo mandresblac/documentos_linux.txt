@@ -1,0 +1,60 @@
+VARIABLE DE ENTORNO PATH O (VARIABLE DE RUTA)
+
+Cuando intentamos ejecutar un comando lo que la shell hace es buscar el fichero ejecutable correspondiente en 
+una lista de directorios que se encuentra almacenada en una variable de entorno denominada PATH. Podemos 
+imprimir esta lista utilizado el comando echo:
+
+~$ echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+
+En el ejemplo mostrado al escribir un comando en la shell, ésta lo buscará primero en el directorio 
+/usr/local/sbin, después en /usr/local/bin y así sucesivamente hasta que lo encuentre en alguno de los 
+directorios del $PATH. Si el comando no se encuentra la shell devolverá un error::
+
+~$ hola
+  No se ha encontrado la orden «hola», quizás quiso decir:
+  La orden «cola» del paquete «git-cola» (universe)
+  hola: orden no encontrada
+
+Cuando intentemos ejecutar programas creados por nosotros mismos o descargados desde algún lugar deberemos tener
+este detalle en cuenta. Por ejemplo, si descargamos un ejecutable llamado hola_mundo y después intentamos 
+ejecutarlo, la shell no lo encontrará:
+
+~$ ls
+ hola_mundo
+~$ hola_mundo
+ No se ha encontrado la orden «hola», quizás quiso decir:
+ La orden «cola» del paquete «git-cola» (universe)
+ hola_mundo: orden no encontrada
+
+La shell no lo encuentra porque el directorio de trabajo (“.”) no está incluido en el PATH. Podríamos ejecutar 
+el comando si le indicamos a la shell la ruta en la que se encuentra el comando:
+
+~$ /home/usuario/hola_mundo
+ Hola mundo!
+También podríamos utilizar una ruta relativa:
+
+~$ ./hola_mundo
+ Hola mundo!
+
+O podemos añadir el directorio donde se encuentra el ejecutable en el PATH. Si por ejemplo instalamos un 
+programa en nuestra home en el directorio programa, podemos añadir este directorio al path y ejecutar el 
+programa simplemente ejecutandolo con su nombre.
+
+programa: /home/user/dibujacirculos/bin/draw_circle
+añadimos al path:/home/user/dibujacirculos/bin
+nuevo PATH: PATH=/home/user/dibujacirculos/bin:$PATH
+
+Para que la shell cargue la variable de entorno, podemos utilizar el comando source que actualizará las 
+variables de entorno con los valores que hayamos puesto en el fichero que carguemos, en este caso .bashrc.
+
+~$ source $HOME/.bashrc
+
+Se puede dar el caso que tengamos el mismo programa instalado por dos metodos distintos. Ambos programs tienen 
+un ejecutable que se llama igual. Como podemos saber cual de los ejecutables se está ejecutando? En linux 
+tenemos el comando which que nos devolvera la ruta completa. La shell va recorriendo los directorios del path 
+en orden hasta que en alguno encuentra el ejecutable. which devuelve el path completo del ejecutable que la 
+shell usa.
+
+~$ which cp
+ /bin/cp

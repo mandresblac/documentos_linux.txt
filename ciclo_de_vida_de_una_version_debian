@@ -1,0 +1,37 @@
+EL CICLO DE VIDA DE UNA VERSIÓN DE DEBIAN
+
+Por lo general, todas las versiones de Debian tienen el mismo ciclo de vida, desde la fase de prueba, al lanzamiento de su próxima versión
+pasando por su publicación. En casos excepcionales, el ciclo comienza con una llamada fase experimental donde se planifican aquellos cambios
+que pueden tener un impacto sustancial en la totalidad del sistema. En esta fase, la nueva versión de Debian no contiene una colección
+completa de aplicaciones, sino solo aquellos paquetes que todavía están en la fase alfa y que no pueden ser cargados en la versión inestable
+«sid».
+La siguiente lista muestra las etapas habituales de un nuevo lanzamiento:
+
+- INESTABLE O "SID":
+  En la fase inestable (unstable en inglés) no se prueba una versión completa de la distribución, sino que se comprueban nuevas versiones de
+  paquetes y programas antes de que estas sean integradas en la versión completa en el siguiente paso. Dependiendo del paquete, la duración
+  del test puede prolongarse unas pocas horas o diez días. Si no se descubren errores graves (“RC Bugs”), los programas se incluyen en la
+  versión de prueba. Desde finales del 2000, se le asignó el nombre de Sid (el vecino del protagonista de Toy Story, a quien le encantaba
+  destruir juguetes).
+
+- PRUEBAS O "TESTING":
+  La versión en pruebas es el candidato oficial a la versión de Debian que será publicada. En la fase testing se integran los nuevos paquetes
+  de tal forma que la versión se encuentra en constante evolución. Unos meses antes de publicar esta versión de prueba esta se congela
+  (“freeze”). A partir de este punto, los esfuerzos se concentran únicamente en la reparación de errores. Solo cuando se han corregido todos
+  los errores “graves” se prepara el Release y es ahí cuando la versión en pruebas se convierte en la versión estable.
+
+- ESTABLE O "STABLE":
+  Esta hace referencia a la última versión de Debian. En ella, a excepción de las actualizaciones de seguridad, no hay grandes cambios a
+  implementar para los paquetes de software incluidos. La versión estable es la elección ideal para su uso en sistemas de servidores que
+  necesitan funcionar a largo plazo. Se recomienda para aplicaciones que requieren estabilidad y seguridad a nivel de producción (servidores,
+  cortafuegos, etc.) y también se recomienda para aquellos que son nuevos en Linux.
+
+- ANTIGUA ESTABLE U "OLDSTABLE":
+  Cuando se sustituye una versión estable, esta recibe el nombre de oldstable. A pesar de que los desarrolladores de Debian recomiendan la
+  transición a la nueva versión, siempre ofrecen al menos un año de actualizaciones en seguridad para la versión antigua estable.
+
+Con el nuevo proyecto Debian Long Term Support y desde Debian 6.0 “Squeeze” se busca ofrecer soporte a largo plazo para las versiones más
+recientes. Este proyecto tiene como fin suministrar actualizaciones de seguridad a las versiones estables por un máximo de cinco años.
+
+Pagina de Debian sobre las versiones: https://wiki.debian.org/DebianReleases
+

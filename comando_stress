@@ -1,0 +1,47 @@
+Con la herramienta ‘stress’ podemos realizar diferentes pruebas, que generan gran carga y puede ayudarnos a revisar la salud de los equipos. Como por ejemplo el estrés de la CPU, la memoria, la entrada y salida (I/O) o del disco.
+
+¿CÓMO FUNCIONA STRESS?
+Básicamente se encarga de crear una cantidad dada de carga a la CPU, la memoria, E / S y tensión de disco. Está escrita en C y es
+software libre, utiliza una licencia GPLv2
+
+INSTALACIÓN
+En sistemas con paquetería APT, esto es, basados en Debian, como por ejemplo Ubuntu, ya lo tenemos disponible en los repositorios principales, sólo debemos escribir:
+
+apt -y install stress
+
+
+Una vez instalado veamos su funcionamiento:
+
+stress [parámetros]
+
+Los parámetros más comunes son:
+
+-c o –cpu N : Crea un número dado de hilos de trabajo en sqrt()
+-i o –io N : Crea un número dado de hilos de trabajo en sync()
+-m o –vm N : Crear un número dado de hilos de trabajo en malloc/free()
+-t 10s : Tiempo de espera
+-v : Modo en detalle (verbose)
+
+
+Ejemplo:
+
+Primero ejecutamos el comando uptime, cuya salida seria:
+16:16:51 up  1:44,  1 user,  load average: 0,74, 2,12, 2,38
+
+En load average vemos que la primera parte son los primeros 5 minutos, la segunda los 10 últimos minutos y la ultima los últimos 15
+minutos, con esto tendremos una media del rendimiento del equipo.
+
+Veamos con más detalle la información mostrada por el comando uptime:
+- 16:16:51, la hora actual.
+- up 1:44, el tiempo que lleva encendida la máquina.
+- 1 user, número de usuarios conectados actualmente.
+- load average: 0,74, 2,12, 2,38 La carga media del sistema durante los pasados 1, 5 y 15 minutos: 0,74, 2.12, y 2,38 respectivamente.
+
+Luego ejecutamos el comando stress, cuya salida seria:
+stress -c 2 -i 1 -m 1 --vm-bytes 128M -t 10s
+
+Con el comando anterior Se enviaron 2 procesos intensivos en cada CPU (-c 2), 1 procesos de entrada y salida (-i 1), y 1 procesos
+directos a la memoria RAM (-m 1), cada uno de 128Mb (--vm-bytes 128M), durante un tiempo de 10 segundos (-t 10s)
+
+Por ultimo podemos comparar los datos arrojados por ambos comandos para ver el estado de nusetro sistema.
+

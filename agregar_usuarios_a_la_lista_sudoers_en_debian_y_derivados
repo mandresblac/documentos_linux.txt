@@ -1,0 +1,28 @@
+AGREGAR USUARIOS A LA LISTA SUDOERS EN DEBIAN
+
+Una vez instalado Debian para activar el comando sudo de cualquier usuario seguimos los siguientes pasos:
+
+1- nos logueamos como superusuario root, o usuario administrador.
+2- Con el editor de texto de nuestra preferencia (nano, vi-vim o el que sea) editamos el archivo /etc/sudoers
+3- Buscamos la parte donde dice:
+
+     # User privilege specification
+     root    ALL=(ALL:ALL) ALL
+
+y debajo de root ALL=(ALL:ALL) ALL  escribimos el nombre de usuario (en este caso manuel) y copiamos 
+ALL=(ALL:ALL) ALL 
+
+Quedando de la siguiente manera:
+
+     # User privilege specification
+     root    ALL=(ALL:ALL) ALL
+     manuel  ALL=(ALL:ALL) ALL
+
+4- Guardamos oprimiendo las teclas Ctrl + o + enter 
+5- Y para salir del editor oprimimos las teclas Ctrl + x
+
+
+!!LISTO!!
+
+
+Nota: Los pasos 4 y 5 aplican unicamente en el editor de texto nano

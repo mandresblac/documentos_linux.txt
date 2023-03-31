@@ -1,0 +1,78 @@
+COMPRIMIR Y DESCOMPRIMIR ARCHIVOS EN FORMATOS .ZIP .GZIP .BZIP2 .XZ
+
+
+.ZIP
+Para comprimir cualquier archivo en formato .zip
+zip  nombrearchivo   nombre_archivo_a_comprimir
+
+Para descomprimir archivos en formato .zip
+unzip nombrearchivo.zip
+
+Para comprimir un directorio
+zip -r   nombre_de_archivo    nombre_archivo_a_comprimir
+
+Para listar el contenido y descripcion de un paquete .zip sin extraer nada:
+unzip -l nombre_de_archivo.zip     o     unzip -v  nombre_de_archivo.zip
+NOTA: .zip es la principal utilidad de compresion de archivos en sistemas windows de Microsoft.
+
+
+
+.GZIP (.gz)
+Para comprimir cualquier archivo en formato .gzip  (dará como resultado un paquete comprimido con extensión .gz)
+gzip archivo_a_comprimir    o    gzip -9  archivo_a_comprimir
+
+Para descomprimir cualquier archivo en formato .gzip con extensión .gz
+gzip -d nombre_archivo.gz
+
+Tambien puede indicarse la descomprecion con las palabras: gunzip, uncompress o dcompress.
+gunzip nombredearchivo.gz   o   uncompress nombredearchivo.gz
+
+Para conocer los principales parámetros del archivo comprimido
+gzip -l archivo.gz
+
+Para conservar el archivo  original indicamos la opción -k
+
+Para ver contenido de archivos comprimidos en formato .gzip utilizamos el comando zcat
+
+NOTA: .gzip es una herramienta que solo comprime archivos individuales (no directorios) y no permite empaquetar a varios archivos dentro de un mismo paquete.
+.gzip usa el algoritmo de compresión Lempel-Ziv-Markov.
+
+
+
+
+.BZIP2 (.bz2)
+Para comprimir cualquier archivo en formato .bzip2  (dará como resultado un paquete comprimido con extensión .bz2)
+bzip2 archivo_a_comprimir   o    bzip2 -z archivo_a_comprimir
+
+Para descomprimir el registro que se te ha generado como resultado de la compresión en .bz2
+bzip2 -d archivo.bz2    o     bunzip2 nombredearchivo.bz2
+
+Para ver en la terminal el contenido de cualquier archivo .bzip2
+bzcat nombre_de_archivo.bz2
+
+Para hacer un test de la integridad del archivo comprimido .bz2 (Si todo está OK, no habrá ningún output):
+bzip2 -t archivo.bz2
+bzip2 también viene con el programa bzip2recover, que tratará de recuperar archivos .bz2 dañados.
+
+Para conservar el archivo original indicamos la opción -k
+
+Para ver contenido de archivos comprimidos en formato .bz2 utilizamos el comando bzcat
+
+NOTA: .bzip2 usa el algoritmo de compresión Burrows-Wheeler.
+
+
+
+
+.XZ (.xz)
+Para comprimir cualquier archivo en formato xz (dará como resultado un paquete comprimido con extensión .xz)
+xz archivo_a_comprimir
+
+ Para descomprimir archivos en formato .xx
+unxz  archivo.xz
+
+Para conservar el archivo original indicamos la opción -k
+
+Para ver contenido de archivos comprimidos en formato .xz utilizamos el comando xzcat
+
+NOTA: .xz usa el algoritmo de compresión Lempel-Ziv-Markov.
+

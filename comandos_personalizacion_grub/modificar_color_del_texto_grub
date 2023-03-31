@@ -1,0 +1,39 @@
+Edita como root el archivo "05_debian_theme" con el comando:
+sudo nano /etc/grub.d/05_debian_theme
+
+Alrededor de la línea nº 105 busca estas líneas seguidas:
+
+if [ -z "${2}" ] && [ -z "${3}" ]; then
+    echo "  true"
+fi
+
+Y en me dio de las dos pega estas 2 líneas cambiando los colores (color1 y color2), por los que tú quieras:
+...
+echo " set color_normal=color1/color2"
+echo " set color_highlight=color1/color2"
+...
+
+Nota: recuerda que en la relación de colores "color1/color2" (color-texto/color-fondo), cuando el negro "black" está como color de fondo (color2) es transparente.
+no admite los colores purple y orange.
+
+Hay que comentar la línea (añadir una almohadilla delante) que asigna el valor verdadero (echo "  true"), para que el sistema pase de largo y coja los valores de las líneas de los colores que añadimos debajo (las mismas que ya comenté)
+
+Quedaría así:
+
+if [ -z "${2}" ] && [ -z "${3}" ]; then
+    # echo "  true"
+    echo "  set color_normal=yellow/black"
+    echo "  set color_highlight=yellow/green"
+fi
+
+Y actualiza el grub con el comando:
+sudo update-grub
+
+
+
+
+
+
+URL paginas web de donde saque la informacion anterior:
+http://foro.ubuntu-guia.com/cambiar-color-del-texto-en-el-grub-de-Ubuntu-12-04-solucionado-td4022601.html
+http://foro.ubuntu-guia.com/cambiar-color-del-texto-en-el-grub-de-Ubuntu-12-04-solucionado-td4022601i80.html#a4023142

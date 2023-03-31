@@ -1,0 +1,8 @@
+man -f comando: Muestra la descripcion corta de un comando, por ejemplo:
+man -f cp   muestra la descripcion corta de lo que hace el comando cp, este comando hace lo mismo que el comando "whatis"
+
+man -k cualquier_palabra: hace una busqueda generica en el sistema de la palabra ingresada, es dicir imprime cualquier coincidencia,
+este comando hace lo mismo que el comando "apropos", ejemplo:
+man -k copy  imprime resultados que tengan que ver con la palabra copy
+apropos copy
+

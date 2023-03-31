@@ -1,0 +1,101 @@
+En linux no existen las letras de unidad como en Windows (a:\ b:\ c:\ d:\ e:\), en linux todo es un archivo, por lo tanto  para poder acceder
+a un dispositivo (usb, disco extraible, etc) o particion hay que vincularlo o asociarlo con un directorio vacio en el sistema, este proceso se
+llama "montar" una partición y se puede hacer de forma automática (Como lo hacen actualmente todas las distro modernas de linux) o de forma
+manual.
+
+Para montar de forma manual un disposiivo o particion podemos ejecutar el siguiente procedimieneto:
+
+
+1- Nos logueamos en el sistema como usuario root o usuario con privilegios de administración
+
+2- Identificamos los dispositivos que hay en nuestro sistema con el comando "lsblk -f", la salida sera algo como esto:
+
+NAME   FSTYPE LABEL                     UUID                                 FSAVAIL FSUSE% MOUNTPOINT
+sda
+├─sda1 ntfs   Reservado para el sistema E4AE0DEDAE0DB8D6
+├─sda2 ntfs                             3A3216FC3216BCB7
+├─sda3 ntfs                             0EEAB38AEAB36D19
+└─sda4 ext4                             64599420-581d-4e87-a26f-5961c1748ca5     75G    18% /
+sdb
+├─sdb1 ntfs   Datos                     1B1FE5FC7FED1F00
+├─sdb2 ext4                             136663f8-20ce-43a9-bcbc-aae40e02f9ef  106,6G    19% /home
+└─sdb3 swap                             41e3b1bc-6539-44f2-aa64-ef368c7b051c                [SWAP]
+
+
+
+3- Insertamos el dispositivo externo (usb, disco externo, etc).
+
+
+4- Volvemos a utilizar el comando "lsblk -f", cuya salida sera:
+
+NAME   FSTYPE LABEL                     UUID                                 FSAVAIL FSUSE% MOUNTPOINT
+sda
+├─sda1 ntfs   Reservado para el sistema E4AE0DEDAE0DB8D6
+├─sda2 ntfs                             3A3216FC3216BCB7
+├─sda3 ntfs                             0EEAB38AEAB36D19
+└─sda4 ext4                             64599420-581d-4e87-a26f-5961c1748ca5     75G    18% /
+sdb
+├─sdb1 ntfs   Datos                     1B1FE5FC7FED1F00
+├─sdb2 ext4                             136663f8-20ce-43a9-bcbc-aae40e02f9ef  106,6G    19% /home
+└─sdb3 swap                             41e3b1bc-6539-44f2-aa64-ef368c7b051c                [SWAP]
+sdc
+└─sdc1 vfat                             E532-ACAD                               3,8G     0%
+
+Observamos que en la parte final aparece un dispositivo nuevo o particion que es el sdc con una particion sdc1 que corresponde al dispositivo
+que hemos conectado al sistema, que en este caso es un USB.
+
+
+5- Nos ubicamos en el directorio /media que es donde se acostrumbra a montar los dispositivos extraibles (antiguamente se hacia en el
+directorio /mnt) y creamos un directorio nuevo, en este directorio es donde vamos a montar el contenido del dispositivo extraible, para este
+caso a este directorio nuevo lo llamaremos usb y lo creamos con el comando: mkdir usb
+
+
+6- Montamos el dispositivo o particion con el siguiente comando:
+
+mount -t             vfat                      /dev/sdc1                /medi/usb
+mount -t   tipo_de_sistema_de_archivo      dispositivo_origen      directorio_de_destino
+
+
+7- Para comprobar que el dispositivo se monto correctamente uilizamos de nuevo el comando "lsblk -f" , cuya salida sera:
+
+NAME   FSTYPE LABEL                     UUID                                 FSAVAIL FSUSE% MOUNTPOINT
+sda
+├─sda1 ntfs   Reservado para el sistema E4AE0DEDAE0DB8D6
+├─sda2 ntfs                             3A3216FC3216BCB7
+├─sda3 ntfs                             0EEAB38AEAB36D19
+└─sda4 ext4                             64599420-581d-4e87-a26f-5961c1748ca5     75G    18% /
+sdb
+├─sdb1 ntfs   Datos                     1B1FE5FC7FED1F00
+├─sdb2 ext4                             136663f8-20ce-43a9-bcbc-aae40e02f9ef  106,6G    19% /home
+└─sdb3 swap                             41e3b1bc-6539-44f2-aa64-ef368c7b051c                [SWAP]
+sdc
+└─sdc1 vfat                             E532-ACAD                               3,8G     0% /media/usb
+
+Observamos en la columna MOUNTPOINT (o punto de montaje) que el dispositivo o particion sdc1 esta montado en /media/usb
+Si miramos con un "ls" dentro el directorio /media/usb podemos ver todo el conenido de la USB al cual ya podremos acceder.
+
+8- Para desmontar el dispositivo o particion ejecutamos el siguiente comando:
+
+umount        /media/usb
+	     directorio_de_destino
+
+9- Si volvemos a utilizar el comando "lsblk -f" , obtenemos la salida:
+
+NAME   FSTYPE LABEL                     UUID                                 FSAVAIL FSUSE% MOUNTPOINT
+sda
+├─sda1 ntfs   Reservado para el sistema E4AE0DEDAE0DB8D6
+├─sda2 ntfs                             3A3216FC3216BCB7
+├─sda3 ntfs                             0EEAB38AEAB36D19
+└─sda4 ext4                             64599420-581d-4e87-a26f-5961c1748ca5     75G    18% /
+sdb
+├─sdb1 ntfs   Datos                     1B1FE5FC7FED1F00
+├─sdb2 ext4                             136663f8-20ce-43a9-bcbc-aae40e02f9ef  106,6G    19% /home
+└─sdb3 swap                             41e3b1bc-6539-44f2-aa64-ef368c7b051c                [SWAP]
+sdc
+└─sdc1 vfat                             E532-ACAD                               3,8G     0%
+
+Observamos que sigue apareciendo la particion sdc1 pero en la columna MOUNTPOINT (o punto de montaje) no aparece nada, por la tanto la
+paricion sdc1 ya no esta montada, si verificamos el contenido del directorio /medi/usb ya no abra nada.
+
+En este punto ya es seguro retirar el dispositivo extraible.
+

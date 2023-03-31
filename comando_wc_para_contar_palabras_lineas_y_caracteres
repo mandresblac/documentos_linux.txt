@@ -1,0 +1,49 @@
+El comando wc (word count - contador de palabras), es una utilidad exclusiva de GNU/Linux que nos permite obtener interesantes
+detalles de archivos definidos, entre ellos se incluyen la cantidad de líneas del archivo, los caracteres, las palabras, etc.
+
+Las opciones con su sintaxis son fáciles de memorizar.
+
+wc -l [archivo] : Número de líneas.
+wc -c [archivo] : Número de bytes.
+wc -m [archivo] : Número de caracteres.
+wc -L [archivo] : Tamaño de la línea más larga.
+wc -w [archivo] : Número de palabras.
+
+En nuestros comandos con ejemplos medimos el archivo «libera.sh», un script bash que nos ayuda a limpiar los buffers y la 
+ram de linux. Comenzamos.
+
+Contamos el número de líneas del script:
+wc -l libera.sh
+
+# Ejemplo de salida
+[root@solo-linux ~]# wc -l libera.sh
+57 libera.sh <--Numero de lineas
+
+
+Ahora los bytes del archivo:
+wc -c libera.sh
+
+# Ejemplo de salida
+[root@solo-linux ~]# wc -c libera.sh
+1994 libera.sh <-- bytes del archivo
+
+Continuamos con la cantidad de caracteres contenidos en el archivo:
+wc -m libera.sh
+
+# Ejemplo de nuemero de caracteres
+[root@solo-linux ~]# wc -m libera.sh
+1990 libera.sh <-- Caracteres que contiene el archivo
+
+Identificamos el tamaño en caracteres de la línea más extensa:
+wc -L libera.sh
+
+# Ejemplo de tamaño de la linea más larga
+[root@solo-linux ~]# wc -L libera.sh
+67 libera.sh <-- Tamaño de linea mñas grande
+
+Como punto final, solicitamos al comando wc que nos indique el número de palabras del archivo:
+wc -w libera.sh
+
+# Ejemplo - Contamos las palabras
+[root@solo-linux ~]# wc -w libera.sh
+173 libera.sh <-- Palabras completas del archivo

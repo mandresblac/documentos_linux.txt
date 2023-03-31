@@ -1,0 +1,18 @@
+Para convertir una palabra a mayusculas, nos paramos al principio de la palabra y escribimos:
+gUw
+
+En caso de querer convertir una palabra a minusculas:
+guw
+
+Supongamos que queremos convertir 5 palabras que estan en mayusculas a minusculas:
+gu5w
+
+Y a mayusculas:
+gU5w
+
+Por ultimo, si queremos convertir toda la linea a mayusculas:
+gU$
+
+Y a minusculas:
+gu$
+

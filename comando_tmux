@@ -1,0 +1,97 @@
+tmux: Terminal MUltipleXer
+
+Tmux es un multiplexador de terminales; permite lanzar múltiples terminales (ventanas y paneles) dentro de
+única pantalla (sesión de consola, sesión telnet/ssh, pestaña de terminal en un GUI). Cada terminal es
+totalmente gestionable y separada de las demás: podemos cambiar entre ellas y lanzar procesos, crear paneles
+dentro de cada ventana, etc.
+
+tmux habilita un número de terminales (o ventanas) para ser accesibles y controladas desde una sola terminal como screen. tmux se ejecuta como
+un sistema cliente-servidor. Un servidor es creado automáticamente cuando se necesita y posee un número de sesiones, en la que cada una de 
+ellas tiene un número de ventanas enlazadas. Cualquier número de clientes pueden conectarse a una sesión, o el servidor puede ser controlado
+mandando comandos con tmux. La comunicación se hace a través de un socket, ubicado por defecto en /tmp. Además tmux provee una interfaz de
+comandos consistente y bien documentada, con la misma sintaxis tanto si es usada interactivamente, como  si es usada como asignación de teclas,
+o por la shell. Ofrece la elección de vim o Emacs como diseño de teclas.
+
+
+INATALACION DE TMUX:
+sudo apt install tmux
+
+tmux -V  Para ver la version instalada de tmux
+
+PARA INICIAR SESION:
+tmux
+tmux new -s nombre_de_sesion
+
+tmux ls  Para ver las sesiones activas que tenemos
+tmux a   Para volver a la ultima sesion que detuvimos
+tmux a -t nombre_de_sesion  Para entrar a una sesion especifica
+
+PARA MATAR UNA SESION
+tmux kill-session -t nombre_de_sesion  Borrar una sesión
+
+
+Siempre hay que pulsar la combinacion de teclas Ctrl + b y luego una tecla que realizara una accion en esta herramienta
+OJO: La combinacion de teclas Ctrl + b se cambia por Ctrl + q que es mucho mas comodo.
+
+
+MANEJO DE SESIONES
+Ctrl+b d  Hace un "dettach" o se desconecta de la sesión pero esta sigue activa.
+Ctrl+s  Para cambiarnos entre sesiones una vez que ya estamos dentro de una sesion, con las flechas seleccionamos la sesion que queramos y damos enter.
+Ctrl+b ) Para ir a la sesion siguiente, hacia adelante
+Ctrl+b ( Para ir ala sesion anterior, hacia atras
+Ctrl+b $  Para cambiar el nombre de una sesion.
+
+
+MANEJO DE VENTANAS
+Ctrl+b c  Para crear una nueva ventana
+Ctrl+b &  Forzar el cierre de la ventana actual y sus paneles (matar).
+Ctrl+b n  Cambiar a la ventana siguiente (n de next).
+Ctrl+b p  Cambiar a la ventana anterior (p de previous).
+Ctrl+b l  Cambiar a la última ventana utilizada.
+Ctrl+b NUMERO  Cambiar a la ventana que tiene un número especifico.
+Ctrl+b w  Ver una lista de todas las ventanas para cambiar entre ellas con los cursores.
+Ctrl+b ,  Cambiar el nombre de la ventana actual en la barra de estado
+
+
+GESTION DE PANELES
+Los paneles nos van a permitir abrir en una misma ventana varios paneles.
+Ctrl+b %  Dividir verticalmente la ventana actual en dos paneles.
+Ctrl+b "  Dividir horizontalmente la ventana actual en dos paneles.
+Ctrl+b teclas_de_flechas   Moverse entre paneles (al de arriba, abajo, derecha, izquierda).
+Ctrl+b o  Moverse cíclicamente entre paneles.
+Ctrl+b barra_espaciadora  Reubica posición de panel, si esta verical lo pone horizontal, si esta hoizontal lo pone vertical.
+Ctrl+b x  Matar o cerrar panel actual.
+Ctrl+b q  Mostrar brevemente los números identificativos de cada panel.
+Ctrl+b q + número_del_panel  Para cambar de panel sin usar las teclas de flecha.
+Ctrl+b t  Mostrar un reloj digital en el panel actual.
+Ctrl+b z  Para hacer zoom a un panel especifico y que ocupe toda la pantalla y que regrese a zoom normal.
+Ctrl+b ! Convertir el panel actual en una ventana completa individual.
+Ctrl+b teclas_de_flechas  Para cambiar el tamaño del panel, hay que dejar presionados las teclas Ctrl+b y luego con las teclas de flecha se ajusta el tamaño.
+Ctrl+b : setw synchronize-panes  Para sincronizar y dessincronizar los panales de una ventana
+Ctrl+b {	Intercambiar el panel actual con el anterior.
+Ctrl+b }	Intercambiar el panel actual con el siguiente.
+Ctrl+b ;	Moverse al último panel activo.
+
+
+MODO DE COPIAR Y MOVERSE
+Ctrl+b [  Para movernos hacia arriba y hacia bajo con las flechas en las salidas de texto muy largas dentro del panel, salimos oprimiendo la tecla q.
+Ctrl+b : setw -g mode-keys vi  Para movernos en la terminal con las mismas teclas que se utilizan en el editor vim, que son j, h, k, l.
+Ctrl+b #  Lista todos los buffers que se pueden pegar
+Ctrl+b - Borra el buffer de texto copiado más reciente
+
+
+COMO COPIAR Y PEGAR TEXTO ENTRE LAS VENTANAS Y PANELES D TMUX
+Paso 1. Presione el "Prefijo" (‘Ctrl + b) y luego presione ‘[’ para entrar en el modo de copia.
+Paso 2. Con las teclas de flecha, busque la posición desde la que empezar a copiar. Utilizar "Ctrl + barra_espaciadora" para empezar a copiar.
+Paso 3. Muévase con las flechas hasta la posición del texto que desea copiar. Cuando haya terminado de seleccionar el texto, presione "Alt + w"
+o "Ctrl + w" para copiar el texto a un búfer Tmux.
+Etapa 4. Pegue el texto en una ventana, panel o sesión de Tmux usando el Prefijo (por defecto, es "Ctrl + b" ) seguido por ‘]’.:w
+
+
+COMO COPIAR DESDE EL BUFER  DE TMUX AL PORTAPAPELES DEL SISTEMA LINUX
+???? Pendiente
+
+
+AYUDA
+Ctrl+b ? Muestra una ayuda con los atajos de teclado.
+

@@ -1,0 +1,24 @@
+Para personalizar el editor de texto vi-vim debemos editar el archivo oculto .vimrc que se encuentra en el directorio
+de inicio o de trabajo del usuario (~), o tambien puede estar ubicado dentro del directorio oculto .config en nuestro
+directorio de inicio, una vez abierto el archivo escribimos lo siguiente:
+
+set number                Muestra numeracion de las lineas al lado izquierdo del editor.
+set numberwidth=1         Configura al ancho de los numeros al lado izquierdo del editor.
+set mouse=a               Permite interactuar con el mouse dentro del editor vim.
+set clipboard=unnamed     Para copiar en el portapapeles pero en modo -- VISUAL --.
+syntax enable             Habilita la sintaxis en vim, es decir, resalta las palabras con diferentes colores.
+set showcmd               Muestra los comandos ejecutados en la parte inferior del editor.
+set ruler		          Muestra la linea donde estoy posicionado en la parte inferior derecha del editor.
+set encoding=utf-8        Configura la codificacion de archivos en utf-8.
+set showmatch             Al posicionarse sobre un parentesis, corchete o llave muestra su respectivo cierre.
+set sw=2		          Al espichar la barra espaciadora deja 2 espacios en vez de uno.
+set relativenumber        Toma como referencia 0 la linea donde este posicionado el cursor y desde alli empieza a contar
+	                      hacia arriba o hacia abajo de esa posicion desde 1, es util porque si me quiero mover hacia arriba
+ 			              o hacia abajo de la linea donde estoy ubicado no necesito contar porque los numero de linea me
+			              aparecen a la izquierda.
+set laststatus=2          Hace visible por siempre la barra de informacion ubicada en la parte inferior del editor.
+set cursorline            Pone una linea horizontal en la posicion del cursor.
+set cursorcolumn	      Pone una columna en la posicion del cursor.
+set tabstop=4		      Configura cuantos espacios tiene una tabulacion. Por defecto viene en 8, se puede dejar en 4.
+set incsearch             Resalta texto mientras busca con los caracteres "/" o "?"
+set hlsearch  			  Mantiene las coincidencias resaltadas.

@@ -1,0 +1,63 @@
+Como crear accesos directos o lanzadores de aplicaciones
+
+Muchas veces te habrá ocurrido que instalas algún programa desde el terminal y no se añade su icono al lanzador de Ubuntu.
+Por tanto debes acudir al terminal para ejecutarlo desde su ubicación y esto resulta un tanto engorroso o por lo menos no tan
+directo como el método gráfico. Por eso, en este minitutorial te vamos a enseñar como añadir un «acceso directo» a tus programas
+favoritos para no tenerlos que abrir más desde la consola de comandos y poderlos buscar en el Dash o directamente pulsar
+sobre su icono anclado al lanzador.
+
+Bien, para que esto sea así, lo primero que debemos hacer es colocar la carpeta del programa en cuestion en el directorio /opt/ que es donde se almacenan todos los programas propios en nuestro sistema (esto lo debemos hacer como Superusuario), luego abrir  nuestro
+editor de texto preferido para crear un fichero llamado nombre_del_programa.desktop Por ejemplo, con nano como en nuestro caso,
+y tú sustituye «nombre_del_programa» por el nombre del programa en cuestión del que estés intentando crear un acceso directo.
+La ubicación en donde debes guardar este fichero es en /usr/share/applications (si quieres que sea visible para todos los usuarios del sistema),
+o en /home/nombre_de_usuario/.local/share/applications (si quieres que sea visible unicamente por el usuario que ha iniciado sesión), tal cual te indicamos en la siguiente inserción de texto:
+
+sudo nano /usr/share/applications/nombre_del_programa.desktop
+
+En el interior del fichero creado debemos insertar el siguiente código (sustituye el texto por lo que necesites en cada caso, ya queaquí se presenta de una forma genérica para que sirva para cualquier caso):
+
+[Desktop Entry]
+version=Version_del_programa  (No es obligatorio)
+Name=Nombre_del_programa  (Es obligatorio)
+GenericName=Breve_descripción_de_lo_que_hace_el_programa  (No es obligatorio)
+Comment=Comentario_que_quieras_hacer_sobre_el_programa
+Exec=Ruta_o_direccion_donde_se_encuentra_el_archivo_ejecutable_del_programa_en_cuestion  (Es obligatorio)
+Icon=Ruta_o_direccion_donde_se_encuentra_el_Icono_del_programa
+Type=Application  (Es obligatorio) Permite especificar que tipo de acceso directo o lanzador es. Una aplicación (Application), un enlace (Link) o un directorio (Directory).
+Categories=AudioVideo;   Sitúa los lanzadores o accesos directos de las aplicaciones según categorías en los menus desplegables.
+Keywords=Atajos de teclado (Es opcional no obligatorio)
+
+A continuacion un ejemplo de como quedaria el lanzador para el programa OpenShot de edicion de video:
+
+[Desktop Entry]
+version=2.5.1
+Name=Openshot Video Editor
+GenericName=edición de vídeo no lineal multiplataforma.
+Comment=Cree y edite videos y peliculas.
+Exec=/home/manuel/AppImage_aplicaciónes_portables/OpenShot-v2.5.1-x86_64.AppImage
+Icon=/home/manuel/Imágenes/OpenShot_logo.svg
+Type=Application
+Categories=AudioVideo;
+Keywords=openshot;editor;video
+
+por ultimo guardamos y escribimos el siguiente comando para actualizar los iconos del escritorio:
+sudo update-desktop-database
+
+listo, Ahora al buscarlo en el Menu nos aparecerá y si le damos un clic se nos abrirá.
+
+
+Categories:
+AudioVideo
+Audio
+Video
+Development
+Education
+Game
+Graphics
+Network
+Office
+Science
+Settings
+System
+Utility
+

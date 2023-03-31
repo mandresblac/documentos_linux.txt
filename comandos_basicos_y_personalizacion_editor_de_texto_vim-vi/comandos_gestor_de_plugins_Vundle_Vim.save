@@ -1,0 +1,32 @@
+Vundle es una herramienta más que atractiva y fácil de utilizar para gestionar los plugins que necesitemos en el editor de
+tecto Vi-Vim.
+
+Para instalar Vundle debemos clonarlo desde desde su repositorio en GIT dentro de nuestro directorio .vim local de usuario:
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+Primero que todo agregamos a nuestro archivo plugins.vim la linea del plugin que queremos instalar, por ejemplo:
+Plugin 'Valloric/YouCompleteMe'
+
+vim +PluginInstall: Para instalar (desde la terminal) cualquier plugin.
+vim .vim/		d Do	H	eje	h	
+ls pro	3	
+ls -l
+vhtm	i	
+vim +PluginClean nombre_del_plugin: Para desinstalar (desde la terminal) cualquier plugin, OJO: esto debemos hacerlo estando
+posicionados dentro del archivo bundle, en la ruta ~/.vim/bundle.
+
+Dentro Vim podemos ejecutar varios comandos relacionados con los Plugins, como:
+:PluginInstall     Instala los plugins que se encuentren en el archivo plugins.vim o .vimrc
+:PluginClean       Eliminará los plugins que estén instalados (o sea, cuyos archivos se encuentren dentro de ~/.vim/bundle/)
+				   y que no estén especificados en el plugins.vim.
+:PluginList        Ver la lista de plugins instalados.
+R
+
+:qall
+
+A:qalll
+
+:qall
+:qall
+:qall
+

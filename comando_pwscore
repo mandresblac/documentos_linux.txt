@@ -1,0 +1,12 @@
+
+Con el comando pwscore podemos probar qué tan fuertes son nuestras contraseñas. Recuerda que para usar este comando en sistemas
+basados en Ubuntu debemos instalar el paquete libpwquality-tools.
+
+sudo apt install libpwquality
+
+
+USO DEL COMANDO PWSCORE
+
+digitamos en la consola el comando pwscore, luego escribimos la contraseña que queremos probar.
+Nos arroja un número entre 0 y 100, siendo 0 una contraseña muy debil y 100 una contraseña muy buena y fuerte.
+

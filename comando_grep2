@@ -1,0 +1,136 @@
+
+El comando grep se pude utilizar para filtrar la información sobre un patron o palabra específica dentro de
+un archivo, por ejemplo, si queremos encontrar el patron o palabra sysadmin en el archivo /etc/passwd/
+escribimos:
+grep sysadmin /etc/passwd
+El comando anterior devuelve la linea del archivo /etc/passwd/ que contiene el patron o palabra sysadmin.
+
+
+LOS CARACTERES DE ANCLAJE
+Los caracteres de anclaje son una de las maneras de utilizar las expresiones regulares para reducir los
+resultados de búsqueda. Por ejemplo, el patrón root aparece muchas veces en el archivo /etc/passwd:
+sysadmin@localhost:~/Documents$ grep 'root' passwd
+root:x:0:0:root:/root:bin/bash
+operator:x:11:0:operator:/root:/sbin/nologin
+
+Para evitar que el shell los malinterprete como caracteres especiales, estos patrones deben protegerse por
+comillas fuertes, lo que significa simplemente ponerla entre comillas simples '.
+
+
+El primer carácter de anclaje es ^ se utiliza para asegurar que un patrón aparezca al principio de la línea.
+Por ejemplo, para encontrar todas las líneas en /etc/passwd que comienzan con root, utiliza el patrón ^root.
+Ten en cuenta que ^ debe ser el primer carácter en el patrón para que sea eficaz.
+sysadmin@localhost:~/Documents$ grep '^root' /etc/passwd
+root:x:0:0:root:/root:bin/bash
+
+El segundo carácter de anclaje es $ se puede utilizar para un patrón que aparece al final de la línea para
+reducir resultados de búsqueda de manera eficiente. Para encontrar las líneas que terminan con una r en el
+archivo alfa-first.txt, utiliza el patrón r$:
+sysadmin@localhost:~/Documents$ grep 'r$' alpha-first.txt
+B is for Bear
+F is for Flower
+Una vez más, la posición de este carácter es importante, el $ debe ser el último carácter en el patrón para
+que sea eficaz como un ancla.
+
+
+COINCIDIR UN SOLO CARACTE CON «.»
+Una de las expresiones más útiles es el . Coincidirá con cualquier carácter excepto el carácter que define un
+salto de línea. El patrón r..f encuentra cualquier línea que contiene la letra r seguida por exactamente dos
+caracteres (que pueden ser cualquier carácter menos un salto de línea) y luego la letra f:
+sysadmin@localhost:~/Documents$ grep 'r..f' red.txt
+reef
+roof
+
+El mismo concepto puede ser repetido utilizando otras combinaciones. El siguiente ejemplo encontrará palabras
+de cuatro letras que inician con r y terminan con d:
+sysadmin@localhost:~/Documents$ grep 'r..d' red.txt
+reed
+read
+
+Este carácter puede ser utilizado cualquier número de veces. Para encontrar todas las palabras que tengan al
+menos cuatro caracteres puedes usar el siguiente patrón:
+sysadmin@localhost:~/Documents$ grep '....' red.txt
+reef
+reeed
+roof
+reed
+root
+reel
+read
+
+La línea no tiene que ser una coincidencia exacta, simplemente tiene que contener el patrón, como se ve aquí
+cuando se busca r..t en el archivo /etc/passwd:
+sysadmin@localhost:~/Documents$ grep 'r..t' /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+operator:x:1000:37::/root:
+
+
+COINCIDIR CON UN SOLO CARACTER UTILIZANDO []
+Los corchetes [ ] buscan coincidencias con un sólo carácter de una lista o rango de posibles caracteres
+contenidos dentro de los corchetes.
+
+Por ejemplo, del contenido del archivo profile.txt:
+sysadmin@localhost:~/Documents$ cat profile.txt
+Hello my name is Joe.
+I am 37 years old.
+3121991
+My favorite food is avocados.
+I have 2 dogs.
+123456789101112
+
+Para encontrar todas las líneas en el archivo profile.txt que incluyen un número, utiliza el patrón [0123456789]
+o [0-9]:
+sysadmin@localhost:~/Documents$ grep '[0-9]' profile.txt
+I am 37 years old.
+3121991
+I have 2 dogs.
+123456789101112
+
+
+COINCIDIR CON UN CARACTER REPETIDO O CON PATRONES USANDO *
+El carácter de expresión regular * se utiliza para que coincida con cero o más apariciones del carácter o patrón
+que le precede. Por ejemplo e* coincidirá con cero o más apariciones de la letra e:
+sysadmin@localhost:~/Documents$ cat red.txt
+red
+reef
+rot
+reeed
+rd
+rod
+roof
+reed
+root
+reel
+read
+sysadmin@localhost:~/Documents$ grep 're*d' red.txt
+red
+reeed
+rd
+reed
+
+Cuando se usa solo con un carácter, * no es muy útil. Cualquiera de los siguientes patrones coincidirá con
+cualquier cadena o línea en el archivo: .* e* b* z*.
+sysadmin@localhost:~/Documents$ grep 'e*' red.txt
+red
+reef
+rot
+reeed
+rd
+rod
+roof
+reed
+root
+reel
+read
+
+Esto es porque * puede coincidir con cero ocurrencias de un patrón. Para que el * sea útil, es necesario crear
+un patrón que incluya más de un carácter antes de *. Por ejemplo, los resultados anteriores se pueden refinar
+añadiendo otra letra e para que el patrón ee* coincida de manera efectiva con cada línea que contenga al menos
+una e.
+sysadmin@localhost:~/Documents$ grep 'ee*' red.txt
+red
+reef
+reeed
+reed
+reel
+read

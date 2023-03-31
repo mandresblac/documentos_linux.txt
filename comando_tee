@@ -1,0 +1,33 @@
+El comando tee lee de la entrada estándar y escribe en la salida estándar y en uno o más archivos al mismo tiempo. tee se usa
+principalmente en combinación con otros comandos a través de tuberías.
+
+En este tutorial, cubriremos los conceptos básicos del uso del comando tee.
+
+
+Cómo usar el comando tee
+El uso más básico del comando tee es mostrar la salida estándar ( stdout ) de un programa y escribirla en un archivo.
+
+En el siguiente ejemplo, estamos utilizando el comando df para obtener información sobre la cantidad de espacio disponible en el disco en el sistema de archivos. La salida se canaliza al comando tee, que muestra la salida en el terminal y escribe la misma información en el archivo disk_usage.txt .
+
+df -h | tee disk_usage.txt
+
+Filesystem Size Used Avail Use% Mounted on dev 7.8G 0 7.8G 0% /dev run 7.9G 1.8M 7.9G 1% /run /dev/nvme0n1p3 212G 159G 43G 79% / tmpfs 7.9G 357M 7.5G 5% /dev/shm tmpfs 7.9G 0 7.9G 0% /sys/fs/cgroup tmpfs 7.9G 15M 7.9G 1% /tmp /dev/nvme0n1p1 511M 107M 405M 21% /boot /dev/sda1 459G 165G 271G 38% /data tmpfs 1.6G 16K 1.6G 1% /run/user/120
+
+Puede ver el contenido del archivo disk_usage.txt utilizando el comando cat.
+
+
+Escribir en múltiples archivos
+El comando tee también puede escribir en múltiples archivos. Para hacerlo, especifique una lista de archivos separados por espacio como argumentos:
+
+command | tee file1.out file2.out file3.out
+
+
+Agregar al archivo
+Por defecto, el comando tee sobrescribirá el archivo especificado. Use la opción -a ( --append ) para agregar la salida al archivo:
+
+command | tee -a file.out
+
+
+Conclusión
+El comando tee lee de la entrada estándar y lo escribe en la salida estándar y en uno o más archivos.
+

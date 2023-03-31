@@ -1,0 +1,39 @@
+ARCHIVOS DE CONFIGURACIÓN DE RED
+
+La resolución de nombres en un host Linux se realiza mediante 3 archivos críticos: el /etc/hosts,
+/etc/resolv.confy /etc/nsswitch.confarchivos. Juntos, describen la ubicación de la información del servicio 
+de nombres, el orden en el que se deben verificar los recursos y dónde ir para obtener esa información.
+
+ARCHIVOS					EXPLICACIÓN
+/etc/hosts	Este archivo contiene una tabla de nombres de host para direcciones IP. Se puede usar para 
+		complementar un servidor DNS.
+		sysadmin @ localhost : ~ $ cat / etc / hosts  
+		127.0.0.1 localhost
+
+/etc/resolv.conf
+		Este archivo contiene las direcciones IP de los servidores de nombres que el sistema debe 
+		consultar en cualquier intento de resolver nombres a direcciones IP. Estos servidores son a 
+		menudo servidores DNS. También puede contener palabras clave y valores adicionales que pueden 
+		afectar el proceso de resolución.
+		sysadmin @ localhost : ~ $ cat /etc/resolv.conf  
+		nameserver 127.0.0.11
+
+/etc/nsswitch.conf	
+		Este archivo se puede usar para modificar dónde ocurren las búsquedas de nombres de host. 
+		Contiene una entrada particular que describe en qué orden se consultan las fuentes de 
+		resolución de nombres.
+		sysadmin @ localhost : ~ $ cat /etc/nsswitch.conf
+		# /etc/nsswitch.conf
+		#
+
+		Salida omitida ...
+
+		hosts: archivos dns
+
+		Salida omitida ...
+
+		El /etc/hostsarchivo se busca en primer lugar, el segundo servidor DNS:
+		hosts: archivos dns 
+		
+		Primero se buscaría el servidor DNS, luego los archivos locales:
+		hosts: archivos dns

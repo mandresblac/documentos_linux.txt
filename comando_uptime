@@ -1,0 +1,9 @@
+El comando uptime, nos muestra la siguiente salida:
+16:16:51 up  1:44,  1 user,  load average: 0,74, 2,12, 2,38
+
+Veamos con más detalles la información mostrada por el comando uptime:
+- 16:16:51, la hora actual.
+- up 1:44, el tiempo que lleva la máquina encendida.
+- 1 user, número de usuarios conectados actualmente.
+- load average: 0,74, 2,12, 2,38 La carga media del sistema durante los pasados 1, 5 y 15 minutos: 0,74, 2.12, y 2,38 respectivamente.
+

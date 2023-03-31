@@ -1,0 +1,13 @@
+EL COMANDO "fg" (FOREGROUND O PRIMER PLANO)
+Traerá a primer plano un trabajo que está ejecutándose en segundo plano. También
+se puede usar para reanudar en primer plano un trabajo que está suspendido o detenido.
+
+Por ejemplo, si estamos trabajando en un editor de codigo en la teminal (vim, nano o el que sea) oprimiendo las teclas
+CTRL + Z enviamos el editor a segundo plano y nos aparece la terminal normal, si queremos traer de nuevo a primer plano el
+editor tecleamos el comando fg.
+
+Una vez detenida la tarea ejecutaremos el comando jobs y veremos que efectivamente hemos detenido el trabajo
+
+EL COMANDO "bg" (BACKGROUND O SEGUNDO PLANO)
+Pondra en segundo plano un trabajo, este seguira funcionando.
+

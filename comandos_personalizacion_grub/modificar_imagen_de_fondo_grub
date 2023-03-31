@@ -1,0 +1,43 @@
+La imagen debe estar en formato .png o .tga y su resolucion debe estar acorde con lo establecido en el archivo /etc/default/grub en la linea GRUB_GFXMODE que es la resolucion que carga el grub por defecto. 
+por ejemplo: GRUB_GFXMODE=1920x1080  
+Nota: Esta resolucion se puede modificar (ver archivo modificar_resolución_grub)
+
+1- Ingresamos a la ubicación del archivo grub que se encuentra en /etc/default/ y primero que todo hacemos un copia de ese archivo (que podemos llamar grub.copia),
+esto por si acaso llegamos a eliminar o nos llega aquedar mal ese archivo de configuracion, /el grub  se nos va a dañar y vamos a tener serios problemas para iniciar el equipo),
+con una copia del archivo grub podemos reemplazarlo y restaurarlo de una forma mas rapida sin tener que recurrir a otros metodos de recuperacion.
+
+2- Despues de lo anterior procedemos a editar el archivo grub con la orden "sudo nano grub", siempre que se haga una modicicaion en este archivo al terminar se debe
+ejecutar el comando "update-grub".
+
+3- Al final de todo el documento escribimos las siguientes lineas:
+
+#Fondo de pantalla para el grub
+GRUB_BACKGROUND="/directorio_donde_esta_la_imagen_de_fondo/fondo.png"
+
+4- Guardamos los cambos con Ctrl+o  y con Ctrl+x salimos del archivo.
+
+5- Despues de realizar estos cambios en el archivo grub debemos actualizar el grub con el comando "sudo update-grub"
+nos debe mostrar algo como esto: 
+
+Sourcing file `/etc/default/grub'
+Generando un fichero de configuración de grub...
+Encontrado fondo de pantalla: /home/manuel/Imágenes/imagen_grub/windows.png
+Found background image: /home/manuel/Imágenes/imagen_grub/windows.png
+Encontrada imagen de linux: /boot/vmlinuz-4.15.0-108-generic
+Encontrada imagen de memoria inicial: /boot/initrd.img-4.15.0-108-generic
+Encontrada imagen de linux: /boot/vmlinuz-4.15.0-106-generic
+Encontrada imagen de memoria inicial: /boot/initrd.img-4.15.0-106-generic
+Encontrada imagen de linux: /boot/vmlinuz-4.15.0-101-generic
+Encontrada imagen de memoria inicial: /boot/initrd.img-4.15.0-101-generic
+Found memtest86+ image: /memtest86+.elf
+Found memtest86+ image: /memtest86+.bin
+Encontrado Windows 7 en /dev/sda1
+hecho
+
+
+
+OJO: No eliminar la imagen ni moverla de la ubicacion que se especifico en el archivo grub porque se puede generar un error en el grub y no cargaria el arranque del sistema.
+
+
+URL del video de youtube
+https://www.youtube.com/watch?v=fjCBQuQ6B2E&t=336s

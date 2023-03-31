@@ -1,0 +1,12 @@
+QUE SE HACE PARA QUE APAREZCAN ASTERISCOS AL MOMENTO DE ESCRIBIR NUESTRA CONTRASEÑA DE ADMINISTRADOR EN LA
+TERMINAL?
+
+1- Escribimos el siguiente comando: sudo visudo
+2- Damos enter
+3- Escribimos la contraseña de usuario
+4- Nos abre un archivo y al lado de la linea que dice "Defaults  env_reset" agregamos el texto ,pwfeedback (no
+puede quedar ningun espacio, debe quedar pegado asi: env_reset,pwfeedback
+5- Guardamos con la combinacion de teclas Ctrl + o 
+6- Y salimos con la combinacion de teclas Ctrl + x
+
+!!LISTO!!

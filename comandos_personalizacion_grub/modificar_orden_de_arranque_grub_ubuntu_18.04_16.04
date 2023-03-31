@@ -1,0 +1,13 @@
+Cambiar el orden de arranque del Grub en Ubuntu 18.04 y 16.04
+
+Desde la terminal se debe editar un archivo con el comando: sudo nano /etc/default/grub
+
+Una vez dentro del archivo veremos el parametro GRUB_DEFAULT=0 que hace referencia a la posicion del sistema operativo en el arranque,
+(arranca desde 0) para poder cambiarlo y que arranque desde el sistema operativo que queramos simplemente cambiamos este numero por la 
+posicion en la que se encuentre el S.O. de arriba hacia abajo y arrancando desde 0.
+
+El parametro GRUB_TIMEOUT=10 indica el tiempo que tardara el grub en cargar el sistema operativo definido en el parametro GRUB_DEFAULT, en
+este caso son 10 segundos, se puede bajar o aumentar el tiempo segun sea nuestro gusto.
+
+Finalmente ejecutamos el comando sudo update-grub2 para que el grub se actualice. OJO: si no ejecutamos este ultimo comando los cambios
+que hicimos no van a surtir efecto.

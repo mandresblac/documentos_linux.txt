@@ -1,0 +1,82 @@
+The snap command lets you install, configure, refresh and remove snaps.
+Snaps are packages that work across many different Linux distributions,
+enabling secure delivery and operation of the latest apps and utilities.
+
+Usage: snap <command> [<options>...]
+
+Commands can be classified as follows:
+
+
+  Basics (basic snap management):
+    find            Buscar paquetes para instalar
+    info            Mostrar información detallada sobre los snaps
+    install         Install snaps on the system
+    list            Listar snaps instalados
+    remove          Remove snaps from the system
+
+  ...more (slightly more advanced snap management):
+    refresh         Refresh snaps in the system
+    revert          Revierte el snap dado a su estado previo
+    switch          Cambia el snap a un canal diferente
+    disable         Desactivar un snap en el sistema
+    enable          Activar un snap en el sistema
+
+  History (manage system change transactions):
+    changes         Listar cambios de sistema
+    tasks           Listar tareas de cambio
+    abort           Abortar un cambio pendiente
+    watch           Observar un cambio en progreso
+
+  Daemons (manage services):
+    services        Consultar el estado de los servicios
+    start           Iniciar servicios
+    stop            Detener servicios
+    restart         Reiniciar servicios
+    logs            Retrieve logs for services
+
+  Commands (manage aliases):
+    alias           Configurar un alias manual
+    aliases         Listar aliases en el sistema
+    unalias         Remove a manual alias, or the aliases for an entire snap
+    prefer          Enable aliases from a snap, disabling any conflicting aliases
+
+  Configuration (system administration and configuration):
+    get             Imprimir opciones de configuración
+    set             Cambiar las opciones de configuración
+    wait            Wait for configuration
+
+  Account (authentication to snapd and the snap store):
+    login           Autentificar en snapd y en la tienda
+    logout          Cerrar sesión en snapd y en la tienda
+    whoami          Show the email the user is logged in with
+
+  Permissions (manage permissions):
+    connections     List interface connections
+    interfaces      List interfaces' slots and plugs
+    interface       Show details of snap interfaces
+    connect         Conectar un enchufe a una ranura
+    disconnect      Desconectar un enchufe de una ranura
+
+  Snapshots (archives of snap data):
+    saved           List currently stored snapshots
+    save            Save a snapshot of the current data
+    check-snapshot  Check a snapshot
+    restore         Restore a snapshot
+    forget          Delete a snapshot
+
+  Other (miscellanea):
+    version         Mostrar detalles de la versión
+    warnings        List warnings
+    okay            Acknowledge warnings
+    ack             Añadir una afirmación al sistema
+    known           Mostrar afirmaciones conocidas del tipo proporcionado
+
+  Development (developer-oriented features):
+    run             Ejecutar la orden snap dada
+    pack            Empaquetar el directorio dado como un snap
+    try             Test an unpacked snap in the system
+    download        Descargar el snap dado
+    prepare-image   Prepare a device image
+
+For more information about a command, run 'snap help <command>'.
+For a short summary of all commands, run 'snap help --all'.

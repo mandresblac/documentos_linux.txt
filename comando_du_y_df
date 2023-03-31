@@ -1,0 +1,61 @@
+COMANDO du (disk usage)
+El comando du (disk usage), se incluye por defecto en la mayoría de las distribuciones de Linux.
+Este comando nos sirve para saber el tamaño de los directorios en linux, muestra el espacio de disco ocupado por un fichero o por un
+directorio. Si le pasamos un directorio mostrará recursivamente el tamaño de todos los directorios.
+
+Si ejecutamos el comando du sin opciones, nos imprime en pantalla el tamaño de los directorios en kilobytes por defecto en forma
+recursiva, es decir, muestra el espacio que ocupa el directorio y todos sus susdirectorios.
+La formula anterior no siempre es buena idea, ya que nos ofrece unos resultados difíciles de interpretar.
+Para eso tenemos las opciones:
+
+-a : all, Muesra el tamaño de todos los archivos en bytes.
+du -a ./*
+
+-s : Imprime el tamaño total del directorio o archivo de manera no recursiva,(Es la manera mas recomendada de usar el comando du),
+sin la s imprime el tamaño de todos los archivos que se encuentran dentro del directorio y al final muestra la sumatoria total de
+todo los archivos en el directorio, ejemplo con la s:
+du -s programacion/
+10564	programacion/
+
+sin la s:
+du programacion/
+1060	programacion/introduccion_a_la_programacion/leccion_2
+840	programacion/introduccion_a_la_programacion/leccion_3
+3108	programacion/introduccion_a_la_programacion/leccion_1
+5012	programacion/introduccion_a_la_programacion
+948	programacion/logica_de_programacion/nivel_2/lección_2
+952	programacion/logica_de_programacion/nivel_2
+1796	programacion/logica_de_programacion/nivel_1/leccion_2
+1984	programacion/logica_de_programacion/nivel_1/leccion_3
+808	programacion/logica_de_programacion/nivel_1/leccion_1
+4592	programacion/logica_de_programacion/nivel_1
+5548	programacion/logica_de_programacion
+10564	programacion/          Sumatoria total de todos los archivos del directorio
+
+-h : Muestra el tamaño de forma humana o legible en MG, KB, GB; TB, etc. Ejemplo:
+du -h /ruta_del_directorio
+
+-c : Muestra la sumatoria total de todo el contenido del directorio.
+
+combinando los tres paramentros anteriores quedaria:
+du -ahc /ruta_del_directorio_o_archivo
+----------------------------------------------------------------------------------------------
+
+COMANDO df (disk free)
+El comando df (disk free) nos dice cuanto tamaño tenemos ocupado y cuanto espacio disponible tenemos en nuestras particiones,nos
+muestra los siguientes datos:
+- tamaño total de la partición.
+- Tamaño usado.
+- Tamaño libre o disponible.
+- Porcentaje de uso que tiene nuestro disco.
+- La partición donde esta monatado.
+
+Podemos usarlo sin opciones ni argumentos, pero la opcion -h nos ayudara e entender mejor las cifras que se nos muestran, por
+ejemplo:
+
+df -h /ruta_del_directorio_o_archivo
+S.ficheros     Tamaño Usados  Disp Uso% Montado en
+/dev/sda8         37G    28G  7,0G  80% /home
+
+Si le pasamos como párametro cualquier directorio nos dará la información de la partición donde se encuentra ese directorio.
+

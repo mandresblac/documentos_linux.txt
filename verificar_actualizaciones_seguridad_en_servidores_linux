@@ -1,0 +1,9 @@
+Para verificar las actualizaciones de seguridad e instalarlas en nuestra máquina podemos usar los siguientes comandos:
+
+En sistemas operativos CentOS
+yum check-update --security
+yum update security
+
+En sistemas operativos Ubuntu
+apt-get update
+apt-get upgrade

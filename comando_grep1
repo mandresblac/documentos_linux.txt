@@ -1,0 +1,12 @@
+El comando grep muestra las líneas que cumplen con un patrón. Se pueden usar palabras o expresiones regulares.
+grep muestra solo las líneas que nos interesan en un momento determinado.
+
+Opciones:
+-v  Muestra las que no coinciden con el patron que se le especifica.
+-l  Solo indica el nombre del archivo donde ha encontrado alguna coincidencia.
+-w  El patron tiene que ser una palabra independiente.
+-n  Indica el número de línea donde se ha encontrado el patron especificado.
+-i  Para que haga la busqueda sin distinguir entre mayúsculas y minúsculas.
+-c  Muestra la cantidad de líneas que cumplen con el patron que se busca, osea que arroja un número.
+-r  Hace la busqueda de forma recursiva en todos los archivos de un directorio o subdirectorio.
+

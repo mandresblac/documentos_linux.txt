@@ -1,0 +1,39 @@
+COMO DESCOMPRIMIR UN ARCHIVO:
+Para extraer un archivo .7z, use el operador “e“, que extraerá el archivo en el directorio de trabajo actual.
+escriba en la terminal: 7z e [nombre_archivo].7z
+
+COMO COMPRIMIR UN ARCHIVO:
+Para crear un archivo .7z, use el operador “a“. Los formatos de archivo compatibles para la creación son 
+7z, XZ, GZIP, TAR, ZIP y BZIP2. Si el archivo ya existe, “agregará” los archivos al ya existente, en lugar de
+sobrescribirlo. escriba en la teminal:
+7z a [nombre_archivo_salida].7z [archivo_a_comprimir]
+
+COMO COMPRIMIR UN ARCHIVO EN OTRO FORMATO (en el ejemplo zip):
+Para seleccionar un formato de archivo, use la -t(nombre_formato), que le permitirá elegir un diferente formato de
+archivo como zip, gzip, bzip2 o tar (el valor predeterminado es 7z), escriba en la terminal:
+7z a -t[formato] [nombre_Archivo_salida] [archivo_a_comprimir]  
+ejemp: 7z a -tzip [nombre_archivo_salida] [archivo_a_comprimir_con su extension]
+
+COMO LISTAR DETALLES DEL CONTENIDO DE UN ARCHIVO COMPRIMIDO:
+Para ver una lista de archivos, use el operador “l” (lista), que mostrará el tipo de formato del archivo, el método
+utilizado, los archivos contenidos, entre otra información, escriba en la terminal:
+7z l [nombre_archivo].[formato]
+
+COMO COMPROBAR LA INTEGRIDAD DE UN ARCHIVO COMPRIMIDO:
+Para probar la integridad de un archivo, use la función “t” (test) como se muestra.
+7z t [nombre_archivo].[formato]
+
+COMO ESTABLECER CONTRASEÑA A UN ARCHIVO COMPRIMIDO:
+Para establecer una contraseña use el operador “-p{contraseña}” como se muestra.
+7z a -p[contraseña] [nombre_archivo_salida].zip [archivo_a_comprimir]
+
+COMO ACTUALIZAR O ELIMINAR UN ARCHIVO:
+Para actualizar un archivo existente o eliminar archivo(s) de un archivo comprimido, use los operadores “u” y “d“, respectivamente.
+Actualizar un archivo existente:
+7z u [nombre_archivo].[formato] [archivo_a_agregar]
+Eliminar un archivo
+7z d [nombre_archivo].[formato] [archivo_a_eliminar]
+
+COMO ESTABLECER NIVEL DE COMPRESION:
+Para establecer un nivel de compresión, use el parámetro “-mx” como se muestra.
+tar -cf - [directorio] | 7za a -si -mx=9 [nombre_archivo].tar.7z

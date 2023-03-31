@@ -1,0 +1,51 @@
+Mejorar tiempo de arranque en linux
+
+Para saber el tiempo que demora en arrancar nuestro  sistema utilizamos el siguiente comando:
+sudo systemd-analyze 
+
+nos mostrara la siguiente salida:
+manuel@PC-ACACIAS:~$ systemd-analyze
+Startup finished in 6.925s (kernel) + 26.043s (userspace) = 32.969s 
+graphical.target reached after 26.019s in userspace
+
+Para saber que servicios se estan cargando y que tiempo consumen en en el arranque del sistema utilizamos el siguiente comando:
+sudo systemd-analyze blame
+
+nos mostrara la siguiente salida:
+manuel@PC-ACACIAS:~$ systemd-analyze blame 
+12.024s networkd-dispatcher.service                                                              
+11.577s udisks2.service                                                                          
+ 8.699s accounts-daemon.service                                                                  
+ 6.341s dev-sda7.device                                                                          
+ 6.224s NetworkManager.service                                                                   
+ 5.867s ubuntu-system-adjustments.service                                                        
+ 5.311s avahi-daemon.service                                                                     
+ 5.135s polkit.service                                                                           
+ 4.968s ModemManager.service                                                                     
+ 4.864s lightdm.service                                                                          
+ 4.857s plymouth-quit-wait.service                                                               
+ 4.844s thermald.service                                                                         
+ 4.831s systemd-logind.service                                                                   
+ 4.830s wpa_supplicant.service                                                                   
+ 3.431s gpu-manager.service                                                                      
+ 3.097s rsyslog.service                                                                          
+ 3.096s networking.service                                                                       
+ 2.276s grub-common.service                                                                      
+ 2.107s e2scrub_reap.service                                                                     
+ 2.096s ufw.service                                                                              
+ 1.952s hddtemp.service                                                                          
+ 1.793s grub-initrd-fallback.service                                                             
+ 1.730s ntp.service
+
+Para deshabilitar un servicio utilizamos el comando:
+sudo systemctl disable nombre_del_servicio
+Ejemplo: sudo systemctl disable polkit.service
+
+Para habilitar nuevamente el servico utilizamos el comando:
+sudo systemctl enable nombre_del_servicio
+Ejemplo: sudo systemctl enable polkit.service
+
+OJO: Antes de deshabilitar cualquier servicio en el arranque hay que saber (o cosultar) que hace y de que se trata ese
+servicio, porque si deshabilitamos un servicio esencial o necesario podemos afectar seriamente el funcionamiento de nuestro
+eqipo.
+

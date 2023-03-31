@@ -1,0 +1,36 @@
+Proceso de instalación servidor Apache2 y nginx
+
+Apache
+Ejecuta el siguiente comando
+
+sudo apt install apache2
+
+NGINX
+Ejecuta el siguiente comando
+
+sudo apt install nginx nginx-extras
+
+Para verificar si los servicios están corriendo se debe ejecutar los siguientes comandos:
+systemctl status apache2
+systemctl status nginx
+
+Si se siguió el orden de instalación, NGINX no debe estar ejecutándose, pues por defecto intentará levantarse en el puerto 80, el cual ya se encuentra ocupado por Apache, para ello cambiaremos el puerto de Apache al puerto alterno http 8080.
+
+sudo nano /etc/apache2/ports.conf
+
+A continuación tenemos que cambiar el puerto al 8080, para esto se debe cambiar la instrucción Listen 8080 dentro del documento ports.conf.
+
+Después abrimos nuestro archivo de configuración de Apache sudo nano /etc/apache2/sites-available/000-default.conf y
+cambiamos el virtualhost a 8080 <VirtualHost *:8080>
+
+Después realizamos el proceso de detener apache2 y volverlo a encender, con los siguientes comandos
+sudo systemctl restart apache2
+sudo systemctl status apache2
+systemctl start apache2
+systemctl status nginx.
+Ambos sitios deberían estar activos y en ejecución.
+
+Paso siguiente, dirígete al archivo de configuración por default de NGINX que esta en la ruta /etc/nginx/sites-available/default y asegurate que exista una directiva en el location llamada proxy_pass que contenga lo siguiente:
+
+proxy_pass http://127.0.0.1:8080;
+

@@ -1,0 +1,25 @@
+Estos son los conceptos básicos de cómo usar el complemento:
+
+Utilice las teclas de navegación naturales de vim hjkl para navegar por los archivos.
+Presione o para abrir el archivo en un nuevo búfer o abrir / cerrar directorio.
+Presione t para abrir el archivo en una nueva pestaña.
+Presionet T para abrir el archivo en una nueva pestaña pero vim nos mantiene enfocados en la vista del archivo actual.
+Presione g + t para recorrer todas las pestañas de archivos abiertas.
+Presione i para abrir el archivo en una nueva división horizontal.
+Presione s para abrir el archivo en una nueva división vertical.
+Presione p para ir al directorio principal.
+Presione r para actualizar el directorio actual.
+Presione Ctrl + ww para intercambiar entre la vista lista o árbol y la vista del archivo.
+Presione Ctrl + wh para pasar a la ventana izquierda.
+Presione Ctrl + wj para pasar a la ventana de abajo.
+Presione Ctrl + wk para pasar a la ventana de arriba.
+Presione Ctrl + wl para pasar a la ventana de derecha.
+
+
+Todos los demás atajos de teclado se pueden encontrar presionando ?. Se abrirá una pantalla
+de ayuda especial con las listas de accesos directos. Presione ? nuevamente para volver al
+árbol de archivos.
+
+Para asignar una tecla o acceso directo específico para abrir NERDTree, Pegue esto en su
+archivo .vimrc para abrir NERDTree con Ctrl+n (puede configurar la clave que desee):
+map <C-n> :NERDTreeToggle<CR>
