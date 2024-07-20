@@ -1,0 +1,23 @@
+Las tareas en Linux se denominan procesos. Cada proceso tiene una ID de proceso única. Para finalizar un proceso en
+Linux podemos usar el comando kill que permite finalizar (o matar) procesos en ejecución. Si un proceso está causando
+dificultades o simplemente ya no es necesario, el comando kill te brinda la capacidad de detenerlo de manera efectiva.
+
+Para matar un proceso primero debemos comocer su PID (Process ID), para eso ejecutamos el comando: ps
+
+Lo anterior listara todos los procesos disponibles y sus PID. Si deseas que tu lista sea más específica, agrega un
+comando grep como este:
+ps -ux | grep java
+
+Esto mostrará todos los procesos de Java que se ejecutan en la salida.
+
+OPCIONES DEL COMANDO KILL
+kill -9 +  PID: Mata un proceso de forma abrupta, por ejemplo: kill -9 11108 mata inmediatamente ese proceso.
+kill -15 + PID: Permite que un proceso termine de manera amigable o controlada, de forma segura, no como kill -9 que
+es abrupta.
+kill -19 o -20 + PID: Para el proceso (Stop), lo detiene pero no lo cierra, lo pone en pausa.
+kill -18 + PID: Continua un proceso parado (Cont).
+killall + nombre_del_proceso: Mata un proceso por su nombre, por ejemplo: killall firefox ,mata inmediatamente el
+proceso firefox.
+pkill + nombre_del_proceso: También funciona igual que killall pero puedo usar el nombre u otros criterios para enviar
+señales a los procesos.
+
