@@ -1,0 +1,54 @@
+En Linux cada archivo y carpeta tiene asignado un número entero llamado "inodo", este "inodo" es unico para cada uno
+de los archivos y carpetas almacenados en nuestro sistema o disco duro, en este "inodo" se almacenan distintos
+atributos de estos archivos y carpetas, por ejemplo: permisos, usuario propietario, ubicación o posición del archivo o
+carpeta dentro de nuestro disco duro, etc.
+
+Basado en lo anterior podemos decir, que un enlace duro es un nuevo puntero que apunta al mismo lugar del disco duro
+al cual apunta el puntero del archivo original, por tanto los archivos originales y los enlaces duros tienen el mismo
+"inodo", es decir, que apuntan al mismo lugar en el disco duro.
+
+Hay que tener en cuenta que solo podemos realizar enlaces duros cuando el archivo (o carpeta) y el enlace duro se
+encuentran en la misma partición del disco, ya que cada partición dispone de su propia tabla de "inodos".
+
+Para consultar el número "inodo" de un archivo o carpeta en nuestro sistema ejecutamos el comando "ls -l" añadiendole
+la opcion "i" de inodo, así:
+ls -li original.txt
+
+La salida sera:
+5644336 -rw-rw-r-- 1 manuel manuel 47 jul 19 18:24 original.txt
+
+El primer número a la izquierda (5644336) corresponde al "inodo" del archivo original.txt
+
+Si vemos de izquierda a derecha (en la posición 3) entre los permisos y el propietario del archivo, aparece un número
+1, eso significa que el contenido del disco donde esta "original.txt" esta apuntado unicamente por un enlace, que
+corresponde con el enlace original al archivo.
+
+A continuación vamos a crear un enlace duro con el comando "ln", de la siguiente manera:
+ln original.txt enlace_duro.txt
+
+Si hacemos un ls -li veremos:
+ls -li
+total 8
+5644336 -rw-rw-r-- 2 manuel manuel 47 jul 19 18:24 enlace_duro.txt
+5644336 -rw-rw-r-- 2 manuel manuel 47 jul 19 18:24 original.txt
+
+Observamos que el primer número a la izquierda del archivo "enlace_duro.txt" (5644336) corresponde a su "inodo" y es
+el mismo que tiene el archivo "original.txt", ademas, vemos que ambos archivos tienen en la posición 3 (de izquierda a
+derecha) entre los permisos y el propietario del archivo, el número 2, lo que significa que ambos archivos tienen dos
+enlaces y su contenido es igual en ambos.
+
+Ahora bien, veamos que pasa si eliminamos el archivo "original.txt" con el comando rm, asi:
+rm original.txt
+
+Si hacemos un "ls -li" obtendremos la salida:
+ls -li
+total 4
+5644336 -rw-rw-r-- 1 manuel manuel 47 jul 19 18:24 enlace_duro.txt
+
+Dado lo anterior, podemos decir que si borraramos el archivo "original.txt" el contenido de este en el disco duro se
+mantendria igual mientras exista al menos un enlace a ese contenido, que en este caso se encuentra en el archivo
+"enlace_duro.txt", ademas el número del "inodo" del archivo "enlace_duro.txt" sera el mismo del archivo "original.txt"
+, no cambia asi se halla borrado el archivo "original.txt" y el número en la tercera posición, de izquierda a derecha,
+que era un 2 cambia a 1 porque solo existe un enlace duro que es el del archivo "enlace_duro.txt".
+
+

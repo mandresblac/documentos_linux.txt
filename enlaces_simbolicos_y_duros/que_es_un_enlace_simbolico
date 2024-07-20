@@ -1,0 +1,33 @@
+Los enlaces simbolicos o enlaces blandos son parecidos a lo que se conoce en Windows como "accesos directos".
+
+Los enlaces simbolicos en lugar de apuntar directamente al lugar del disco duro donde se encuentra la información,
+apuntan al nombre de un archivo el cual posteriormente apunta al contenido original almacenado en el disco duro.
+
+Para crear enlaces simbolicos lo hacemo con el comando "ln" y el opcion "-s", asi:
+ls -s nombre_archivo_que_queremos_enlazar nombre_enlace_simbolico
+
+Ejemplo:
+ln -s original.txt simolico.txt
+
+haciendo un ls -l veremos:
+
+ls -l
+total 4
+-rw-rw-r-- 1 manuel manuel 43 jul 19 17:48 original.txt
+lrwxrwxrwx 1 manuel manuel 12 jul 19 18:03 simbolico.txt -> original.txt
+
+Vemos que el archibo simolico.txt tiene una flecha "->" apuntando al archivo original.txt
+
+Si vemos el contenido del archivo simbolico.txt se mostrara el contenido del archivo al que esta apuntando, que en
+este caso es original.txt
+
+OJO:
+- Para crear en simbolicos podemos utilizar tanto rutas absolutas como rutas relativas
+- Si borramos un enlace simbolico el contenido del archivo original no se pierde
+- Si borramos el archivo original al cual esta enlazado el enlace simbolico este ultimo quedara roto, seguira en
+nuestro disco duro pero no apuntara a ningun lugar, la  termianl nos muestra este error marcando el enlace simbolico
+en color rojo. Si ententamos ver el contenido del enlace simolico el sistema nos devuelve la salida:
+"No existe el archivo o el directorio"
+- Si creamos un nuevo archivo cuyo nombre sea el mismo del archivo original que teniamos enlazado anteriormente, el
+enlace volvera a tener valor.
+
