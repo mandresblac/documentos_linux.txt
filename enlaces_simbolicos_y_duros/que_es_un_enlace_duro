@@ -51,4 +51,4 @@ mantendria igual mientras exista al menos un enlace a ese contenido, que en este
 , no cambia asi se halla borrado el archivo "original.txt" y el número en la tercera posición, de izquierda a derecha,
 que era un 2 cambia a 1 porque solo existe un enlace duro que es el del archivo "enlace_duro.txt".
 
-
+Video Youtube: https://www.youtube.com/watch?v=FapBQOuASdo
