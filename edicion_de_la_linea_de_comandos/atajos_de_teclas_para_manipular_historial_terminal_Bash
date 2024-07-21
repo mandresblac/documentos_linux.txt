@@ -1,0 +1,13 @@
+Atajos de teclas usados para manipular el historial del Bash o terminal:
+
+Ctrl-p    Se mueve a la anterior entrada del historial. Misma acción que la flecha hacia arriba
+Ctrl-n    Se mueve al la siguiente entrada del historial. Misma acción que la flecha hacia abajo
+Alt-<     Se mueve al principio (arriba) del historial.
+Alt->     Se mueve al final (abajo) del historial, p.ej., la actual línea de comandos.
+Ctrl-r    Búsqueda incremental inversa. Busca incrementalmente desde el actual comando hacia arriba en el historial.
+Alt-p     Búsqueda inversa, no incremental. Con esta combinación de teclas, escribes las palabras a buscar y presionas
+enter antes de que la búsqueda se realice.
+Alt-n     Búsqueda hacia delante, no incremental.
+Ctrl-o    Ejecuta el elemento actual en el historial y avanza al siguiente. Ésto es práctico si estás intentando
+reejecutar una secuencia de comandos del historial.
+
