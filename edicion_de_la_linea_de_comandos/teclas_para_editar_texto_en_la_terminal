@@ -1,0 +1,8 @@
+lista los comandos de teclado que se usan para editar caracteres en la línea de comandos.
+
+Ctrl -d    Borra un carácter en la localización del cursor
+Ctrl -t    Traspasa (intercambia) el carácter en la localización del cursor con el que le precede
+Alt -t     Traspasa la palabra en la localización del cursor con la que le precede
+Alt -l     Convierte los caracteres desde la localización del cursor hasta el final de la palabra a minúsculas
+Alt -u     Convierte los caracteres desde la localización del cursor hasta el final de la palabra a mayúsculas
+
