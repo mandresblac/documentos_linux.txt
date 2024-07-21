@@ -1,0 +1,13 @@
+Cortar y pegar (Killing and Yanking) texto
+
+La documentación Readline utiliza los términos killing (matar) y yanking (tirar) para referirse a lo que comúnmente
+denominamos cortar y pegar. Los elementos que se cortan son almacenados en un buffer llamado kill-ring.
+
+Comandos para cortar y pegar:
+Ctrl -k          Kill (corta) el texto desde la localización del cursor al final de la línea.
+Ctrl -u          Kill (corta) el texto desde la localización del cursor hasta el principio de la línea.
+Alt -d           Kill (corta) el texto desde la localización del curso hasta el final de la palabra actual.
+Alt -Retroceso   Kill (corta) el texto desde la localización del cursor hasta el principio de la palabra actual. Si el
+cursor está al principio de una palabra, corta la palabra anterior.
+Ctrl -y          Yank (pega) texto del kill-ring y lo coloca en la localización del cursor
+
