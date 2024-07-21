@@ -1,0 +1,10 @@
+Comandos de movimiento del cursor
+
+Ctrl -a     Mueve el cursor al principio de la línea
+Ctrl -e     Mueve el cursor al final de la línea
+Ctrl -f     Mueve el cursor un carácter hacia delante; igual que la flecha derecha
+Ctrl -b     Mueve el cursor un carácter hacia atrás; igual que la flecha izquierda
+Alt -f      Mueve el cursor hacia delante una palabra.
+Alt -b      Mueve el cursor hacia detrás una palabra.
+Ctrl -l     Limpia la pantalla y mueve el cursor a la esquina superior izquierda. El comando clear hace lo mismo.
+
