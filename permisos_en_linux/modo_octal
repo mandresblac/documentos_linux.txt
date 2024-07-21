@@ -1,0 +1,14 @@
+Con la notación octal usamos números octales para especificar el patrón de los permisos que queremos. Como cada dígito
+en un número octal representa tres dígitos binarios, esto coincide muy bien con la forma de almacenar el modo de
+archivo. Esta tabla muestra lo que queremos decir:
+
+Octal    Binario    Modo de archivo
+0          000           ---
+1          001           --x
+2          010           -w-
+3          011           -wx
+4          100           r--
+5          101           r-x
+6          110           rw-
+7          111           rwx
+
