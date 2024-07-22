@@ -1,12 +1,17 @@
-El comando chown permite cambiar el propietario de un archivo o directorio, para esto usaremos el comando chown seguido del
-nuevo usuario o grupo propietario del archivo, ejemplos:
+El comando chown se utiliza para cambiar el usuario propietario y el grupo del propietario de un archivo o un
+directorio, Se requieren privilegios de superusuario para utilizar este comando.
+
+La sintaxis de chown tiene este aspecto:
+chown [propietario]:[grupo] archivo_o_directorio
+
+Para esto usaremos el comando chown seguido del nuevo usuario o grupo propietario del archivo, ejemplos:
 
 # Cambiar el usuario propietario:
-sudo chown nuevo-usuario archivo.txt
+sudo chown nuevo_usuario archivo.txt
 
-# Cambiar el grupo propietario:
-sudo chown :nuevo-grupo archivo.txt
+# Cambiar el grupo del propietario:
+sudo chown :nuevo_grupo archivo.txt
 
-# Cambiar el usuario y grupo propietario:
-sudo chown nuevo-usuario:nuevo-grupo archivo.txt
+# Cambiar el usuario y grupo del propietario:
+sudo chown nuevo_usuario:nuevo_grupo archivo.txt
 
