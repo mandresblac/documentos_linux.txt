@@ -21,3 +21,6 @@ proceso firefox.
 pkill + nombre_del_proceso: También funciona igual que killall pero puedo usar el nombre u otros criterios para enviar
 señales a los procesos.
 
+Para los curiosos, una lista completa de las señales de kill se puede ver con el siguiente comando:
+kill -l
+
