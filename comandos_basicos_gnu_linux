@@ -254,17 +254,15 @@ primer plano(FOREGROUND) y segundo plano(BACKGROUND).
 id: Muestra la identificacion de usuario activa con inicio de sesión y grupo.
 id -u: Muestra úncamente el UID (Identificador Unico de Usuario).
 id -g: Muestra únicamente el GID (Identificador Unico de Grupo).
-ps: Nos da informacion de los procesos que se estan ejecutando en la terminal.
+ps: Nos da informacion de los procesos que se estan ejecutando en la sesion de terminal actual.
 ps -e: Muestra todos los procesos del sistema.
 ps -f: Muestra informacion adicional de todos los procesos del sistema.
 ps l: Mueste informcaion adicional de todos los procesos del sistema.
 ps x: Muestra todos los procesos independientemente de que terminal los controla.
-ps aux: Muestra los procesos pertenecientes a cada usuario, en los que se destacan los siguientes datos: USER: ID de usuario
-. Es el propietario del proceso.
-%CPU Uso de CPU en porcentaje. %MEM Uso de memoria en porcentaje. VSZ Tamaño de la memoria virtual. RSS Tamaño de
-configuración residente. La cantidad
-de memoria física (RAM)que el proceso usa en kilobytes. START Hora en que comenzó el proceso. Para valores de más de 24 horas
-, se usa la fecha.
+ps aux: Muestra los procesos pertenecientes a cada usuario, en los que se destacan los siguientes datos:
+USER: ID de usuario. Es el propietario del proceso. %CPU Uso de CPU en porcentaje. %MEM Uso de memoria en porcentaje.
+VSZ Tamaño de la memoria virtual. RSS Tamaño de configuración residente. La cantidad de memoria física (RAM)que el
+proceso usa en kilobytes. START Hora en que comenzó el proceso. Para valores de más de 24 horas, se usa la fecha.
 ps -u: Muestra todos los procesos pertenecientes a mi usuario en formato largo, en el que se destacan los siguientes datos:
 USER:Nombre de usuario que ejecuta el proceso. %CPU:Porcentaje de tiempo de CPU que utiliza el proceso.
 %MEM:Porcentaje de memoria que ocupa el proceso. START:Hora de comienzo de ejecucio del proceso.

@@ -1,0 +1,22 @@
+Estado de los procesos
+
+Estado   Significado
+
+R        Funcionando (running). Significa que el proceso está en ejecución o preparado para ser ejecutado.
+
+S        Durmiendo (Sleeping). El proceso no está ejecutándose; en su lugar, está esperando a un evento, como una
+    	 pulsación de teclado o un paquete de red.
+
+D        Ininterrumpible dormido. El proceso está esperando un I/O como una unidad de disco.
+
+T        Parado. El proceso ha sido ordenado a parar. Veremos más sobre esto más tarde.
+
+Z        Proceso extinto o “zombie”. Es un proceso hijo que ha terminado, pero no ha sido limpiado por su padre.
+
+<        Un proceso de alta prioridad. Es posible dar más importancia a un proceso, dándole más tiempo en la CPU. Esta
+         propiedad de un proceso se llama simpatía. Un proceso con alta prioridad se dice que es menos simpático
+		 porque esta utilizando más tiempo de la CPU, lo que deja menos tiempo para todos los demás.
+
+N        Un proceso de baja prioridad. Un proceso con baja prioridad (un proceso “amable”) sólo ocupará tiempo de
+         procesador después de que otros procesos con mayor prioridad hayan sido servidos.
+
