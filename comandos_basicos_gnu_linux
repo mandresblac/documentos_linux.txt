@@ -98,6 +98,10 @@ sudo apt-get install ttf-mscorefonts-installer : Para instalar fuentes (tipos de
 windows en libreoffice en Ubuntu o derivadas, luego escribimos el comando sudo fc-cache -fv y esperamos que instale
 !LISTO!.
 useradd o adduser + nombre de usuario: Para crear un usuario en el sistema.
+
+passwd: Para cambiar mi propia contraseña, el sistema preguntara por la contraseña anterior y despues la nueva,
+tratará de obligarte a usar contraseñas “fuertes”. Ésto significa que rechazará contraseñas que son muy cortas, muy
+parecidas a contraseñas anteriores, palabras del diccionario, o muy fácilmente adivinables.
 passwd + nombre del usuario: Cambia la contraseña de cualquier usuario en el sistema (ojo, tiene que ejecutarse con
 permisos de usuario administrador o Super usuario.
 
