@@ -11,8 +11,7 @@ sudo su - nombre_de_usuario: Permite cambiar de usuario sin necesidad de saber s
 contraseña y nada mas, esto es util cuando desconosco la contraseña de un usuraio y quiero cambiarme a ese usuario pero
 utilizo mi propia contraseña.
 Para poder utilizar el comando sudo, los usuarios tienen que estar autorizados (o cargados) en el archivo /etc/sudoers.
-sudo (SUPER USER DO) en Español SUPER USUARIO HACE: Permite ejecutar comandos como root (o super-usuario administrador), o 
-como otro usuario.
+sudo (SUPER USER DO) en Español SUPER USUARIO HACE: Permite ejecutar comandos como root (o super-usuario administrador), o como otro usuario.
 Para cualquier comando administador se debe utilizar sudo.
 NOTA: En Ubuntu  y sus derivados, por defecto viene desactivado el acceso a la cuenta root (impidiendo establecer una 
 contraseña para la cuenta), y en su lugar utiliza el comando sudo para proporcionar privilegios de superusuario.
@@ -420,13 +419,13 @@ directorios que necesitemos en contrar. Esta busqueda la realiza como lecturas a
 db,que contiene
 todas las rutas de archivos de nuestro sistema.
 Lo primero es actualizar todas las rutas de los archivos de nuestro sistema con el comando: sudo updatedb
-find: Es una utilidad de busqueda mucho mas poderosa pero tambien mas lenta. Esto se debe a que realmente busca en nuestros 
+find: Es una utilidad de busqueda mucho mas poderosa pero tambien mas lenta. Esto se debe a que realmente busca en nuestros
 discos los
-archivos y directorios. Es perfecta para cuando intentas localizar un archivo o un directorio pero no puedes recordar su 
+archivos y directorios. Es perfecta para cuando intentas localizar un archivo o un directorio pero no puedes recordar su
 nombre exacto.
 find puede buscar archivos que pertenecen a un determinado usuario o grupo de usuarios, archivos que fueron modificados o los
  que accedimos
-recientemente, archivos de un rango de tamaño especifico, archivos ocultos, etc. 
+recientemente, archivos de un rango de tamaño especifico, archivos ocultos, etc.
 find + ruta o carpeta donde se presume esta el archivo + -iname(para que mebusque por el nombre + el nombre que voy a buscar:
 
 
@@ -434,15 +433,15 @@ CAMBIAR PERMISOS DE ACCESO DE DIRECTORIOS Y ARCHIVOS
 chmod (change mode): Para cambiar permisos de directorios o archivos, hay dos metodos para cambiar los permisos: simbólico y
  octal(o numérico).
 a=all(todos) u=user(usuario) g=group(grupo) o=others(otros) Si no se especifica ningun caracter por defecto se asume "all"
-"+" Da permisos   "-" Quita permisos  "=" Indica que todos los permisos especificados deben ser aplicados y todos los demas 
+"+" Da permisos   "-" Quita permisos  "=" Indica que todos los permisos especificados deben ser aplicados y todos los demas
 (los no mencionados), deben ser eliminados.
-r(read)=Lectura=4     w(write)=Escritura o modificacion=2     x(execute)=Ejecucion=1 
+r(read)=Lectura=4     w(write)=Escritura o modificacion=2     x(execute)=Ejecucion=1
 Ejemplo 2 (notacion simbolica): chmod augo+-rwx nombre de directorio, archivo o ruta.
-Ejemplo 3 (notacion simbolica) chmod u+x,go=rx nombre de directorio, archivo o ruta.   Para este ejemplo multiples 
+Ejemplo 3 (notacion simbolica) chmod u+x,go=rx nombre de directorio, archivo o ruta.   Para este ejemplo multiples
 especificaciones pueden ser separadas por coma.
-Ejemplo 1 (notacion octal): chmod 755 nombre de directorio, archivo o ruta. 
-umask: El comando umask es una característica que se utiliza para determinar los permisos predeterminados que se establecen 
-cuando se crea un archivo o directorio.
+Ejemplo 1 (notacion octal): chmod 755 nombre de directorio, archivo o ruta.
+umask: El comando umask es una característica que se utiliza para determinar los permisos predeterminados que se establecen cuando se crea un archivo o directorio. umask controla los permisos por defecto dados a un archivo cuando éste
+es creado. si ejecutamos el comando umask en la termianl nos devolvera el valor 0002 (un valor por defecto muy común),que es la representación octal de nuestra máscara.
 
 COMANDO PARA CAMBIAR LA PROPIEDAD DE UN DIRECTORIO O ARCHIVO
 chown (change owner) (Cambiar de propietario)
@@ -453,8 +452,8 @@ Tambien se puede cambiar solo el usuario propietario, ejemplo:
 chown manuel file.txt
 
 
-Con estas dos líneas, se crea un directorio llamado playground que contiene 100 subdirectorios, cada uno conteniendo 26 
-archivos vacíos.
+Con estas dos líneas, se crea un directorio llamado playground que contiene 100 subdirectorios, cada uno conteniendo
+26 archivos vacíos.
 mkdir -p playground/dir-{001..100}
 touch playground/dir-{001..100}/file-{A..Z}
 
