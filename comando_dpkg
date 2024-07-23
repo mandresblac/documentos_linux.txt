@@ -1,9 +1,9 @@
 USO DEL COMANDO DPKG
 
-El comando dpkg administra los paquetes de nuestro sistema sin usar repositorios
+El comando dpkg es una herramienta de gestion de paquetes de bajo nivel que administra los paquetes de nuestro sistema
+sin usar repositorios, soporta tareas como instalar y eliminar paquetes pero OJO,  no resuelve dependencias.
 
-Primero que todo para poder usar este comando tenemos que tener privilegios de super usuario o utilizar
-el comando sudo
+Para poder usar este comando tenemos que tener privilegios de super usuario o utilizar el comando sudo.
 
 dpkg --help: Para ver todas las opciones disponibles del comando dpkg.
 dpkg --version: Para verificar la versión de dpkg que tenemos instalada.
