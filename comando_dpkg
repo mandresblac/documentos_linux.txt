@@ -16,7 +16,7 @@ por ejemplo: dpkg -l neofetch  nos trae información del paquete neofetch, como 
 Arquitectura, y una breve descripción de lo que hace el paquete.
 dpkg -c nombre_del_paquete: Muestra el contenido del paquete .deb, que tiene el paquete, pero ojo,
 tenemos que estar ubicados en el directorio donde esta el paquete .deb de lo contrario dara error.
-dpkg -s nombre_del_paquete: Nos muestra si el paquete esta instalado o no y nos da una pequeña descripción.
+dpkg -s nombre_del_paquete: Muestra si un paquete esta instalado o no y nos da una pequeña descripción, -s de --status
 dpkg -L nombre_del_paquete: Muestra la ubicación de los archivos binarios (bin) y del resto de archivos que utiliza, o forman parte
 del paquete que buscamos.
 dpkg -R --install /nombre_directorio: Instala todos los paquetes .deb que se encuentran dentro de ese directorio o carpeta.
