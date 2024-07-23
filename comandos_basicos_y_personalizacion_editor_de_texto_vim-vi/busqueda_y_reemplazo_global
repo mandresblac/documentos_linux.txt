@@ -1,0 +1,52 @@
+Búsqueda y reemplazo global
+Vim usa un comando ex para realizar operaciones de búsqueda y reemplazo (llamadas “sustituciones” en vi) sobre un
+rango del líneas del total del archivo. Para cambiar la palabra “Line” a “line” en el archivo completo, utilizaríamos
+el siguiente comando:
+
+:%s/Line/line/g
+
+Dividamos este comando en elementos separados y veamos que hace cada uno:
+
+Elemento    Significado
+:           El carácter dos puntos comienza un comando ex.
+
+%           Especifica el rango de líneas para la operación. % es una abreviatura que significa desde la primera a la
+            última línea. Alternativamente, el rango podría ser especificado como 1, 5 (ya que nuestro archivo tiene
+			cinco líneas), o 1, $ que significa “de la línea 1 a la última línea del archivo.” Si el rango de líneas
+			se omite, la operación sólo se realiza en la línea actual.
+
+s           Especifica la operación. En este caso, sustitución (buscar y reemplazar).
+
+/Line/line/  El patrón de búsqueda y el texto de reemplazo.
+g           Significa “global” en sentido de que la búsqueda y reemplazo se realiza en cada instancia de la cadena de
+			búsqueda en la línea. Si la omitimos, sólo la primera instancia de la cadena de búsqueda de cada línea se
+			reemplazará.
+
+Después de ejecutar nuestro comando de búsqueda y reemplazo nuestro archivo aparece así:
+The quick brown fox jumped over the lazy dog. It was cool.
+line 2
+line 3
+line 4
+line 5
+
+Podemos especificar también un comando de sustitución con confirmación del usuario. Ésto se hace añadiendo una “c” al
+final del comando. Por ejemplo: :%s/line/Line/gc
+
+El comando cambiará nuestro archivo de nuevo a su forma previa; sin embargo, antes de cada sustitución, vi para y nos
+pregunta que confirmemos la sustitución con este mensaje:
+
+replace with Line (y/n/a/q/l/^E/^Y)?
+
+Cada uno de los caracteres dentro del paréntesis es una posible elección de la siguiente forma:
+
+Clave           Acción
+y               Realiza la sustitución.
+n               Se salta esta instancia del patrón.
+a               Realiza la sustitución en esta y todas las siguientes instancias del patrón.
+q o Esc         Salir de sustituir
+l               Realiza esta sustitución y luego salir. Abreviatura de “último”.
+Ctrl-e, Ctrl-y  Desplazamiento arriba y abajo, respectivamente. Útil para ver el contexto de la sustitución prevista.
+
+Si escribes y, la sustitución se realizará, n hará que vi se salta esta instancia y se mueva a la
+siguiente.
+
