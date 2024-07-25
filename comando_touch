@@ -1,0 +1,4 @@
+El comando touch se usa normalmente para establecer o actualizar, el acceso, cambio y fecha de modificación de los
+archivos. Sin embargo, si el argumento del nombre de archivos es el de un archivo que no existe, se crea un archivo
+vacío.
+
