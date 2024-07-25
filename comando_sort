@@ -1,0 +1,31 @@
+El programa sort ordena el contenido de la entrada estándar, o de uno o más archivos especificados en la línea de
+comandos, y manda el resultado a la salida estándar.
+
+sort tiene varias opciones interesantes. Aquí hay una lista parcial:
+
+OPCIÓN        OPCIÓN LARGA          DESCRIPCIÓN
+-b      --ignore-leading-blanks     Por defecto, el ordenado se realiza en la línea completa, empezando con el primer
+									carácter de la línea. Esta opción hace que sort ignore los espacios al principio
+									de la línea y calcula el ordenado basándose en el primer carácter que no es un
+									espacio en blanco en la línea.
+
+-f      --ignore-case               Hace el ordenamiento sensible a mayúsculas.
+
+-n      --numeric-sort              Realiza el ordenado basado en la evaluación numérica de una cadena. Usar esta
+									opción permite que el ordenado se realice según valores numéricos en lugar de
+									valores alfabéticos.
+
+-r      --reverse                   Ordena inversamente. Los resultados son descendentes en lugar de ascendentes.
+
+-k      --key=campo1[,campo2]       Ordena basado en un campo clave localizado entre campo1 y campo2 en lugar de en la
+									línea entera. Veremos este tema luego.
+
+-m      --merge                     Trata cada argumento como el nombre de un archivo preordenado. Une múltiples
+									archivos en uno sólo ordenado resultante sin realizar ningún ordenamiento
+									adicional.
+
+-o      --output=archivo            Envía salida ordenada a archivo en lugar de a la salida estándar.
+
+-t      --fiel-separator=carácter   Define el caracter separador de campos. Por defecto los campos se separan por
+									espacios o tabuladores.
+
