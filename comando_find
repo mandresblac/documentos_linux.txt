@@ -13,7 +13,8 @@ find /home/ -iname "tipos_de_permisos*"
 
 
 BUSQUEDA POR TIPO
--type: Para filtrar por tipo de archivo, f (file) para archivo, d (directory) para directorio, l (link) para enlace simbolico.
+-type: Para filtrar por tipo de archivo, f (file) para archivo, d (directory) para directorio, l (link) para enlace
+simbolico, b (block) Archivo especial de bloques de dispositivo, c Archivo especial de carácter de dispositivo.
 
 -type f: Esta opcion busca solo archivos, ejemplo
 find ruta_del_archivo_o_directorio/ -type f -iname "letra_inicial_del_archivo_entre_comillas*"
@@ -29,11 +30,19 @@ find ruta_del_archivo_o_directorio/ -type l
 
 
 BUSQUEDA POR TAMAÑO
-find ruta_del_archivo_o_directorio/ -size  signo_mas_o_menos  numero_acompañado_de_letra: Esta opcion busca archivos por
-tamaño, el menos "-" para archivos que tengan tamaño menor al número especificado, el mas "+" para archivos que tengan tamaño
-mayor al número especificado, la letra al final puede ser cualquirera de estas, k para kibibytes, M para mebibytes, G para
-Gibibytes
-ejemplo:
+find ruta_del_archivo_o_directorio/ -size  signo_mas_o_menos  numero_acompañado_de_letra: Esta opcion busca archivos
+por tamaño, el menos "-" para archivos que tengan tamaño menor al número especificado, el mas "+" para archivos que
+tengan tamaño mayor al número especificado, no usar signo significa, “coincidencia del valor exacto”. La letra al
+final indica la unidad de medida que puede ser cualquirera de estas:
+
+b para bloques de 512 bytes. Es la opción por defecto si no especificamos ninguna unidad.
+c para Bytes
+W para palabras de 2 bytes
+k para kilobytes (unidades de 1024 bytes)
+M para megabytes (unidades de 1048576 bytes)
+G para Gigabytes (unidades de 1073741824 bytes)
+
+ejemplo de busqueda por tamaño:
 find ./manuales_linux/documentos.txt/ -size +5k
 
 
@@ -43,7 +52,8 @@ find ./manuales_linux/documentos.txt/ -perm 644
 
 
 BUSUQEDA POR TIEMPO DE MODIFICACIÓN DEL ARCHIVO O DIRECTORIO
-find ruta_del_archivo_o_directorio -mtime signo_mas_o_menos número: Para ver archivos o directorios por fecha de modificacion
+find ruta_del_archivo_o_directorio -mtime signo_mas_o_menos número: Para ver archivos o directorios por fecha de
+modificacion.
 -mtime: dias
 -mmin: minutos
 
@@ -55,8 +65,8 @@ find ./manuales_linux/documentos.txt/ -mmin -5
 
 
 EJECUTAR COMANDOS SOBRE LOS ELEMENTOS ENCONTRADOS CON FIND
--exec <comando> : permite definir un comando a ejecutarse para cada resultado de la búsqueda. La cadena {} se sustituye por el nombre de los
-ficheros encontrados. El caracter ; permite indicar la finalización del comando.
+-exec <comando> : permite definir un comando a ejecutarse para cada resultado de la búsqueda. La cadena {} se
+sustituye por el nombre de los ficheros encontrados. El caracter ; permite indicar la finalización del comando.
 (Tanto {} como ; tienen que ir entre comillas o entre contrabarras para evitar que sea sustituido por el shell).
 
 Ejemplos:
