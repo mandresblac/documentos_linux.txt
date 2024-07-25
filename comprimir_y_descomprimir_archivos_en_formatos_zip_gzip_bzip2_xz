@@ -1,6 +1,7 @@
 COMPRIMIR Y DESCOMPRIMIR ARCHIVOS EN FORMATOS .ZIP .GZIP .BZIP2 .XZ
 
 
+
 .ZIP
 Para comprimir cualquier archivo en formato .zip
 zip  nombrearchivo   nombre_archivo_a_comprimir
@@ -14,6 +15,7 @@ zip -r   nombre_de_archivo    nombre_archivo_a_comprimir
 Para listar el contenido y descripcion de un paquete .zip sin extraer nada:
 unzip -l nombre_de_archivo.zip     o     unzip -v  nombre_de_archivo.zip
 NOTA: .zip es la principal utilidad de compresion de archivos en sistemas windows de Microsoft.
+
 
 
 
@@ -34,6 +36,17 @@ Para conservar el archivo  original indicamos la opción -k
 
 Para ver contenido de archivos comprimidos en formato .gzip utilizamos el comando zcat
 
+Para ver mensajes mientras comprime indicamos la opción -v o --verbose
+
+La opción -number Establece la cantidad de compresión. number es un entero en el rango entre 1 (más rápido, menos
+comprimido) y 9 (más lento, más comprimido). Los valores 1 y 9 también pueden expresarse como --fast y --best,
+respectivamente. El valor por defecto es 6.
+
+La opción -r se puede usar si uno o más argumentos de la línea de comandos son directorios, recursivamente comprime
+los archivos incluidos en ellos. También podría especificarse con --recursive.
+
+La opción -t prueba la integridad de un archivo comprimido. También podría especificarse con --test.
+
 NOTA: .gzip es una herramienta que solo comprime archivos individuales (no directorios) y no permite empaquetar a varios archivos dentro de un mismo paquete.
 .gzip usa el algoritmo de compresión Lempel-Ziv-Markov.
 
@@ -52,6 +65,7 @@ bzcat nombre_de_archivo.bz2
 
 Para hacer un test de la integridad del archivo comprimido .bz2 (Si todo está OK, no habrá ningún output):
 bzip2 -t archivo.bz2
+
 bzip2 también viene con el programa bzip2recover, que tratará de recuperar archivos .bz2 dañados.
 
 Para conservar el archivo original indicamos la opción -k

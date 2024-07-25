@@ -55,7 +55,8 @@ tar -cvzf nombrearchivo.tgz archivo_a_comprimir      Crea un archivo con extensi
 Extraer un archivo tar.gz
 tar -xvf nombrearchivo.tgz
 
-Crear un archivo tar.bz2
+
+Para crear un archivo tar.bz2 agregamos la letra "j" a "cvf"
 Tar.bz2 es una excelente opción a la hora de comprimir, pero la compresión y descompresión de archivos .bz2 tarda
 más tiempo que con gzip, de todas formas ejecutamos el siguiente comando:
 tar cvfj nombrearchivo.tar.bz2  archivo_a_comprimir
