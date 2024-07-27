@@ -1,4 +1,4 @@
-	      COMANDOS BASICOS GNU/LINUX
+COMANDOS BASICOS GNU/LINUX
 
 su:(SWITCH USER) Invocado sin ningun argumento, permite convertirse en root o superusuario y pide la contraseña de root.
 su -  su -l  su --login: Cualquiera de estas tres opciones se puede usar para configurar un shell completamente

@@ -36,10 +36,11 @@ OJO: La combinacion de teclas Ctrl + b se cambia por Ctrl + q que es mucho mas c
 
 MANEJO DE SESIONES
 Ctrl+b d  Hace un "dettach" o se desconecta de la sesión pero esta sigue activa.
-Ctrl+s  Para cambiarnos entre sesiones una vez que ya estamos dentro de una sesion, con las flechas seleccionamos la sesion que queramos y damos enter.
+Ctrl+s  Para cambiarnos entre sesiones una vez que ya estamos dentro de una sesion, muestra las sesiones creadas y
+con las flechas (arriba y abajo) seleccionamos la sesion que queremos y damos enter.
+Ctrl+b $  Para cambiar el nombre de una sesion.
 Ctrl+b ) Para ir a la sesion siguiente, hacia adelante
 Ctrl+b ( Para ir ala sesion anterior, hacia atras
-Ctrl+b $  Para cambiar el nombre de una sesion.
 
 
 MANEJO DE VENTANAS
@@ -80,7 +81,7 @@ Ctrl+b #  Lista todos los buffers que se pueden pegar
 Ctrl+b - Borra el buffer de texto copiado más reciente
 
 
-COMO COPIAR Y PEGAR TEXTO ENTRE LAS VENTANAS Y PANELES D TMUX
+COMO COPIAR Y PEGAR TEXTO ENTRE LAS VENTANAS Y PANELES DE TMUX
 Paso 1. Presione el "Prefijo" (‘Ctrl + b) y luego presione ‘[’ para entrar en el modo de copia.
 Paso 2. Con las teclas de flecha, busque la posición desde la que empezar a copiar. Utilizar "Ctrl + barra_espaciadora" para empezar a copiar.
 Paso 3. Muévase con las flechas hasta la posición del texto que desea copiar. Cuando haya terminado de seleccionar el texto, presione "Alt + w"
