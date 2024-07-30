@@ -1,0 +1,21 @@
+Hay varios shells con su propia sintaxis de lenguaje.
+Por lo tanto, los scripts más complicados indicarán un shell
+en particular especificando la ruta absoluta al intérprete
+como la primera línea, con el prefijo #! como se muestra:
+
+#! / bin / bash
+echo "¡Hola, mundo!"
+
+Los dos caracteres #! se denominan tradicionalmente hash y
+bang, respectivamente, lo que conduce a la forma abreviada
+de "shebang" cuando se utilizan al principio de un guión.
+
+Por cierto, el shebang (o crunchbang) se usa para scripts de
+shell tradicionales y otros lenguajes basados en texto como
+Perl, Ruby y Python. Cualquier archivo de texto marcado como
+ejecutable se ejecutará con el intérprete especificado en la
+primera línea siempre que el script se ejecute directamente.
+Si la secuencia de comandos se invoca directamente como un
+argumento para un intérprete, como sh script o bash script,
+el shell dado se utilizará sin importar lo que esté en la
+línea shebang.
