@@ -11,7 +11,7 @@ set showcmd               Muestra los comandos ejecutados en la parte inferior d
 set ruler		          Muestra la linea donde estoy posicionado en la parte inferior derecha del editor.
 set encoding=utf-8        Configura la codificacion de archivos en utf-8.
 set showmatch             Al posicionarse sobre un parentesis, corchete o llave muestra su respectivo cierre.
-set sw=2		          Al espichar la barra espaciadora deja 2 espacios en vez de uno.
+set sw=2  o  set shiftwidth=2  Al espichar la barra espaciadora deja 2 espacios en vez de uno.
 set relativenumber        Toma como referencia 0 la linea donde este posicionado el cursor y desde alli empieza a contar
 	                      hacia arriba o hacia abajo de esa posicion desde 1, es util porque si me quiero mover hacia arriba
  			              o hacia abajo de la linea donde estoy ubicado no necesito contar porque los numero de linea me
@@ -19,6 +19,8 @@ set relativenumber        Toma como referencia 0 la linea donde este posicionado
 set laststatus=2          Hace visible por siempre la barra de informacion ubicada en la parte inferior del editor.
 set cursorline            Pone una linea horizontal en la posicion del cursor.
 set cursorcolumn	      Pone una columna en la posicion del cursor.
-set tabstop=4		      Configura cuantos espacios tiene una tabulacion. Por defecto viene en 8, se puede dejar en 4.
+set ts=4  o  set tabstop=4 Configura cuantos espacios tiene una tabulacion. Por defecto viene en 8, se puede dejar en 4
+o en 2.
 set incsearch             Resalta texto mientras busca con los caracteres "/" o "?"
 set hlsearch  			  Mantiene las coincidencias resaltadas.
+
