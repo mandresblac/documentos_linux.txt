@@ -144,6 +144,10 @@ documento.
 :set nu   Para mostrar números de línea en el lateral izquierdo de una ventana.
 :set nu!  Para deshabilitar el numero de la linea  en el lateral izquierdo de una ventana.
 
+vim -r nombre_de_archivo: Si se esta trabajando en un archivo y por cualquier circunstancia el equipo se apaga,  con
+este comando se puede recuperar, es decir, quedamos editando el archivo desde la ultima modificación que se alcanzo a
+guardar antes de que el equipo se apagara abruptamente.
+
 
 Para conocer mucho más de VIM, se recomiendo instalar VIM y ejecutar vimtutor.
 Pagina web:
