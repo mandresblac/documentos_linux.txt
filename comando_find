@@ -47,7 +47,7 @@ M para megabytes (unidades de 1048576 bytes)
 G para Gigabytes (unidades de 1073741824 bytes)
 
 ejemplo de busqueda por tamaño:
-find ./manuales_linux/documentos.txt/ -size +5k
+find ./manuales_linux/documentos.txt/ -type f -size +5k
 
 
 BUSQUEDA EN FUNCION DE LOS PERMISOS QUE TENGAN ARCHIVOS Y DIRECTORIOS
