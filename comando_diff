@@ -1,0 +1,84 @@
+El comando diff en Linux se utiliza para comparar archivos línea por línea y mostrar las diferencias entre ellos. Este comando es útil cuando se necesita ver los cambios realizados en un archivo o comparar versiones diferentes de un mismo archivo.
+
+Sintaxis básica
+diff [opciones] archivo1 archivo2
+
+Donde:
+- archivo1 y archivo2 son los archivos que deseas comparar.
+- opciones son parámetros opcionales para modificar el comportamiento de diff.
+
+
+
+PRINCIPALES SALIDAS
+Por defecto, el comando diff produce una salida en formato de diferencias (deltas) en este estilo:
+
+Las líneas que comienzan con < son del primer archivo.
+Las líneas que comienzan con > son del segundo archivo.
+
+El resultado describe las diferencias entre los archivos de forma lineal.
+
+Ejemplo básico:
+Supongamos que tienes dos archivos de texto, archivo1.txt y archivo2.txt.
+
+archivo1.txt
+hola
+adiós
+cómo estás
+
+archivo2.txt
+hola
+hasta luego
+cómo estás
+
+Si ejecutas el siguiente comando: diff archivo1.txt archivo2.txt
+
+La salida será:
+
+2c2
+< adiós
+---
+> hasta luego
+
+Lo anterior significa que la segunda línea de archivo1.txt es "adiós", mientras que la segunda línea de archivo2.txt es "hasta luego".
+
+
+
+OPCIONES MÁS USADAS CON DIFF
+Formato lateral (side-by-side)
+
+Esta opción muestra las diferencias de ambos archivos en paralelo. Es útil para comparar fácilmente las diferencias visuales de cada línea, ejemplo:
+
+diff -y archivo1.txt archivo2.txt
+
+Salida:
+hola                hola
+adiós           |   hasta luego
+cómo estás          cómo estás
+
+Aquí, el símbolo | indica las diferencias entre las líneas de los dos archivos.
+
+
+
+COMPARAR DIRECTORIOS
+diff también puede comparar el contenido de dos directorios. Si hay archivos con el mismo nombre en ambos directorios, comparará esos archivos individualmente.
+
+diff directorio1/ directorio2/
+
+Esta opción te permitirá ver las diferencias en todo el conjunto de archivos dentro de los dos directorios.
+
+
+
+IGNORAR MAYÚSCULAS Y MINÚSCULAS
+Si quieres ignorar las diferencias en cuanto a mayúsculas o minúsculas, puedes usar la opción -i, por ejemplo:
+diff -i archivo1.txt archivo2.txt
+
+
+
+RESUMEN DE OPCIONES COMUNES DEL COMANDO DIFF
+-y  Comparación en paralelo (side-by-side).
+-u  Formato unificado.
+-i  Ignorar diferencias en mayúsculas/minúsculas.
+-w  Ignorar espacios en blanco.
+-r  Comparar recursivamente los archivos en dos directorios.
+-q: Solo informar si los archivos son diferentes, sin mostrar detalles.
+
