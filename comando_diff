@@ -82,3 +82,7 @@ RESUMEN DE OPCIONES COMUNES DEL COMANDO DIFF
 -r  Comparar recursivamente los archivos en dos directorios.
 -q: Solo informar si los archivos son diferentes, sin mostrar detalles.
 
+
+CONCLUSIÓN
+El comando diff es una herramienta muy poderosa y flexible para comparar archivos o directorios en Linux. Sus diferentes opciones permiten ajustar las comparaciones según tus necesidades, desde ignorar diferencias menores como espacios en blanco o mayúsculas hasta generar parches entre versiones de archivos.
+
