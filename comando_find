@@ -13,8 +13,12 @@ find /home/ -iname "tipos_de_permisos*"
 
 
 BUSQUEDA POR TIPO
--type: Para filtrar por tipo de archivo, f (file) para archivo, d (directory) para directorio, l (link) para enlace
-simbolico, b (block) Archivo especial de bloques de dispositivo, c Archivo especial de carácter de dispositivo.
+-type: Para filtrar por tipo de archivo, puede ser cualquiera de los siguientes:
+f (file) para archivo regular como archivos de texto, imágenes y archivos ocultos.
+d (directory) para directorios.
+l (link) para enlace simbolico, los enlaces simbólicos apuntan a archivos y son similares a los accesos directos.
+b (block) Archivo especial de bloques de dispositivo
+c Archivo especial de dispositivos de carácteres, se utilizan para acceder a dispositivos de caracteres se denominan archivos de dispositivos de caracteres.
 
 -type f: Esta opcion busca solo archivos, ejemplo
 find ruta_del_archivo_o_directorio/ -type f -iname "letra_inicial_del_archivo_entre_comillas*"
