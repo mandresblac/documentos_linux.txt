@@ -1,6 +1,9 @@
 COMANDOS BASICOS EDITOR DE TEXTO VIM-VI
 
-Hay tres modos que utiliza el editor vi: modo COMANDO, modo de INSERCIÓN y modo EX o linea.
+Hay tres modos que utiliza el editor vi:
+1- modo COMANDO
+2- modo de INSERCIÓN o EDICIÓN
+3- modo EX, linea o EXTENDIDO
 
 ACCIONES DEL MODO COMANDO
 Letra i (insertar): para insertar texto, o reemplazar (Modo insertar).
@@ -27,7 +30,7 @@ R : Permite reemplazar desde la posicion actual del cursor hasta el final de la 
 esto se puede observar en la parte inferior donde aparece la palabra -- REEMPLAZAR --.
 
 Eliminar
-La acción de eliminar borra el texto indicado de la página y lo guarda en el búfer. El búfer es el equivalente de 
+La acción de eliminar borra el texto indicado de la página y lo guarda en el búfer. El búfer es el equivalente de
 «portapapeles» en Windows o Mac OSX.
 La siguiente tabla proporciona algunos ejemplos:
 Acción	           Resultado
@@ -39,8 +42,8 @@ d3w     	 Eliminar las siguientes tres palabras
 d4h	         Eliminar los cuatro caracteres a la izquierda
 
 Cambiar
-La acción de cambiar es muy similar a eliminar, el texto se elimina y se guarda en el búfer, sin embargo el 
-programa se conecta para introducir el modo que permite hacer los cambios de texto de inmediato. La siguiente 
+La acción de cambiar es muy similar a eliminar, el texto se elimina y se guarda en el búfer, sin embargo el
+programa se conecta para introducir el modo que permite hacer los cambios de texto de inmediato. La siguiente
 tabla proporciona algunos ejemplos:
 Acción	            Resultado
 ciw	          Cambiar la palabra actual
@@ -48,15 +51,15 @@ cw                Cambia la palabra desde la posicion actual del cursor hasta el
 cc	          Cambiar la línea actual
 c3w	          Cambiar las siguientes tres palabras
 c5h	          Cambiar los cuatro caracteres a la izquierda
-	
+
 o : Inserta una nueva linea de texto y nos deja en el modo insertar.
-O Mayuscula: Inserta una nueva linea de texto arriba de de la linea actual y nos deja en el modo insertar. 
-x : Borra el caracter en el que esta ubicado el cursor, (sin tener que entrar al modo insertar). 
+O Mayuscula: Inserta una nueva linea de texto arriba de de la linea actual y nos deja en el modo insertar.
+x : Borra el caracter en el que esta ubicado el cursor, (sin tener que entrar al modo insertar).
 X Mayuscula: Borra el caracter a la izquierda de donde esta ubicado el cursor.
 r : Permite reemplazar el caracter donde esta ubicado el cursor sin tener que ingresar al modo insertar.
 
-Jalar o copiar
-La acción de jalar guarda el contenido en el buffer sin eliminarlo. La siguiente tabla proporciona algunos 
+Jalar o copiar (Yank)
+La acción de jalar guarda el contenido en el buffer sin eliminarlo. La siguiente tabla proporciona algunos
 ejemplos:
 Acción	             Resultado
 y	          Jalar la línea actual
@@ -64,7 +67,7 @@ y	          Jalar la línea actual
 yw	          Jalar la palabra actual
 y$	          Jalar al final de la línea
 
-Poner o pegar
+Poner o pegar (Put)
 La acción de poner, pone el texto guardado antes o después de la posición del cursor. Observa que estas son las
 dos únicas opciones, la acción poner no utiliza los movimientos como los anteriores comandos de acción.
 Acción	           Resultado
@@ -73,11 +76,11 @@ P	           Poner antes del cursor
 
 Buscar en el vi
 Para explorar el texto hacia delante desde la posición actual del cursor, utiliza el / para comenzar a explorar el texto, 
-introduce el término de búsqueda y luego 
-presiona la tecla Entrar para iniciar la exploración del texto. El cursor se moverá a la primera coincidencia que se 
+introduce el término de búsqueda y luego
+presiona la tecla Entrar para iniciar la exploración del texto. El cursor se moverá a la primera coincidencia que se
 encuentra.
 /  + palabra + Enter: Busca y encuentra la palabra que estamos buscando, pulsando la letra n  nos lleva a la siguiente 
-palabra igual dentro del documento haste el final del mismo, 
+palabra igual dentro del documento haste el final del mismo,
 pulsando N mayuscula se devuelve en la busqueda. Si llegas al final o al comienzo del documento, automáticamente ira el otro
  lado del documento.
 Para empezar a buscar hacia atrás desde la posición del cursor, empieza introduciendo ?, después introduce el patrón buscar l
@@ -91,8 +94,8 @@ Ctrl + o: Para devolmerme al archivo anteriorCtrl + o: Para devolmerme al archiv
 
 
 ACCIONES DEL MODO INSERCIÓN:
-El modo de inserción se utiliza para añadir texto al documento. Hay varias maneras de entrar al modo de 
-inserción desde el modo comando, cada una se distingue según dónde se iniciará la inserción del texto. La 
+El modo de inserción se utiliza para añadir texto al documento. Hay varias maneras de entrar al modo de
+inserción desde el modo comando, cada una se distingue según dónde se iniciará la inserción del texto. La
 siguiente tabla incluye las más comunes:
 Entrada	                               Propósito
 a	             Entrar al modo de inserción justo después del cursor
