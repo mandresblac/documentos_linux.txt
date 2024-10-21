@@ -20,6 +20,7 @@ killall + nombre_del_proceso: Mata un proceso por su nombre, por ejemplo: killal
 proceso firefox.
 pkill + nombre_del_proceso: También funciona igual que killall pero puedo usar el nombre u otros criterios para enviar
 señales a los procesos.
+pkill -u username: Mata todos los procesos propiedad de un usuario específico.
 
 Para los curiosos, una lista completa de las señales de kill se puede ver con el siguiente comando:
 kill -l
