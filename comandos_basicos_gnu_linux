@@ -193,6 +193,7 @@ front-end que administra las reglas de iptables o nftables muy fácil de usar y 
 relevantes son:
 sudo ufw status: Para conocer su estado, si esta activado (enable), desactivado (disable).
 sudo ufw status numbered: Muestra todas las reglas definidas numeradas, osea, con su número al inicio en la parte izquierda.
+sudo ufw reload: Para cargar todas las reglas.
 sudo ufw delete 3: Elimina la regla segun listado que muestra el comando anterior (sudo ufw status numbered), en este caso la 3.
 sudo ufw enable: Para activar Firewall.
 sudo ufw disable: Para desactivar Firewall.
