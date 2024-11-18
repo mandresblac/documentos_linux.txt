@@ -16,3 +16,6 @@ Dentro Vim podemos ejecutar varios comandos relacionados con los Plugins, como:
 :PluginClean       Eliminará los plugins que estén instalados (o sea, cuyos archivos se encuentren dentro de ~/.vim/bundle/)
 				   y que no estén especificados en el plugins.vim.
 :PluginList        Ver la lista de plugins instalados.
+
+Video en youtube: https://www.youtube.com/watch?v=EJb1GHXl7PM
+
