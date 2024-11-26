@@ -1,0 +1,37 @@
+Métodos para identificar el tipo de puerto USB en Linux:
+
+1-  lspci -v | grep -i usb
+
+Si sale "OHCI" o "UHCI" se trata de USB 1.x. Si sale "EHCI" indica USB 2.0.
+
+
+2-  lsub
+
+Ejemplo de salida de lsusb y su interpretación (simplificada):
+
+Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 001 Device 003: ID 046d:c075 Logitech, Inc. USB Receiver
+Bus 001 Device 002: ID 046d:c52b Logitech, Inc. USB Receiver
+
+En este ejemplo:
+
+1d6b:0002: Corresponde al hub USB 2.0 raíz.
+046d:c075 y 046d:c52b: Corresponden a receptores USB de Logitech. Los últimos cuatro dígitos (c075 y c52b) identifican los dispositivos específicos, pero no necesariamente la versión USB.
+
+
+3- lsusb -t
+
+Salida típica:
+
+/:  Bus 02.Port 1: Dev 1, Class=root_hub, Driver=xhci_hcd/2p, 5000M
+    |__ Port 1: Dev 2, If 0, Class=Hub, Driver=hub/4p, 5000M
+/:  Bus 01.Port 1: Dev 1, Class=root_hub, Driver=xhci_hcd/8p, 480M
+		|__ Port 4: Dev 3, If 0, Class=Human Interface Device, Driver=usbhid, 12M
+
+En este ejemplo:
+
+- 5000M: Puerto USB 3.0 o superior (5 Gbps).
+- 480M: Puerto USB 2.0 (480 Mbps).
+- 12M: Puerto USB 1.1 (12 Mbps).
+
+
