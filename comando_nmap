@@ -1,0 +1,20 @@
+Nmap es la abreviatura de Network Mapper. Es una herramienta de línea de comandos de Linux de código abierto que se utiliza para escanear direcciones IP y puertos en una red y para detectar aplicaciones instaladas.
+
+Nmap permite a los administradores de red encontrar qué dispositivos se están ejecutando en su red, descubrir puertos y servicios abiertos y detectar vulnerabilidades.
+
+Nmap te ayuda a mapear rápidamente una red sin comandos ni configuraciones sofisticados. También admite comandos simples (por ejemplo, para verificar si un host está activo) y secuencias de comandos complejas a través del motor de secuencias de comandos Nmap.
+M
+
+COMANDOS
+
+Escaneos basicos
+
+- Escanear un solo host: Escanea un solo host en busca de 1000 puertos conocidos. Estos puertos son los que utilizan
+servicios populares como SQL, SNTP, apache y otros:
+
+nmap scanme.nmap.org
+
+- Escaneo del sistema operativo: Nmap puede proporcionar información sobre el sistema operativo subyacente mediante huellas dactilares de TCP/IP. Nmap también intentará encontrar el tiempo de actividad del sistema durante una exploración del sistema operativo:
+
+nmap -sV scanme.nmap.org
+
