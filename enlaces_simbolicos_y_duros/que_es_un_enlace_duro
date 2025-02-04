@@ -1,3 +1,5 @@
+Un enlace duro es otro archivo que apunta a la misma ubicación que el archivo original.
+
 En Linux cada archivo y carpeta tiene asignado un número entero llamado "inodo", este "inodo" es unico para cada uno
 de los archivos y carpetas almacenados en nuestro sistema o disco duro, en este "inodo" se almacenan distintos
 atributos de estos archivos y carpetas, por ejemplo: permisos, usuario propietario, ubicación o posición del archivo o
