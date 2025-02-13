@@ -176,6 +176,8 @@ lspci -nn | grep Network: Muestra sólo información de la tarjeta de red inalá
 lspci -nn | grep Ethernet: Muestra sólo la información de nuestro adaptador de red Ethernet (en Laptops y Desktops), ejemplo
  de su salida:
 	00:04.0 Ethernet controller [0200]: Silicon Integrated Systems 190    Ethernet Adapter [1039:0190] (rev 01)
+sudo lshw -C video: Para obtener información detallada sobre tu tarjeta gráfica. Es posible que debas  instalar lshw
+si no está disponible en tu sistema
 lspci -nn | grep VGA: Muestra sólo la información de nuestra tarjeta de vídeo.
 lspci -nn | grep Audio: Muestra sólo la información de nuestra tarjeta de sonido.
 lsusb: Muestra información referente a los dispositivos conectados a los puertos USB.
