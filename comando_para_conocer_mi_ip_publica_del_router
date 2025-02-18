@@ -1,0 +1,25 @@
+Puedes conocer tu dirección IP pública en Linux usando estos comandos en la terminal:
+
+1. Usando curl (si está instalado):
+
+curl ifconfig.me
+
+o
+
+curl -s checkip.amazonaws.com
+
+
+2. Usando wget (si curl no está disponible):
+
+wget -qO- ifconfig.me
+
+
+3- Usando dig (si tienes instalado dnsutils):
+
+dig +short myip.opendns.com @resolver1.opendns.com
+
+
+4- Usando host:
+
+host myip.opendns.com resolver1.opendns.com
+
