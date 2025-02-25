@@ -1,0 +1,43 @@
+Para saber si tu sistema operativo Linux está instalado en modo BIOS o UEFI, puedes usar los siguientes comandos:
+
+1. Verificando la existencia del directorio /sys/firmware/efi
+
+Ejecuta:
+ls /sys/firmware/efi
+
+- Si el directorio existe, tu sistema está en modo UEFI.
+- Si el directorio no existe, significa que estás en modo BIOS (Legacy).
+
+2. Usando efibootmgr (Solo funciona en UEFI)
+
+Si el paquete efibootmgr está instalado (Si efibootmgr no está instalado, puedes instalarlo con sudo apt install
+efibootmgr en Debian/Ubuntu) puedes ejecutarlo:
+
+sudo efibootmgr
+
+- Si devuelve información sobre las opciones de arranque UEFI, el sistema está en modo UEFI.
+- Si muestra un error como EFI variables are not supported on this system, significa que estás en modo BIOS.
+
+3. Revisando la tabla de particiones con lsblk o fdisk
+Ejecuta:
+lsblk -f
+
+Si ves una partición con formato EFI System Partition (vfat o efi), significa que el sistema está en modo UEFI.
+
+Otra opción es usar fdisk, ejecuta:
+sudo fdisk -l
+
+- Si ves una partición con el tipo EFI System, el sistema está en UEFI.
+- Si no aparece, el sistema está en modo BIOS.
+
+4. Verificando el tipo de arranque en dmesg
+
+Puedes revisar el log del sistema con:
+dmesg | grep -i "EFI"
+
+- Si ves líneas relacionadas con EFI, tu sistema está en modo UEFI.
+- Si no aparece nada, probablemente esté en modo BIOS.
+
+💡 Conclusión:
+El método más rápido es verificar si existe /sys/firmware/efi. Si el directorio está presente, estás en UEFI, si no, en BIOS. 🚀
+
