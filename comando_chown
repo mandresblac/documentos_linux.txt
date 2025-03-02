@@ -2,7 +2,7 @@ El comando chown se utiliza para cambiar el usuario propietario y el grupo del p
 directorio, Se requieren privilegios de superusuario para utilizar este comando.
 
 La sintaxis de chown tiene este aspecto:
-chown [propietario]:[grupo] archivo_o_directorio
+chown [usuario_propietario]:[grupo_propietario] nombre_de_archivo_o_directorio
 
 Para esto usaremos el comando chown seguido del nuevo usuario o grupo propietario del archivo, ejemplos:
 
