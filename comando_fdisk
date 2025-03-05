@@ -1,0 +1,35 @@
+El comando fdisk en Linux es una herramienta para la administración de particiones en discos duros.
+Permite crear, eliminar, modificar y listar particiones en dispositivos de almacenamiento.
+
+Cómo funciona fdisk
+1. Se ejecuta con privilegios de superusuario (sudo fdisk /dev/sdX), donde /dev/sdX es el disco a administrar.
+2. Dentro de la interfaz interactiva, se pueden ingresar comandos para operar sobre las particiones.
+3. Tras realizar los cambios, se debe escribir (w) para guardarlos o salir (q) sin guardar.
+
+Opciones y banderas más utilizadas de fdisk
+fdisk -l → Lista todas las particiones de los discos disponibles.
+fdisk /dev/sdX → Abre la herramienta interactiva para administrar particiones en el disco seleccionado.
+n → Crea una nueva partición.
+d → Elimina una partición existente.
+p → Muestra la tabla de particiones del disco actual.
+w → Guarda los cambios y sale.
+q → Sale sin guardar los cambios.
+t → Cambia el tipo de partición (por ejemplo, a Linux, NTFS, swap, etc.).
+a → Activa una partición de arranque.
+m → Muestra un menú con todos los comandos disponibles.
+
+Ejemplo de uso
+Para crear una nueva partición en /dev/sdb:
+sudo fdisk /dev/sdb
+
+Luego, dentro de la herramienta interactiva:
+
+1. Presionar n para crear una nueva partición.
+2. Elegir p para partición primaria.
+3. Seleccionar un número de partición.
+4- Definir el tamaño de la partición.
+5. Presionar w para guardar los cambios.
+
+Finalmente, se puede formatear la partición con mkfs y montarla para su uso.
+
+
