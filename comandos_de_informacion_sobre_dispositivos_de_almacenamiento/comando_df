@@ -1,0 +1,21 @@
+COMANDO df (disk free)
+El comando df (disk free) nos dice cuanto tamaño tenemos ocupado y cuanto espacio disponible tenemos en nuestras particionesos
+muestra los siguientes datos:
+- tamaño total de la partición.
+- Tamaño usado.
+- Tamaño libre o disponible.
+- Porcentaje de uso que tiene nuestro disco.
+- La partición donde esta monatado.
+
+Podemos usarlo sin opciones ni argumentos, pero la opcion -h nos ayudara e entender mejor las cifras que se nos muestran
+, por
+ejemplo:
+
+df -h /ruta_del_directorio_o_archivo
+S.ficheros     Tamaño Usados  Disp Uso% Montado en
+/dev/sda8         37G    28G  7,0G  80% /home
+
+Si le pasamos como párametro cualquier directorio nos dará l
+a información de la partición donde se encuentra ese directo
+rio.
+
