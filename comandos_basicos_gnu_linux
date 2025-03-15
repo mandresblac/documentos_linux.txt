@@ -254,6 +254,14 @@ procesos tengan el mismo PID. Todos los procesos en el mundo GNU/Linux dependen 
 llamado init o Systemd (que es el primer demonio o servicio que inicia el Kernel de Linux), y cuyo PID
 es 1 y son asignados en orden creciente. Los procesos que se ejecutan en el sistema pueden estar en
 primer plano(FOREGROUND) y segundo plano(BACKGROUND).
+
+ESTADOS DE UN PROCESO:
+(R) Running or Runnable: Se activa en cualquier proceso cuando esta consumiendo recursos de CPU o de memoria.
+(D) Uninterruptible Sleep: El proceso está esperando en una operación de E/S que no puede ser interrumpida.
+(S) Interruptible Sleep: El proceso se puede interrumpir siempre y cuando este en espera.
+(T) Stopped o Detenido: El proceso ha sido detenido, generalmente por una señal, como SIGSTOP o por un depurador.
+(Z) Zombie: El proceso ha terminado, pero su entrada en la tabla de procesos aún no ha sido limpiada porque su proceso padre aún no ha leído su estado de salida.
+
 id: Muestra la identificacion de usuario activa con inicio de sesión y grupo.
 id -u: Muestra úncamente el UID (Identificador Unico de Usuario).
 id -g: Muestra únicamente el GID (Identificador Unico de Grupo).
