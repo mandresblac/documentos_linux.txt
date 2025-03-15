@@ -262,6 +262,7 @@ ESTADOS DE UN PROCESO:
 (T) Stopped o Detenido: El proceso ha sido detenido, generalmente por una señal, como SIGSTOP o por un depurador.
 (Z) Zombie: El proceso ha terminado, pero su entrada en la tabla de procesos aún no ha sido limpiada porque su proceso padre aún no ha leído su estado de salida.
 
+COMANDOS PARA MANEJO DE PROCESOS
 id: Muestra la identificacion de usuario activa con inicio de sesión y grupo.
 id -u: Muestra úncamente el UID (Identificador Unico de Usuario).
 id -g: Muestra únicamente el GID (Identificador Unico de Grupo).
