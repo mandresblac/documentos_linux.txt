@@ -1,0 +1,74 @@
+¿CÓMO MONTAR Y CONFIGURAR UNA UNIDAD DE ALMACENAMIENTO EN VIRTUALBOX?
+Manejar unidades de almacenamiento es crucial para cualquier administrador de sistemas Linux. En este módulo, aprenderemos a crear particiones y administrar sistemas de archivos de manera práctica y sencilla. Desde configurar un disco duro en VirtualBox hasta montar un sistema de archivos, este proceso es fundamental y útil para tareas de administración frecuentes, especialmente en entornos on-site como data centers.
+
+
+¿CÓMO AGREGAR UN DISCO DURO EN VIRTUALBOX?
+Agregar un nuevo disco a un servidor en VirtualBox es un proceso sencillo y esencial para actividades de almacenamiento.
+
+1. Asegúrate de que tu servidor esté apagado.
+2. Abre la configuración de VirtualBox y añade un nuevo disco.
+	 - Navega a la sección de controlador SATA.
+	 - Haz clic en "Agregar" y luego en "Crear" un nuevo disco si es necesario.
+	 - Asigna un nombre relevante (por ejemplo, respaldo.vdl).
+	 - Define el tamaño del disco, como 10 GB.
+
+3. Verifica la adición del disco.
+	 - El disco debería aparecer en la sección de almacenamiento, como respaldo.vdl en el puerto SATA1.
+
+
+¿CÓMO CREAR PARTICIONES EN UNA NUEVA UNIDAD?
+La herramienta fdisk permite crear particiones fácilmente en Linux. Aquí te mostramos el procedimiento:
+
+Preparativos e identificación del disco
+
+1. Inicia tu máquina virtual y accede mediante SSH.
+2. Limpia la pantalla y verifica la presencia del nuevo disco con sblk.
+3. Confirma la ubicación del disco mediante fdisk -l.
+
+Crear particiones
+Para manejar particiones, utilizaremos fdisk, una herramienta versátil pero poderosa.
+
+- Accede a fdisk con permisos de administrador:
+sudo fdisk /dev/sdb
+
+Crea dos particiones:
+
+- Usa la opción N para crear una nueva partición primaria.
+- Define el tamaño de la primera partición como 3 GB: +3G
+- Repite para la segunda partición de 7 GB, utilizando el espacio restante.
+
+- Imprime la tabla de particiones antes de finalizar: p
+
+- Guarda los cambios escribiendo la tabla de particiones: w
+
+
+¿CÓMO FORMATEAR Y USAR UNA PARTICIÓN?
+Formatear una partición con ext4
+
+1. Utiliza el comando mkfs para formatear la partición: sudo mkfs.ext4 /dev/sdb1
+Montar la partición
+
+2. Crear un punto de montaje: sudo mkdir /mnt/scripts
+
+3. Monta la partición en el directorio: sudo mount /dev/sdb1 /mnt/scripts
+
+Prueba del montaje creando un archivo
+
+- Crea un archivo de prueba en la partición montada: sudo vim /mnt/scripts/hola.py
+
+Contenido del archivo: print("Hola mundo")
+
+
+¿CÓMO MONTAR AUTOMÁTICAMENTE AL INICIO?
+Para asegurar que la partición se monte automáticamente al arrancar el sistema:
+
+1. Edita el archivo fstab: sudo vim /etc/fstab
+
+2. Añade la siguiente línea: /dev/sdb1    /mnt/scripts    ext4    defaults    0    0
+
+3. Reinicia el sistema para aplicar los cambios: sudo reboot
+
+Verifica el montaje de nuevo al iniciar sesión, corroborando que el punto de montaje contenga los archivos esperados.
+
+La correcta gestión de sistemas de archivos y almacenamiento es imprescindible en la administración de sistemas Linux, asegurando eficiencia y organización en tus recursos computacionales. ¡Sigue practicando y ve más allá!
+
