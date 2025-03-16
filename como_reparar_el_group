@@ -1,0 +1,59 @@
+¿CÓMO REPARAR EL GROUP UTILIZANDO UNA VULNERABILIDAD DE LINUX?
+A veces, nuestro grupo (Group) puede sufrir daños, dejándonos con sistemas inoperativos y frustración. Aquí te enseñaré una técnica para reparar el Group utilizando una especie de vulnerabilidad, un método que proporciona un escalamiento de privilegios a través del comando chroot. Esta técnica requiere ética y responsabilidad, y es vital comprender la importancia de encriptar discos.
+
+¿QUÉ SE NECESITA PARA COMENZAR?
+1. Servidor sin cifrado: La vulnerabilidad se explota solo si el servidor no tiene cifrado en el disco, comúnmente realizado con el mecanismo LUKS.
+2. Imagen Live de otro sistema operativo: Utilizaremos una imagen Live para montar y reparar el sistema.
+3. Acceso a la CLI Linux: Se requiere acceder a los runlevels de Linux, específicamente al nivel 3, mediante combinaciones de teclas (Ctrl-Alt-F2, por ejemplo).
+
+¿CÓMO SE MONTA EL SISTEMA?
+Una vez dentro del sistema Live, es necesario montar el sistema dañado. Los siguientes pasos asumen que SDA1 es la partición de arranque:
+
+# Obtener información de particiones
+fdisk -l
+
+# Montar la partición root
+mount /dev/sda2 /mnt
+
+# Realizar enlaces de archivos necesarios para el sistema
+mount --bind /dev /mnt/dev
+mount --bind /dev/pts /mnt/dev/pts
+mount --bind /proc /mnt/proc
+mount --bind /run /mnt/run
+mount --bind /sys /mnt/sys
+
+¿CÓMO EJECUTAR UN CHANGE ROOT?
+Una vez montadas las carpetas, se necesita ejecutar un cambio de root para operar dentro del sistema dañado:
+chroot /mnt /bin/bash
+
+Ahora, las operaciones se realizarán dentro del sistema original, ¡pero desde el ambiente Live que acabas de configurar!
+
+¿QUÉ PASOS SEGUIR PARA REPARAR EL GROUP?
+Reparar el Group no es tan complicado. Siga estos pasos cuidadosamente:
+
+1. Generar el archivo de configuración del Group: Esto ayuda a identificar cualquier problema previo.
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+2. Instalar de nuevo el Group: Reinstala el bootloader para garantizar que todo esté funcionando correctamente.
+grub-install --boot-directory=/boot /dev/sda
+
+¿QUÉ HACER CON EL KERNEL?
+El kernel también es crítico en tu sistema. Si descubres que tu kernel tiene problemas, puedes cambiarlo o actualizarlo para asegurar un arranque más fluido. Por ejemplo, instala y configura un nuevo kernel si el actual presenta fallas.
+
+¿CUÁL ES EL SIGUIENTE PASO DESPUÉS DE REPARAR?
+Después de completar la reparación, es vital salir correctamente del entorno chroot y reiniciar el sistema para comprobar que el arranque se realice sin sobresaltos.
+
+# Salir del chroot
+exit
+
+# Reiniciar el sistema
+shutdown -r now
+
+CONSEJOS ADICIONALES
+- Evitar sistemas sin cifrado: Siempre que sea posible, encripta tus discos para evitar vulnerabilidades.
+- Usar utilidades avanzadas: En caso de discos cifrados, utilidades como Group Repair pueden ser útiles.
+- Práctica continúa: Mantén tus habilidades actualizadas en técnicas de recuperación de sistemas.
+
+¡Siguiendo estos pasos, tu sistema debería estar reparado y aún más robusto que antes! Sigue aprendiendo y explorando, ¡recordando siempre la importancia de mantener tus sistemas seguros y protegidos!
+
