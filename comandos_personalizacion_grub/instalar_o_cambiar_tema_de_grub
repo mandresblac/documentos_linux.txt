@@ -1,0 +1,51 @@
+Para cambiar el tema de nuestro grub seguimos los siguientes pasos:
+
+1. Vamos al sitio web de temas de grub  https://www.gnome-look.org/browse?cat=109&ord=rating  o a nuestro navegador de
+preferencia y escribimos "temas para ubuntu grub", (esto en el caso de que nuestra distribucion sea ubuntu, si es otra
+escribimos lo mismo pero con el nombre de la distribución)
+
+2. Dentro de la pagina podemos buscar por las pestañas Latest, Creator, Rating o Plinget y escoger cualquier tema que
+nos agrade y lo descargamos en nuestro equipo.
+
+3. Vamos a la ubicacion donde descargamos la carpeta del tema y la extraemos o descomprimimos.
+
+4. Verificamos si en la ruta /boot/grub/ existe la carpeta themes, si no, la creamos con el comando:
+sudo mkdir /boot/grub/themes
+
+5. Ingresamos dentro de la carpeta del tema que extrajimos en el paso 3 y copiamos la carpeta que se encuentra en su
+interior a la carpeta /themes que creamos dentro de /boot/grub en el paso numero 4 con el siguiente comando:
+sudo cp -r [ruta del tema descargado] /boot/grub/themes/
+
+Por ejemplo: Si descargamos el tema Tela-1080p al ingresar a esta carpeta en su interior encontraremos otra carpeta
+llamada Tela, esta carpeta es la que copiamos a /boot/grub/themes ya que en su interio esta el archivo theme.txt que es
+el que contiene la informacion de configuracion del tema que va a ser leida por el grub.
+
+6. Editamos el archivo /etc/default/grub con nuestro editor preferido, dentro de este buscamos la linea GRUB_THEME, de
+no existir la creamos de la siguiente manera:
+
+GRUB_THEME=/boot/grub/themes/[nombre de la carpeta]/[nombre de archivo de texto con extension .txt dentro de la carpeta]
+
+Ejemplo:
+GRUB_THEME=/boot/grub/themes/Tela/theme.txt
+
+Nota: Podemos ubicar la línea de texto anterior en el ultimo lugar del siguiente bloque de lineas dentro del archivo
+grub:
+
+GRUB_DEFAULT=0
+GRUB_TIMEOUT_STYLE=hidden
+GRUB_TIMEOUT=0
+GRUB_DISTRIBUTOR=`( . /etc/os-release; echo ${NAME:-Ubuntu} ) 2>/dev/null || echo Ubuntu`
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+GRUB_CMDLINE_LINUX=""
+GRUB_THEME=/boot/grub/themes/Tela/theme.txt
+
+7. Guardamos los cambios realizados en el archivo /etc/default/grub y lo cerramos.
+
+8. Por ultimo actualizamos el grub con el comando:
+sudo update-grub
+
+¡¡LISTO, A DISFRUTAR!! :) :)
+
+
+Video tutorial en YouTube: https://www.youtube.com/watch?v=8GDpC-72WvE
+
