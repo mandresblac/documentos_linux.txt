@@ -13,7 +13,7 @@ utilizo mi propia contraseña.
 Para poder utilizar el comando sudo, los usuarios tienen que estar autorizados (o cargados) en el archivo /etc/sudoers.
 sudo (SUPER USER DO) en Español SUPER USUARIO HACE: Permite ejecutar comandos como root (o super-usuario administrador), o como otro usuario.
 Para cualquier comando administador se debe utilizar sudo.
-NOTA: En Ubuntu  y sus derivados, por defecto viene desactivado el acceso a la cuenta root (impidiendo establecer una 
+NOTA: En Ubuntu  y sus derivados, por defecto viene desactivado el acceso a la cuenta root (impidiendo establecer una
 contraseña para la cuenta), y en su lugar utiliza el comando sudo para proporcionar privilegios de superusuario.
 
 
@@ -42,6 +42,7 @@ a la opcion l para que muestre informacion del directorio y no su contenido. eje
 ls -n: Muestra los UID y GID de directorios o carpetas.
 ls -t: Muestra archivos por orden de tiempo, es decir, primero los recientemente modificados.
 
+
 pwd (print working directory): Me dice donde estoy ubicado dentro del sistema.
 cd (change directory): Cambiar de directorio hacia adelante.
 cd .. :Devolverse al directorio anterior o directorio padre.
@@ -54,7 +55,7 @@ history -c: Borra el historial de todos los comandos utilizados en la terminal.
 clear: Limpiar la terminal.
 cp: Permite copiar un archivo de una ubicacion a otra.
 rm: Permite eliminar archivos y carpetas permanentemente.
-man: Permite ver los manuales de todos los comandos. Ejemplo: man ls   Para salir del manual pulsar la letra q. 
+man: Permite ver los manuales de todos los comandos. Ejemplo: man ls   Para salir del manual pulsar la letra q.
 --help:Ayuda para saber que hace un comando y que parametros permite. ejemplo: cat --help
 less: Permite visualizar archivos de texto directamente en la terminal. Para buscar palabra especifica:/ + palabra
 less -N nombre de archivo: Muestra los números de linea del archivo de texto.
@@ -356,28 +357,28 @@ sudo apt-get install manpages-es* manpages-es-extra: Instala todos los paquetes 
 sudo apt-get remove nombre_del_paquete: Desinstala un paquete.
 sudo apt-get remove --purge nombre_del_paquete: Desinstala completamente un paquete o programa incluidos sus ficheros
 de confuguracion.
-sudo apt-get autoremove: Desinstala o elimina paquetes huerfanos o auto instalables, que se instalaron junto a un paquete 
-principal o que se instalaron como sugerencia para hacer 
-mas completa la tarea del paquete principal y que posterior a la eliminación de este quedan sin asistir a ningún otro 
+sudo apt-get autoremove: Desinstala o elimina paquetes huerfanos o auto instalables, que se instalaron junto a un paquete
+principal o que se instalaron como sugerencia para hacer
+mas completa la tarea del paquete principal y que posterior a la eliminación de este quedan sin asistir a ningún otro
 paquete del sistema.
 sudo apt-get autoremove --purge: Desinstala o elimina paquetes huerfanos con sus respectivos archivos de configuración.
 apt-get autoclean: Limpia la cache de apt, eliminando todas las versiones antiguas de paquetes descargados en esa cache.
-apt-get clean: Limpia la cache de apt por completo, consultando sobre el tamaño de directorio cache /var/cache/apt/archives 
+apt-get clean: Limpia la cache de apt por completo, consultando sobre el tamaño de directorio cache /var/cache/apt/archives
 con el comando: sudo du -sh /var/cache/apt/archives
 veremos que habría realizado la limpieza por completo.
 apt-get check: Detecta si hay problemas de dependencias incumplidas en el sistema, es decir, paquetes que dependen
 de otros paquetes y como esos otros paquetes no estan instalados dan problemas.
-apt -f install  o  apt-get install -f: Sirve para instalar software adicional (o dependencias), que necesitan otros 
+apt -f install  o  apt-get install -f: Sirve para instalar software adicional (o dependencias), que necesitan otros
 programas para
 funcionar correctamente.
-apt-get dist-upgrade: Instala o actualiza dependencias incumplidas de software, programas o paquetes. 
+apt-get dist-upgrade: Instala o actualiza dependencias incumplidas de software, programas o paquetes.
 apt list --installed | less: Listar todos los paquetes instalados en el sistema operativo.
 apt list --installed | grep -i paquete_especifico_instalado: Listar un determinado paquete instalado en el sistema.
-apt list nombre_paquete_especifico_instalado: Para buscar un paquete específico suministrando el nombre del paquete o una 
+apt list nombre_paquete_especifico_instalado: Para buscar un paquete específico suministrando el nombre del paquete o una
 parte del nombre del paquete como argumento:
 apt show nombre_de_paquete_instalado: Para ver los detalles de un paquete específico instalado en el sistema.
-apt-show-versions paquete_especifico_instalado:  Listar tanto los paquetes instalados como  información sobre las versiones 
-de paquetes disponibles, pero es necesario 
+apt-show-versions paquete_especifico_instalado:  Listar tanto los paquetes instalados como  información sobre las versiones
+de paquetes disponibles, pero es necesario
 instalar un paquete adicional que es apt-show-versions.
 sudo apt deb nombre-del_paquete.deb: Instala paquetes .deb
 
@@ -402,7 +403,7 @@ Por ultimo confirmamos, y luego en la terminal 	se nos indicara que el idioma fu
 COMO VER O LISTAR TODOS LOS PAQUETES (O PROGRAMAS) INSTALADOS EN NUESTRO SISTEMA UBUNTU 18.04
 dpkg-query -l: Muestra todos los paquetes que tengo instalados en el sistema, con nombre, version, arquitectura  y una breve descripcion de ese
 paquete.
-si queremos ver la lista completa tendríamos que exportar el resultado de este comando a un fichero y allí si podremos ver 
+si queremos ver la lista completa tendríamos que exportar el resultado de este comando a un fichero y allí si podremos ver
 la lista completa
 de programas instalados en Ubuntu. El comando es el siguiente:
 dpkg-query -l > ruta destino o fichero ejemp: dpkg-query -l > /home/manuel/Documentos/fihero.txt
