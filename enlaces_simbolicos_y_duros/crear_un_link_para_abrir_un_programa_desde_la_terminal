@@ -1,0 +1,16 @@
+Para crear un link o enlace simbolico que apunte a un archivo ejecutable de un programa que nos permita abrir ese
+programa desde la terminal hacemos lo siguiente:
+
+Para crear enlaces simbolicos lo hacemos con el comando "ln" y el opcion "-s", asi:
+
+ln -s nombre_de_archivo_que_queremos_enlazar     nombre_de_archivo_nuevo_o_enlace_simbolico
+ln -s /opt/cursor/Cursor-0.47.9-x86_64.AppImage  /usr/local/bin/cursor
+
+En el ejemplo anterior el archivo cursos ubicado en la ruta /usr/local/bin apunta a la ruta /opt/cursor/Cursor-0.47.9-x86_64.AppImage
+
+Considere esto:
+Al hacer un ls -l en /usr/local/bin veremos algo como esto:
+lrwxrwxrwx 1 root root       41 mar 28 21:13 cursor -> /opt/cursor/Cursor-0.47.9-x86_64.AppImage
+
+El archivo cursor tendra en su primer bit la letra l, lo que indica que el tipo de archivo es un enlace simbólico.
+
