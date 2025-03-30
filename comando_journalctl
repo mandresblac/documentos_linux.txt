@@ -1,9 +1,59 @@
-El comando journalctl nos permite ver los logs de los procesos de nuestro sistema operativo. Recuerda que todos ellos están
-almacenados en la carpeta /var/log/.
+Journalctl es una herramienta que se encarga de recopilar y administrar los registros del sistema de SystemD, lo que
+permite al usuario acceder y gestionar los datos, así como iniciar la resolución de los fallos.
 
-sudo journalctl -fu nombre-servicio: ver los logs de nuestros servicios y hacer un seguimiento.
-sudo journalctl --disk-usage: ver la cantidad de espacio que ocupan nuestros logs.
-sudo journalctl --list-boots: muestra la lista de booteos de la computadora.
-sudo journalctl -p (critic, info, warning, error): filtrar los logs por el tipo de mensaje.
-sudo journalctl -o json: ver los logs en formato JSON.
+Esta herramienta equivale al antiguo comando «cat /var/log/messages» y permite que el usuario pueda acceder a todos
+los logs sin filtrar.
+
+VARIANTES DEL JOURNALCTL
+Esta herramienta admite el uso de ciertos elementos con el objetivo de administrar un sistema, como, por ejemplo:
+
+Journalctl -r
+Esta herramienta muestra la salida del comando de forma invertida, es decir, los últimos se colocarán encima, mientras que los primeros estarán debajo.
+
+Journalctl -f
+El también llamado parámetro -f o «follow» tiene como función el seguimiento de los mensajes o ver la agenda del ordenador en tiempo real. De la misma manera, emula el antiguo parámetro «tail -f /var/log/syslog»
+
+Journalctl -n
+El comando -n facilita la filtración por número de entradas en el registro de logs. Además, esta opción permite que el usuario pueda limitar la salida solamente a las últimas 10 líneas. Se debe destacar que la cantidad total de las líneas dependerá de las necesidades específicas de cada usuario. Asimismo, el número puede cambiarse, simplemente, agregándolo al final del parámetro, por ejemplo: journalctl -12
+
+Journalctl -b
+Este parámetro facilita que el usuario solo vea los logs del boot actual. Puedes utilizar una cuenta regresiva con el comando journalctl -b -1 seguido de journalctl -b -2, y así consecutivamente. También puedes utilizar la ID del boot derivado del proceso de listar el arranque con la opción «journal –list-boots».
+
+Journalctl -k
+Este comando permite ver los mensajes del kernel o núcleo del sistema y puede combinarse con otras opciones para hacer la búsqueda más específica. De modo que, si quieres mezclar las funciones del comando -b con -k, obtendrías la opción journalctl -k-b para observar los mensajes del kernel durante el journalctl boot actual.
+
+Journalctl -u
+Cumple la función de filtrar por servicio o unidad. Tras el comando -u debes añadir el servicio específico que quieres filtrar. Al igual que el anterior formato, esta opción puede combinarse con otros formatos para especificar el filtrado.
+
+Journalctl -p
+También se conoce como filtrado por prioridad y muestra los mensajes que corresponden a una o más prioridades, siendo estas:
+
+0: emerg
+1: alert
+2: crit
+3: err
+4: warning
+5: notice
+6: info
+7: debug
+De manera que, si quieres observar las prioridades del nivel 4, debes ejecutar el comando journalctl -p 4 o bien journalctl -p warning.
+
+
+OTROS COMANDOS
+Además de los parámetros anteriores, esta herramienta permite el uso de otros comandos, como por ejemplo:
+
+journalctl > mensajes.log: cumple la función de redirigir la salida hacia un documento de texto.
+journalctl –list-boots: esta opción sirve para ver la lista de todos los boots que existen en el sistema.
+systemctl list-units -t service –all: permite ver los servicios que son dependientes del systemD.
+journalctl /dev/sda: permite ver los mensajes y encontrar problemas en el funcionamiento del disco duro.
+journalctl –disk-usage: posibilita que el usuario pueda ver el espacio que está siendo ocupado por los diferentes logs. Puede limitarse si el valor resulta excesivo a través del parámetro /etc/systemd/journald.conf.
+timedatectl list-timezones: es una herramienta de systemD que permite determinar las zonas horarias disponibles en el sistema. Además, se puede verificar su configuración actual a través del uso del parámetro timedatectl status.
+id nombre_del_usuario: permite especificar la salida de usuarios. Debe reemplazarse por el nombre de usuario correspondiente y continuar con el número que sea necesario (ya sea 1000, 1001,1002, etc.)
+
+FILTRAR POR FECHA
+Para limitar la salida por tiempo y ver los mensajes del log durante una fecha determinada debes tener en cuenta que el formato de fecha y hora es «YYYY-MM-DD HH:MM:SS», (Y de year o año, M de month o mes, D de day o día, H de hour o hora, M de minutes o minutos y S se de seconds o segundos).
+
+Además incluye las opciones journalctl since, que indica desde, y «until« que significa hasta.
+
+De esta manera, si quieres ver los registros producidos el día 22 de marzo del 2022, deberás ejecutar el comando journalctl --since "2022-03-22"; incluso puedes hacer la búsqueda más detallada si le añades la hora.
 
