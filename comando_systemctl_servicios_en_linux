@@ -6,3 +6,4 @@ sudo systemctl (enable, disable) nombre-servicio: Para activar o desactivar el a
 sudo systemctl (start, stop, restart) nombre-servicio: Para encender, apagar o reiniciar los servicios.
 sudo systemctl list-units -t service --all: Para ver todos los servicios del sistema.
 
+sudo systemctl reset-failed nombre_del_servicio: Para quitar el estado is-failed en caso de que no funcione start o restart.
