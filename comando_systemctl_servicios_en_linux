@@ -5,8 +5,20 @@ Nuestros servicios pueden estar activos
 (es decir, encendidos, enable) o inactivos (apagados, disable). También podemos configurar si están habilitados o deshabilitados para correr automáticamente con el arranque del sistema.
 
 sudo systemctl status nombre_del_servicio: Para ver el estado de nuestros servicios.
-sudo systemctl (enable, disable) nombre-servicio: Para activar o desactivar el arranque automático de nuestros servicios.
+sudo systemctl (enable, disable) nombre-servicio: Para activar o desactivar el arranque automático de nuestros servicios cada vez que la computadora inicie.
+
+NOTA:
+Al correr un "systemctl status nombre_de_cualquier_servicio" en la segunda linea de la salida veremos lo siguiente:
+Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)
+EL primer enabled de izquierda a derecha indica que la proxima vez que el equipo inice el servicio va a encender, si esta en disabled quiere decir que no va a encender en el proximo reinicio del equipo.
+El segundo enabled de izquierda a derecha (preset: enabled) indica el estado actual del servicio que esta activado o
+encendido.
+
+sudo systemctl reload nombre_del_servicio: Recarga las nuevas configuraciones que hallamos hecho en un servicio sin
+detener o parar el servicio, es recomendable utilizar primero este metodo por ser el mas cariñoso a la hora de
+reiniciar un servicio, si no funciona, se procede con los otros metodos (start o restart).
 sudo systemctl (start, stop, restart) nombre-servicio: Para encender, apagar o reiniciar los servicios.
+sudo systemctl list-unit-files --type=service: Muestra los servicios disponibles en mi equipo.
 sudo systemctl list-units -t service --all: Para ver todos los servicios del sistema.
 
 sudo systemctl reset-failed nombre_del_servicio: Para quitar el estado is-failed en caso de que no funcione start o restart.
