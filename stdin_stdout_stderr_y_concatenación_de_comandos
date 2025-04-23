@@ -21,16 +21,15 @@ comando 1> salida.txt 2>&1   Manda el stderr(2) a stdout(1) y lo almacena en el 
 El uso del PIPE "|"
 
 CONCATENACION DE COMANDOS
-A ; B      # RUN A and B, regardless of success of A.
+A ; B     # Ejecuta A y B, independientemente del éxito o fallo de A.
 A && B    # El comando de la derecha (B) solo se ejecuta si el comando de la izquierda (A) termina exitosamente.
-A || B    # El comando de la derecha (B) solo se ejecuta si el comando de la izquierda (A) falla.
-A &       # A corre en background.
+A || B    # El comando de la derecha (B) solo se ejecuta si el comando de la izquierda (A) falla, si el comando de la izquierda (A) es exitoso el comando de la derecha (B) nunca se ejecutara.
+A &       # A corre en background, el simbolo de ampersand (&) envia los procesos a background.
 
 
 Si el resultado del comando:
 echo $?
-es 0, quiere decir que todo termino bien, pero si el resultado es 1 o cualquier otro número diferente a cero, quiere decir
-que hubo un problema, algo estubo mal.
+es 0, quiere decir que todo termino bien, pero si el resultado es 1 o cualquier otro número diferente a cero, quiere decir que hubo un problema, algo estubo mal.
 
 Links a videos de Youtube:
 https://www.youtube.com/watch?v=ti4gwlizByg
