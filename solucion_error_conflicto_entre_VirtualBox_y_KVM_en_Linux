@@ -1,0 +1,49 @@
+Este error se produce porque KVM y VirtualBox no pueden usar los mismos recursos de virtualización (como la tecnología Intel VMX o AMD-V) al mismo tiempo. Cuando el kernel de Linux carga los módulos de KVM, estos bloquean el acceso que VirtualBox necesita. La solución es desactivar KVM para que VirtualBox tenga acceso directo a estas funciones y pueda funcionar correctamente.
+
+
+SOUCION TEMPORAL (Solo mientras el equipo esta activo, al reiniciarlo vuelve a cargar la extension kvm)
+1. Verificamos si la extención KVM esta activa en nuestro sistema con el siguiente comando:
+lsmod | grep kvm
+
+La salida del comando anterior puede ser algo como:
+kvm_amd           245760  0
+kvm              1425408  1 kvm_amd
+irqbypass          12288  1 kvm
+ccp               155648  1 kvm_amd
+
+Lo anterior confirma que si tenemos activo en nuestro sistema la extención kvm 1425408 1 kvm_amd
+Nota: Si el procesador es intel en vez de amd va a decin intel
+
+2. Procedemos a desactivar esta extención con el siguiente comando:
+sudo rmmod kvm_amd 2>/dev/null
+
+3. Para comprobar que la extension kvm ya esta desactivada volvemos a ejecutar el comando del paso número 1 y nos debe aparecer en la terminal algo como lo siguiente:
+kvm              1425408  0
+irqbypass          12288  1 kvm
+
+La primera linea tiene el número 0 indicadonos que la extención kvm ya no esta cargada.
+
+Nota:
+Para volver a activar la extension kvm utilizanos el siguiente comando:
+sudo modprobe kvm_amd
+
+
+SOLUCION PERMANENTE (Para que no cargue la extension kvm cada vez que se inicie el equipo)
+1. Crea un archivo de lista negra para los módulos de KVM en la ruta /etc/modprobe.d/ así:
+sudo vim /etc/modprobe.d/blacklist-kvm.conf
+
+2. Agrega el siguiente texto: al archivo:
+blacklist kvm
+blacklist kvm_intel
+blacklist kvm_amd
+
+Nota: Solo incluye kvm_intel o kvm_amd si es aplicable a tu hardware.
+
+3. Guarda el archivo y sal del editor.
+
+4. Reinicia tu sistema: para aplicar los cambios de forma permanente.
+
+
+Video tutorial en YouTube:
+https://www.youtube.com/watch?v=dOEQjQtIrls
+
