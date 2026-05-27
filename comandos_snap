@@ -1,0 +1,111 @@
+El comando snap permite instalar, configurar, actualizar y eliminar snaps.
+Los snaps son paquetes que funcionan sobre muchas distribuciones Linux
+diferentes, permitiendo la entrega y funcionamiento seguro de las
+últimas aplicaciones y utilidades.
+
+Uso: snap <orden> [<opciones>...]
+
+Las órdenes pueden clasificarse de esta manera:
+
+  Básicos (administración de snap básica):
+    find             Buscar paquetes para instalar
+    info             Mostrar información detallada sobre los snaps
+    install          Instalar snaps en el sistema
+    remove           Eliminar snaps del sistema
+    list             Listar snaps instalados
+    components       Enumerar los componentes disponibles e instalados para los snaps instalados
+    component        Show detailed information about snap components
+
+  ...más (administración de snap un poco más avanzada):
+    refresh          Refrescar snaps en el sistema
+    revert           Revierte el snap dado a su estado previo
+    switch           Cambia el snap a un canal diferente
+    disable          Desactivar un snap en el sistema
+    enable           Activar un snap en el sistema
+    create-cohort    Crear llaves de grupo para un conjunto de snaps
+
+  Historial (administrar negociaciones de cambios en el sistema):
+    changes          Listar cambios de sistema
+    tasks            Listar tareas de cambio
+    abort            Abortar un cambio pendiente
+    watch            Observar un cambio en progreso
+
+  Demonios (administrar servicios):
+    services         Consultar el estado de los servicios
+    start            Iniciar servicios
+    stop             Detener servicios
+    restart          Reiniciar servicios
+    logs             Recuperar registros de servicios
+
+  Permisos (administrar permisos):
+    connections      Listar las conexiones de interfaz
+    interface        Muestra detalles de las interfaces de snaps
+    connect          Conectar un enchufe a una ranura
+    disconnect       Desconectar un enchufe de una ranura
+
+  Configuración (administración del sistema y configuración):
+    get              Imprimir opciones de configuración
+    set              Cambiar las opciones de configuración
+    unset            Eliminar opciones de configuración
+    wait             Wait for configuration
+
+  Alias de aplicación (administrar aliases):
+    alias            Configurar un alias manual
+    aliases          Listar aliases en el sistema
+    unalias          Eliminar un alias manual o todos los aliases del snap
+    prefer           Activar aliases desde un snap, desactivando cualquier alias conflictivo
+
+  Cuenta (autentificación en snapd y en la Snap Store):
+    login            Autentificar en snapd y en la tienda
+    logout           Cerrar sesión en snapd y en la tienda
+    whoami           Mostrar el correo electrónico con el que el usuario inició sesión
+
+  Instantáneas (archivos de datos de snap):
+    saved            Listar las instantaneas actualmente almacenadas
+    save             Guardar una instantánea de los datos actuales
+    check-snapshot   Comprobar una instantánea
+    restore          Restaurar una instantánea
+    forget           Eliminar una instantánea
+    export-snapshot  Exportar una instantánea
+    import-snapshot  Importar una instantánea
+
+  Issue reporting (report issues with a specific snap):
+    report-issue     Show contact information and optionally navigate to relevant issue tracker
+
+  Dispositivo (gestionar dispositivo):
+    model            Obtener el modelo activo para este dispositivo
+    remodel          Remodelar este dispositivo
+    reboot           Reiniciar en el sistema y modo seleccionados
+    recovery         Listar los sistemas de recuperación disponibles
+
+  Avisos (Gestionar avisos):
+    warnings         Listar avisos
+    okay             Reconocer advertencias
+
+  Afirmaciones (Gestionar aseveraciones):
+    known            Mostrar afirmaciones conocidas del tipo proporcionado
+    ack              Añadir una aserción al sistema
+
+  Introspección (introspección y depurado de snapd):
+    version          Mostrar detalles de la versión
+    debug            Ejecutar órdenes de depuración
+
+  Desarrollo (caracteristicas orientadas a desarrolladores):
+    download         Descargar el snap dado
+    pack             Empaquetar el directorio dado como un snap
+    run              Ejecutar la orden snap dada
+    try              Probar un snap sin empaquetar en el sistema
+    sign             Firmar una aseveración
+    prepare-image    Preparar una imagen de dispositivo
+    export-key       Exportar clave pública de cifrado
+
+  Grupos de cuota (Gestionar grupos de cuotas de los snaps):
+    set-quota        Crear o actualizar un grupo de cuotas.
+    remove-quota     Eliminar grupo de cuota
+    quotas           Mostrar grupos de cuota
+    quota            Mostrar grupo de cuota para un conjunto de snaps
+
+  Conjuntos de validación (Gestionar conjuntos de validación):
+    validate         Enumerar o aplicar conjuntos de validación
+
+Para obtener más información sobre alguna orden, ejecute «snap help <orden>».
