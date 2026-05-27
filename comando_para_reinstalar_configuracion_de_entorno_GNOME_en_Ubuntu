@@ -1,0 +1,6 @@
+El sigueinte comando sirve para volver a instalar el paquete de configuración de GNOME en Ubuntu aunque ya esté instalado, es decit la ruedita dentada que aparece en la esquina superior derecha de la pantalla en Ubuntu 24.04 LTS:
+
+sudo apt-get install --reinstall gnome-control-center
+
+Nota: Utilizar este comando si por alguna razon el paquete de configuración del entorno Genome de Ubuntu (la ruedita dentada que aparece en la esquina superior derecha de la pantalla) no aparece, son esto se reinstala esa ruedita.
+
