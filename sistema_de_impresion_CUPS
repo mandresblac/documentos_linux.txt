@@ -1,0 +1,89 @@
+¿Qué es CUPS?
+CUPS (Common Unix Printing System) es el sistema de impresión utilizado por Ubuntu, Debian y la mayoría de distribuciones Linux. Su función es actuar como un administrador de impresión entre las aplicaciones y la impresora.
+
+En otras palabras:
+Documento
+    ↓
+LibreOffice, Firefox, PDF, etc.
+    ↓
+CUPS
+    ↓
+Controlador (Driver)
+    ↓
+Impresora
+
+Cuando haces clic en Imprimir, el documento no va directamente a la impresora. Primero pasa por CUPS, que:
+- Detecta las impresoras.
+- Instala y administra los controladores.
+- Gestiona la cola de impresión.
+- Envía el documento a la impresora.
+
+
+¿Cómo saber si CUPS está instalado?
+Abre una terminal y ejecuta: systemctl status cups
+Si aparece active (running), significa que CUPS ya está instalado y funcionando.
+
+
+¿Cómo instalar CUPS?
+En Ubuntu, Debian y sus derivados:
+sudo apt update
+sudo apt install cups
+
+
+¿Cómo iniciar CUPS?
+Si no está ejecutándose:
+sudo systemctl enable cups
+sudo systemctl start cups
+
+Verifica que esté activo: systemctl status cups
+Debe mostrar algo parecido a: Active: active (running)
+
+
+¿Cómo abrir la configuración de CUPS?
+Desde cualquier navegador escribe: http://localhost:631
+
+Verás el panel de administración de CUPS.
+Desde allí puedes:
+- Agregar impresoras.
+- Eliminar impresoras.
+- Administrar trabajos de impresión.
+- Compartir impresoras en la red.
+- Configurar opciones avanzadas.
+
+
+¿Cómo agregar una impresora?
+
+Opción 1. Desde la interfaz gráfica
+1. Abre Configuración.
+2. Entra en Impresoras.
+3. Haz clic en Agregar impresora.
+4. Selecciona la impresora detectada.
+5. Pulsa Agregar.
+6. Imprime una página de prueba.
+
+Opción 2. Desde CUPS
+1. Abre: http://localhost:631
+2. Ve a: Administration
+3. Haz clic en: Add Printer
+4. Selecciona la impresora.
+5. Elige el controlador adecuado.
+6. Haz clic en Add Printer.
+
+
+¿Cómo ver las impresoras instaladas?
+lpstat -p
+
+¿Cómo ver la impresora predeterminada?
+lpstat -d
+
+¿Cómo establecer una impresora como predeterminada?
+lpoptions -d Nombre_de_la_impresora
+
+
+Qué hacer si la impresora no aparece?
+1. Verifica que esté encendida.
+2. Comprueba que el cable USB o la conexión Wi-Fi funcionen.
+3. Reinicia CUPS: sudo systemctl restart cups
+4. Busca nuevamente la impresora.
+5. Si es necesario, instala el controlador del fabricante (HP, Brother, Canon, Epson, etc.).
+
