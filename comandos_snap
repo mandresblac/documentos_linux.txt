@@ -5,6 +5,9 @@ diferentes, permitiendo la entrega y funcionamiento seguro de las
 
 Uso: snap <orden> [<opciones>...]
 
+OJO:El comando mas recomendado para eliminar por completo una aplicacion snap sin que se guarde una copia de seguridad
+y no ocupe espacio innecesario en disco es: sudo snap remove --purge NOMBRE_DE_LA_APLICACION
+
 Las órdenes pueden clasificarse de esta manera:
 
   Básicos (administración de snap básica):
