@@ -1,8 +1,8 @@
-El comando lsblk de Linux muestra información sobre todos los dispositivos de bloque disponibles en tu sistema.
-Los dispositivos de bloque son dispositivos de almacenamiento como  discos duros, unidades de estado sólido (SSD),
-unidades USB y otros medios de almacenamiento.
-El comando lsblk presenta esta información en un formato claro en forma de árbol, lo que facilita la comprensión de
-la relación entre los diferentes dispositivos de almacenamiento y sus particiones.
+El comando lsblk (List block devices) muestra información sobre todos los dispositivos de bloque disponibles en tu
+sistema. Los dispositivos de bloque son dispositivos de almacenamiento como discos duros, unidades de estado sólido
+(SSD), unidades USB y otros medios de almacenamiento.
+El comando lsblk (List block devices) presenta esta información en un formato claro en forma de árbol, lo que facilita
+la comprensión de la relación entre los diferentes dispositivos de almacenamiento y sus particiones.
 
 Al ejecutar el comando lsblk la salida es algo como esto:
 
