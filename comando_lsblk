@@ -1,0 +1,137 @@
+El comando lsblk de Linux muestra información sobre todos los dispositivos de bloque disponibles en tu sistema.
+Los dispositivos de bloque son dispositivos de almacenamiento como  discos duros, unidades de estado sólido (SSD),
+unidades USB y otros medios de almacenamiento.
+El comando lsblk presenta esta información en un formato claro en forma de árbol, lo que facilita la comprensión de
+la relación entre los diferentes dispositivos de almacenamiento y sus particiones.
+
+Al ejecutar el comando lsblk la salida es algo como esto:
+
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+loop0    7:0    0  55.5M  1 loop /snap/core18/2128
+loop1    7:1    0  55.4M  1 loop /snap/core18/2284
+loop2    7:2    0  43.6M  1 loop /snap/snapd/15534
+loop3    7:3    0  61.9M  1 loop /snap/gtk-common-themes/1535
+loop4    7:4    0  31.1M  1 loop /snap/snapd/16292
+sda      8:0    0   50G  0 disk
+├─sda1   8:1    0   49G  0 part /
+└─sda2   8:2    0  976M  0 part [SWAP]
+
+Esta salida muestra todos los dispositivos de bloque de tu sistema con las siguientes columnas:
+
+- NAME: El nombre del dispositivo.
+- MAJ:MIN: Los números de dispositivo mayor y menor.
+- RM: Indicador de dispositivo extraíble (1 significa extraíble, 0 significa no extraíble).
+- SIZE: El tamaño del dispositivo.
+- RO: Indicador de solo lectura (1 significa solo lectura, 0 significa lectura/escritura).
+- TYPE: Tipo de dispositivo (disco, partición, bucle/loop, etc.).
+- MOUNTPOINT: Dónde está montado el dispositivo (si corresponde).
+
+En el ejemplo anterior, puedes ver:
+
+- Varios dispositivos loop utilizados por los paquetes snap.
+- Un dispositivo de almacenamiento principal sda (que es un disco de 50 GB)
+- Dos particiones en sda: sda1 (montada en la raíz /) y sda2 (utilizada como espacio de intercambio o swap)
+
+La estructura en forma de árbol en la salida facilita visualizar qué particiones pertenecen a qué discos. Por ejemplo, puedes ver que tanto sda1 como sda2 son particiones del disco sda.
+
+Ahora que entiendes la salida básica del comando lsblk, vamos a explorar algunas opciones útiles en los siguientes
+pasos.
+
+
+Usar la opción -f para mostrar información del sistema de archivos
+
+La opción -f muestra información del sistema de archivos, incluyendo su tipo, etiqueta (label), UUID y punto demontaje.
+Esto resulta especialmente útil cuando necesitas identificar dispositivos por su UUID o comprobar qué tipos de sistemas
+de archivos se están utilizando.
+
+Ejecuta el siguiente comando en tu terminal:
+
+lsblk -f
+
+Deberías ver una salida similar a esta:
+
+NAME   FSTYPE   LABEL UUID                                 MOUNTPOINT
+loop0  squashfs                                            /snap/core18/2128
+loop1  squashfs                                            /snap/core18/2284
+loop2  squashfs                                            /snap/snapd/15534
+loop3  squashfs                                            /snap/gtk-common-themes/1535
+loop4  squashfs                                            /snap/snapd/16292
+sda
+├─sda1 ext4           5fbb8eed-12a3-4b5c-9d67-9594ff4e2d1c /
+└─sda2 swap           b409ae25-7589-44eb-a909-b56f1d42c5ab [SWAP]
+
+La salida ahora incluye columnas adicionales:
+
+- FSTYPE: El tipo de sistema de archivos (ext4, swap, squashfs, etc.)
+- LABEL: Cualquier etiqueta asignada al sistema de archivos
+- UUID: El identificador único universal (Universal Unique Identifier) del sistema de archivos
+
+
+Usar la opción -m para mostrar información de propietario y permisos del dispositivo
+La opción -m muestra los permisos y la información del propietario de los dispositivos de bloque. Esto es útil para solucionar problemas relacionados con los permisos.
+
+Ejecuta el siguiente comando:
+
+lsblk -m
+
+Deberías ver una salida como esta:
+
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT OWNER GROUP MODE
+loop0    7:0    0  55.5M  1 loop /snap/core18/2128 root  disk  brw-rw----
+loop1    7:1    0  55.4M  1 loop /snap/core18/2284 root  disk  brw-rw----
+loop2    7:2    0  43.6M  1 loop /snap/snapd/15534 root  disk  brw-rw----
+loop3    7:3    0  61.9M  1 loop /snap/gtk-common-themes/1535 root  disk  brw-rw----
+loop4    7:4    0  31.1M  1 loop /snap/snapd/16292 root  disk  brw-rw----
+sda      8:0    0   50G  0 disk            root  disk  brw-rw----
+├─sda1   8:1    0   49G  0 part /          root  disk  brw-rw----
+└─sda2   8:2    0  976M  0 part [SWAP]     root  disk  brw-rw----
+
+Las nuevas columnas muestran:
+
+- OWNER: El usuario propietario del dispositivo (normalmente root)
+- GROUP: El grupo propietario del dispositivo (normalmente disk)
+- MODE: El modo de permisos del dispositivo
+
+
+Usar la opción -o para seleccionar columnas de salida específicas
+La opción -o te permite especificar qué columnas deseas mostrar. Esto es útil cuando solo necesitas cierta información y prefieres una salida más limpia y directa.
+
+Vamos a mostrar únicamente las columnas de nombre, tamaño y punto de montaje:
+
+lsblk -o NAME,SIZE,MOUNTPOINT
+
+La salida será mucho más sencilla:
+
+NAME    SIZE MOUNTPOINT
+loop0  55.5M /snap/core18/2128
+loop1  55.4M /snap/core18/2284
+loop2  43.6M /snap/snapd/15534
+loop3  61.9M /snap/gtk-common-themes/1535
+loop4  31.1M /snap/snapd/16292
+sda     50G
+├─sda1   49G /
+└─sda2  976M [SWAP]
+
+Esta salida personalizada facilita la concentración en la información que realmente necesitas. Puedes combinar varias opciones para obtener exactamente los datos que buscas en el formato que mejor se adapte a tus necesidades.
+
+
+Mostrar las rutas de los dispositivos
+La opción --paths muestra las rutas completas de los dispositivos en lugar de solo sus nombres. Esto resulta útil
+cuando necesitas hacer referencia a los dispositivos dentro de scripts o comandos.
+
+Ejecuta el siguiente comando:
+
+lsblk --paths
+
+La salida incluirá las rutas completas de los dispositivos:
+
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+/dev/loop0    7:0    0  55.5M  1 loop /snap/core18/2128
+/dev/loop1    7:1    0  55.4M  1 loop /snap/core18/2284
+/dev/loop2    7:2    0  43.6M  1 loop /snap/snapd/15534
+/dev/loop3    7:3    0  61.9M  1 loop /snap/gtk-common-themes/1535
+/dev/loop4    7:4    0  31.1M  1 loop /snap/snapd/16292
+/dev/sda      8:0    0   50G  0 disk
+├─/dev/sda1   8:1    0   49G  0 part /
+└─/dev/sda2   8:2    0  976M  0 part [SWAP]
+
