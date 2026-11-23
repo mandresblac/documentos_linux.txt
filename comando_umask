@@ -1,0 +1,105 @@
+1. ¿Qué es el comando umask?
+umask significa User File Creation Mode Mask (máscara de permisos de creación de archivos).
+
+En palabras sencillas:
+Es una configuración que determina qué permisos se deben quitar a los archivos y directorios nuevos cuando se crean.
+
+Por ejemplo, cuando creas una carpeta, Linux debe decidir qué permisos tendrán inicialmente:
+- ¿El propietario podrá leerla?
+- ¿Podrá modificar su contenido?
+- ¿Otros usuarios podrán acceder a ella?
+
+Aquí interviene umask.
+
+Una característica importante: umask no concede permisos, sino que restringe los permisos iniciales que normalmente tendría un archivo o directorio.
+
+2. ¿Cómo funciona umask?
+Linux parte de unos permisos máximos predeterminados:
+-------------------------------------------------------------------------
+|     Elemento       |     Permisos iniciales      |     Valor octal    |
+-------------------------------------------------------------------------
+|     Archivos       |          rw-rw-rw-          |        666         |
+-------------------------------------------------------------------------
+|     Directorios    |          rwxrwxrwx          |        777         |
+-------------------------------------------------------------------------
+
+A estos permisos se les aplica la máscara umask, que elimina determinados permisos.
+
+Ejemplo:
+
+Si tu máscara es 022:
+- Archivos: 666 - 022 = 644.
+- Directorios: 777 - 022 = 755.
+
+El resultado será:
+-------------------------------------------------------------------------
+|     Elemento       |     Permisos resultantes    |     Valor Octal    |
+-------------------------------------------------------------------------
+|     Archivo        |          rw-r--r--          |        644         |
+-------------------------------------------------------------------------
+|     Directorio     |          rwxr-xr-x          |        755         |
+-------------------------------------------------------------------------
+
+Importante: Esta resta es una forma sencilla de entender el resultado para estos ejemplos. Técnicamente, Linux aplica
+una operación de bits, no una resta aritmética convencional.
+
+3. Los valores más importantes de umask
+Estos son los valores que debes aprender y practicar:
+---------------------------------------------------------------------------
+|       Umask        |     Permisos de archivos    | Permisos de carpetas |
+---------------------------------------------------------------------------
+|       0000         |              666            |         777          |
+---------------------------------------------------------------------------
+|       0002         |              664            |         775          |
+---------------------------------------------------------------------------
+|       0022         |              644            |         755          |
+---------------------------------------------------------------------------
+|       0027         |              640            |         750          |
+---------------------------------------------------------------------------
+|       0077         |              600            |         700          |
+---------------------------------------------------------------------------
+
+¿Cuál es el más recomendable?
+- 0022: configuración habitual para evitar que otros usuarios modifiquen tus archivos.
+- 0002: útil cuando se trabaja en equipo y se necesita compartir escritura mediante un grupo.
+- 0077: apropiado cuando quieres que los archivos nuevos sean accesibles únicamente por su propietario.
+
+La configuración predeterminada puede variar según la distribución, el usuario y la configuración del sistema. Debian, por ejemplo, documenta tanto 0002 como 0022.
+
+4. Comandos que debes conocer
+-----------------------------------------------------------------------
+|      Comando       |                  Función                       |
+-----------------------------------------------------------------------
+|     umask          |  Consultar la máscara actual                   |
+----------------------------------------------------------------------
+|     umask -S       |  Mostrarla en formato simbólico                |
+-----------------------------------------------------------------------
+|     umask 0022     |  Establecer la máscaraara 0022                 |
+-----------------------------------------------------------------------
+|     umask 0077     |  Restringir los permisos de objetos nuevos     |
+-----------------------------------------------------------------------
+|     umask 0002     |  Permitir escritura al grupo en objetos nuevos |
+-----------------------------------------------------------------------
+
+Recuerda que umask normalmente es un comando interno de Bash. Por eso, cambiarlo en una terminal afecta a esa sesión y a los procesos que se inicien desde ella.
+El cambio normalmente permanece en la shell actual y afecta a los programas iniciados desde ella. Al cerrar esa
+terminal, una configuración temporal no necesariamente se conserva.
+
+5. ¿Cómo hacer permanente la configuración de umask?
+La configuración se establece normalmente desde archivos de inicio de la shell. En Bash, ~/.bashrc se lee en shells
+interactivas no-login; ~/.profile suele participar en el inicio de sesiones de login. La configuración exacta depende
+de cómo se inicia la sesión y de la distribución.
+
+Ejemplo: editar la configuración de Bash del usuario:
+nano ~/.bashrc
+
+Añadir al final, si esa es la política deseada:
+umask 0022
+
+Guardar y abrir una nueva terminal; luego comprobar:
+umask
+
+NOTA:
+No cambies archivos globales como /etc/profile o configuraciones de otros usuarios sin entender el impacto. Para un
+equipo compartido o servidor, define una política coherente y pruébala primero.
+
