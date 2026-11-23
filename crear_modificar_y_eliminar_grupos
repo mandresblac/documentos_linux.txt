@@ -1,0 +1,14 @@
+Comandos para crear, modificar y eliminar grupos:
+
+Nota: Los grupos del sistema se pueden consultar en el archivo /etc/group/
+
+groupadd: Crea un nuevo grupo.
+
+groupmod -n nombre_nuevo_del_grupo nombre_inicial_del_grupo: Este comando modifica el nombre del grupo utilizando la
+bandera -n, ejemplo:
+
+groupmod -n lobos gatos: Con este comando estamos cambiando el nombre al grupo que inicialmente se llamaba "gatos" por
+un nuevo nombre que es "lobos".
+
+groupdel: Elimina un grupo, ejemplo:
+groupdel lobos: elimina el grupo lobos.
