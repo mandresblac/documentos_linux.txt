@@ -1,0 +1,67 @@
+1. Crear un usuario con el comando useradd
+
+sudo useradd -m -s /bin/bash -c "Bob Example" bob
+
+-m solicita crear el directorio personal o directorio home.
+-s /bin/bash elige el shell de inicio después de confirmar que la ruta está permitida e instalada.
+-c proporciona el campo GECOS/comentario.
+
+La cuenta nueva no suele poder autenticarse mediante una contraseña local utilizable hasta que se establezca una, pero
+el estado inicial exacto de la contraseña y del bloqueo depende de las herramientas y la política locales. Verifica los
+registros en vez de darlo por hecho:
+
+getent passwd bob
+sudo passwd -S bob
+id bob
+
+
+2. Establecer o cambiar una contraseña
+Un usuario normal cambia de forma interactiva su propia contraseña local con:
+passwd
+
+Un administrador autorizado puede establecer la contraseña de otra cuenta local con:
+sudo passwd bob
+
+Introduce las contraseñas únicamente en la solicitud protegida, no en argumentos de órdenes, el historial del shell, notas de la lección o conversaciones. La política PAM puede rechazar contraseñas débiles o reutilizadas. Las cuentas gestionadas mediante directorios pueden requerir otra herramienta.
+
+
+3. Modificar propiedades y grupos de un usuario
+usermod cambia campos de cuentas locales. Algunos ejemplos:
+$ sudo usermod -s /bin/zsh bob
+$ sudo usermod -d /srv/home/bob -m bob
+$ sudo usermod -aG developers bob
+
+Antes de mover el directorio personal, verifica el destino, la propiedad, el espacio disponible, los procesos activos, los montajes y los servicios. Para los grupos complementarios, -aG significa añadir a la lista actual. Usar -G sin -a
+sustituye toda la lista de grupos complementarios y puede eliminar acceso de forma inesperada.
+
+Los cambios de grupos suelen afectar a las sesiones de inicio nuevas, no a los procesos que ya se ejecutan con el
+conjunto de credenciales anterior.
+
+
+4. Bloquear una contraseña de un usuario
+Un administrador puede bloquear el hash de la contraseña local con passwd -l USER y consultar su estado con passwd -S
+USER. El desbloqueo se realiza mediante passwd -u USER solo después de revisar el motivo del bloqueo y si permanece un
+hash válido.
+
+Bloquear una contraseña no detiene necesariamente claves SSH, tokens, tareas programadas, procesos ya activos ni
+autenticación específica de servicios. Para desactivar una cuenta de forma integral, define la amenaza y las vías de
+acceso y aplica después una política coordinada que puede incluir caducidad de la cuenta, shell de inicio, acceso a
+servicios, claves y finalización de sesiones.
+
+
+5. Eliminar deliberadamente una cuenta local
+userdel bob sin más elimina los registros de la cuenta local, pero suele conservar el directorio personal. userdel -r
+bob también intenta eliminar el directorio personal y el buzón de correo, por lo que es una operación destructiva.
+
+Antes de cualquier eliminación:
+
+1. Confirma la cuenta exacta con getent passwd bob e id bob.
+2. Identifica procesos activos, tareas programadas, servicios, claves y accesos delegados.
+3. Haz un inventario de los archivos propiedad del UID en los sistemas de archivos previstos.
+4. Decide si los datos deben transferirse, archivarse, conservarse o eliminarse de forma segura.
+5. Confirma que el UID no se reasignará mientras queden archivos huérfanos.
+
+userdel -r no garantiza eliminar archivos fuera de las ubicaciones configuradas del directorio personal y el correo.
+Eliminar una cuenta también puede dejar propiedades numéricas en archivos, permisos de bases de datos, identidades de
+aplicaciones y registros de directorios remotos.
+

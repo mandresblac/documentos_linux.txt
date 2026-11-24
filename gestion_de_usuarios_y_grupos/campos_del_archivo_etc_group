@@ -1,0 +1,15 @@
+Muestra los registros locales con:
+cat /etc/group
+
+Un registro local tiene cuatro campos separados por dos puntos:
+developers:x:1500:alice,bob
+
+1. Nombre del grupo: developers.
+2. Campo de contraseña: normalmente x, * u otro marcador; los datos protegidos de contraseñas de grupos pueden
+almacenarse en /etc/gshadow.
+3. GID: la identidad numérica del grupo, 1500 en este caso.
+4. Lista de miembros: nombres de miembros explícitos separados por comas, aquí alice y bob.
+
+Las contraseñas de grupos son una función heredada que usan herramientas como newgrp en algunas configuraciones. No son
+el mecanismo normal para conceder autorización sudo y no deben introducirse mediante ediciones manuales de campos.
+

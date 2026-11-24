@@ -1,0 +1,21 @@
+Un registro shadow local contiene nueve campos separados por dos puntos. Este es un registro esquemático con el hash
+omitido deliberadamente:
+
+alice:<password-field>:20000:0:90:7:14:20500:
+
+Los campos son:
+
+1. Nombre de inicio de sesión.
+2. Hash de contraseña o marcador especial de contraseña.
+3. Último cambio de contraseña, en días desde 1970-01-01; 0 solicita un cambio en el siguiente inicio de sesión
+autenticado mediante contraseña con las herramientas habituales.
+4. Antigüedad mínima de la contraseña, en días.
+5. Antigüedad máxima de la contraseña, en días.
+6. Período de advertencia anterior a la caducidad de la contraseña, en días.
+7. Período de inactividad posterior a la caducidad de la contraseña, en días.
+8. Fecha de caducidad de la cuenta, en días desde 1970-01-01.
+9. Campo reservado.
+
+Los campos vacíos y los valores numéricos especiales tienen significados definidos que pueden variar según el campo y
+las herramientas. Usa órdenes de gestión de cuentas en vez de editar valores a simple vista.
+
