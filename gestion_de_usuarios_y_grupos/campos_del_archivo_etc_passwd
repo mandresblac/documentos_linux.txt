@@ -1,0 +1,23 @@
+Muetra el archivo local /etc/passwd con una orden de solo lectura:
+cat /etc/passwd
+
+Un registro local suele tener este aspecto:
+root:x:0:0:root:/root:/bin/bash
+
+Los siete campos separados por dos puntos son:
+
+1. Nombre de inicio de sesión: el nombre legible de la cuenta, como root.
+2. Campo de contraseña: normalmente x en un sistema con contraseñas shadow, lo que indica que los datos protegidos se
+almacenan por separado.
+3. UID: la identidad numérica del usuario. El UID 0 recibe el tratamiento tradicional de superusuario.
+4. GID principal: el identificador numérico del grupo principal de la cuenta.
+5. GECOS/comentario: información descriptiva de la cuenta, a menudo separada internamente por comas.
+6. Directorio personal: la ruta configurada como directorio personal de la cuenta; puede no existir en disco.
+7. Shell/programa de inicio de sesión: el programa solicitado para las sesiones de inicio de sesión correspondientes,
+como /bin/bash o un programa que impide el inicio de sesión.
+
+NOTA:
+El kernel no exige que los UID sean únicos en registros mal formados o duplicados deliberadamente, pero las cuentas que
+comparten un UID son indistinguibles para muchas decisiones de propiedad y permisos. Los administradores deben mantener
+normalmente los UID de las cuentas únicos.
+
